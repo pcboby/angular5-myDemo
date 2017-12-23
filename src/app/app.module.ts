@@ -8,8 +8,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule , HttpClient} from '@angular/common/http';
-import { TranslateFactory } from './factorys/translate';
+import { HttpClientModule , HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { TranslateFactory } from './config/factorys/translate';
+
 
 @NgModule({
   imports: [

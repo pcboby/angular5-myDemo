@@ -1,4 +1,5 @@
 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
@@ -28,7 +29,8 @@ import {
   TabsComponent,
   RatingComponent,
   TooltipComponent,
-  TimepickerComponent
+  TimepickerComponent,
+  TypeaheadComponent
 } from './components';
 
 import {
@@ -57,7 +59,8 @@ import {
     TabsComponent,
     RatingComponent,
     TooltipComponent,
-    TimepickerComponent
+    TimepickerComponent,
+    TypeaheadComponent
   ]
 })
 export class BsComponentModule {}
