@@ -4,8 +4,8 @@ const navDatas = [{
   title: 'Home',
   routerLink: '/dashboard'
 }, {
-  title: 'Elements',
-  routerLink: '/elements'
+  title: 'Bootstrap',
+  routerLink: '/bootstrap'
 }, {
   title: 'NgBootstrap',
   routerLink: '/ngBootstrap'

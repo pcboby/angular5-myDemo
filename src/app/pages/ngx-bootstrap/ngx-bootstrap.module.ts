@@ -1,4 +1,10 @@
 import {
+  NgModule
+} from '@angular/core';
+import {
+  CommonModule
+} from '@angular/common';
+import {
   NgxBootstrapComponent
 } from './ngx-bootstrap.component';
 import {
@@ -6,15 +12,25 @@ import {
 } from './ngx-bootstrap.routing';
 
 import {
-  NgModule
-} from '@angular/core';
+  AccordionModule,
+  AlertModule
+} from 'ngx-bootstrap';
 
+import {
+  AccordionComponent,
+  AlertsComponent
+} from './components';
 
 @NgModule({
   imports: [
-    NgxBootstrapRouting
+    NgxBootstrapRouting,
+    CommonModule,
+    AccordionModule.forRoot(),
+    AlertModule.forRoot()
   ],
-  declarations: [NgxBootstrapComponent
-]
+  declarations: [NgxBootstrapComponent,
+    AccordionComponent,
+    AlertsComponent
+  ]
 })
 export class NgxBootstrapModule {}

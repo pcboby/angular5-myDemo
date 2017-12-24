@@ -25,8 +25,8 @@ const routes: Routes = [{
       loadChildren: '../ng-bootstrap/ng-bootstrap.module#NgBootstrapModule'
     },
     {
-      path: 'elements',
-      loadChildren: '../bs-elements/bs-elements.module#BsElementsModule'
+      path: 'bootstrap',
+      loadChildren: '../bootstrap/bootstrap.module#BootstrapModule'
     },
     {
       path: 'ngxBootstrap',
