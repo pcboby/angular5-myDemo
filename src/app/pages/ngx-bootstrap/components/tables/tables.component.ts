@@ -12,6 +12,17 @@ import {
 })
 export class TablesComponent {
 
+  /**
+   * Table checkbox
+   */
+
+  public checkAll: Boolean;
+  public checkItems: Object = {
+  };
+
+  /**
+   * source
+   */
   public rows: Array < any > = [];
   public columns: Array < any > = [{
       title: 'Name',
@@ -56,7 +67,7 @@ export class TablesComponent {
     }
   ];
   public page = 1;
-  public itemsPerPage = 10;
+  public itemsPerPage = 3;
   public maxSize = 5;
   public numPages = 1;
   public length = 0;
@@ -72,7 +83,7 @@ export class TablesComponent {
     className: ['table-striped', 'table-bordered']
   };
 
-  private data: Array < any > = TablesData;
+  private data: Array < any > = this.dataFormatter(TablesData);
 
   public constructor() {
     this.length = this.data.length;
@@ -83,6 +94,38 @@ export class TablesComponent {
     this.onChangeTable(this.config);
   }
 
+  public dataFormatter(data: Array < any > = this.data): Array < any > {
+    data.forEach(function (el, ids) {
+      el.ids = ids;
+    });
+    return data;
+  }
+  public doCheckAll(): void {
+    if (this.checkAll) {
+
+      for (let i = 0; i < this.length; i++) {
+        this.checkItems[i + ''] = true;
+      }
+    } else {
+      this.checkItems = {};
+    }
+  }
+  public doCheckItem(): void {
+    let flag: Boolean = true;
+    let s = 0;
+    // tslint:disable-next-line:forin
+    for (const i in this.checkItems) {
+      if (!this.checkItems[i]) {
+        flag = false;
+        continue;
+      }
+      s++;
+    }
+    if (s < this.length) {
+      flag = false;
+    }
+    this.checkAll = flag;
+  }
   public changePage(page: any, data: Array < any > = this.data): Array < any > {
     const start = (page.page - 1) * page.itemsPerPage;
     const end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;

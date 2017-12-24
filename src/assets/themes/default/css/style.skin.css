@@ -17,3 +17,7 @@ body {
 .container {
     padding: 10px 20px;
 }
+
+.table label {
+    margin-bottom: 0 !important;
+}

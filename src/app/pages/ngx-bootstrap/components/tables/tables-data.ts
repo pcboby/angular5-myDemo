@@ -5,20 +5,20 @@ export const TablesData: Array < any > = [{
   'ext': `<strong>0839</strong>`,
   'startDate': '2015/08/19',
   'salary': 208.178
-}, {
-  'name': 'Pearl Crosby',
-  'position': 'In PC',
-  'office': 'Cambodia',
-  'ext': `<strong>8262</strong>`,
-  'startDate': '2014/10/08',
-  'salary': 114.367
-}, {
-  'name': 'Colette Foley',
-  'position': 'Lorem Inc.',
-  'office': 'Korea, North',
-  'ext': '8968',
-  'startDate': '2015/07/19',
-  'salary': 721.473
+// }, {
+//   'name': 'Pearl Crosby',
+//   'position': 'In PC',
+//   'office': 'Cambodia',
+//   'ext': `<strong>8262</strong>`,
+//   'startDate': '2014/10/08',
+//   'salary': 114.367
+// }, {
+//   'name': 'Colette Foley',
+//   'position': 'Lorem Inc.',
+//   'office': 'Korea, North',
+//   'ext': '8968',
+//   'startDate': '2015/07/19',
+//   'salary': 721.473
 }, {
   'name': 'Anastasia Shaffer',
   'position': 'Dolor Nulla Semper LLC',
