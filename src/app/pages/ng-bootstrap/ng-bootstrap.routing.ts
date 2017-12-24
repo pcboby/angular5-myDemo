@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BsComponentComponent } from './bs-component.component';
+import { NgBootstrapComponent } from './ng-bootstrap.component';
 
 const routes: Routes = [
     {
       path: '',
-      component: BsComponentComponent
+      component: NgBootstrapComponent
     }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class BsComponentRouting {}
+export class NgBootstrapRouting {}

@@ -21,12 +21,16 @@ const routes: Routes = [{
       loadChildren: '../dashboard/dashboard.module#DashboardModule'
     },
     {
-      path: 'components',
-      loadChildren: '../bs-component/bs-component.module#BsComponentModule'
+      path: 'ngBootstrap',
+      loadChildren: '../ng-bootstrap/ng-bootstrap.module#NgBootstrapModule'
     },
     {
       path: 'elements',
       loadChildren: '../bs-elements/bs-elements.module#BsElementsModule'
+    },
+    {
+      path: 'ngxBootstrap',
+      loadChildren: '../ngx-bootstrap/ngx-bootstrap.module#NgxBootstrapModule'
     }
   ]
 }];

@@ -9,8 +9,8 @@ import {
   NgbModule
 } from '@ng-bootstrap/ng-bootstrap';
 import {
-  BsComponentRouting
-} from './bs-component.routing';
+  NgBootstrapRouting
+} from './ng-bootstrap.routing';
 
 import {
   NgModule
@@ -34,19 +34,19 @@ import {
 } from './components';
 
 import {
-  BsComponentComponent
-} from './bs-component.component';
+  NgBootstrapComponent
+} from './ng-bootstrap.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    BsComponentRouting,
+    NgBootstrapRouting,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   declarations: [
-    BsComponentComponent,
+    NgBootstrapComponent,
     AlertComponent,
     ModalComponent,
     ButtonsComponent,
@@ -63,4 +63,4 @@ import {
     TypeaheadComponent
   ]
 })
-export class BsComponentModule {}
+export class NgBootstrapModule {}

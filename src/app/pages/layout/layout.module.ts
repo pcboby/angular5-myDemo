@@ -10,9 +10,11 @@ import { SilderComponent } from './silder/silder.component';
 import { FooterComponent } from './footer/footer.component';
 import { WraperComponent } from './wraper/wraper.component';
 import { QuickbarComponent } from './quickbar/quickbar.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
+      CommonModule,
       LayoutRouting
     ],
     declarations: [
