@@ -14,12 +14,15 @@ import {
   NgModule
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FileUploadModule } from "ng2-file-upload";
 
 
 @NgModule({
   imports: [
     FileuploadRouting,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    FileUploadModule
   ],
   declarations: [FileuploadComponent],
   exports: [FileuploadComponent]
