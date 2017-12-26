@@ -1,15 +1,12 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-accordion',
-  templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.css']
+  selector: 'app-accordions',
+  templateUrl: './accordions.component.html',
+  styleUrls: ['./accordions.component.css']
 })
-export class AccordionComponent {
-  items: string[] = ['Item 1', 'Item 2', 'Item 3'];
+export class AccordionsComponent implements OnInit {
+items: string[] = ['Item 1', 'Item 2', 'Item 3'];
 
   status: any = {
     isFirstOpen: true,
@@ -31,7 +28,11 @@ export class AccordionComponent {
   }
 
   log(event: boolean) {
-    console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
+    console.log(`Accordions has been ${event ? 'opened' : 'closed'}`);
+  }
+  constructor() { }
+
+  ngOnInit() {
   }
 
 }

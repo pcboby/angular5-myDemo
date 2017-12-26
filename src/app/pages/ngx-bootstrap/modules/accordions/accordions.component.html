@@ -1,0 +1,74 @@
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Accordion</div>
+            <div class="card-body">
+                <p>Click headers to expand/collapse content that is broken into logical sections, much like tabs.</p>
+                <accordion>
+                    <accordion-group heading="Static Header, initially expanded">
+                        This content is straight in the template.
+                    </accordion-group>
+                    <accordion-group #group>
+                        <div accordion-heading class="clearfix">
+                            I can have markup, too!
+                            <span class="badge badge-secondary float-right pull-right">Some HTML here</span>
+                        </div>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+                    <accordion-group heading="Group with isOpenChange event listener" (isOpenChange)="log($event)">
+                        <p>Some content</p>
+                    </accordion-group>
+                    <accordion-group heading="Another group">
+                        <p>Some content</p>
+                    </accordion-group>
+                </accordion>
+                <hr>
+                <p>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="status.isFirstDisabled = ! status.isFirstDisabled">
+                    Enable / Disable first panel
+                  </button>
+                </p>
+                <accordion>
+                    <accordion-group heading="Static Header, initially expanded" [isOpen]="status.isFirstOpen" [isDisabled]="status.isFirstDisabled">
+                        This content is straight in the template.
+                    </accordion-group>
+                    <accordion-group heading="Content 1">
+                        <p>accordion 1</p>
+                    </accordion-group>
+                    <accordion-group heading="Content 2">
+                        <p>accordion 2</p>
+                    </accordion-group>
+                </accordion>
+                <hr>
+                <p>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="group.isOpen = !group.isOpen">Toggle last panel
+                  </button>
+                </p>
+
+                <accordion>
+                    <accordion-group heading="Static Header, initially expanded" [isOpen]="status.isFirstOpen">
+                        This content is straight in the template.
+                    </accordion-group>
+                    <accordion-group *ngFor="let group of groups" [heading]="group.title">
+                        {{ group?.content }}
+                    </accordion-group>
+                    <accordion-group heading="Dynamic Body Content">
+                        <p>The body of the accordion group grows to fit the contents</p>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="addItem()">Add
+                      Item
+                    </button>
+                        <div *ngFor="let item of items">{{item}}</div>
+                    </accordion-group>
+                    <accordion-group #group [isOpen]="status.isOpen">
+                        <div accordion-heading class="clearfix">
+                            I can have markup, too!
+                            <span class="badge badge-secondary float-right pull-right">Some HTML here</span>
+                        </div>
+                        This is just some content to illustrate fancy headings.
+                    </accordion-group>
+                </accordion>
+
+            </div>
+        </div>
+    </div>
+</div>

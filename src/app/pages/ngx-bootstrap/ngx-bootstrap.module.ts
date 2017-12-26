@@ -1,10 +1,7 @@
-import { FormsModule } from '@angular/forms';
-import {
-  NgModule
-} from '@angular/core';
-import {
-  CommonModule
-} from '@angular/common';
+import { TablesModule } from './modules/tables/tables.module';
+import { AlertsModule ,
+  AccordionsModule
+} from './modules';
 import {
   NgxBootstrapComponent
 } from './ngx-bootstrap.component';
@@ -13,33 +10,17 @@ import {
 } from './ngx-bootstrap.routing';
 
 import {
-  AccordionModule,
-  AlertModule,
-  PaginationModule
-} from 'ngx-bootstrap';
+  NgModule
+} from '@angular/core';
 
-import { Ng2TableModule } from 'ng2-table/ng2-table';
-
-import {
-  TablesComponent,
-  AccordionComponent,
-  AlertsComponent
-} from './components';
 
 @NgModule({
   imports: [
     NgxBootstrapRouting,
-    CommonModule,
-    FormsModule,
-    Ng2TableModule,
-    AccordionModule.forRoot(),
-    AlertModule.forRoot(),
-    PaginationModule.forRoot()
+    AccordionsModule,
+    AlertsModule,
+    TablesModule
   ],
-  declarations: [NgxBootstrapComponent,
-    TablesComponent,
-    AccordionComponent,
-    AlertsComponent
-  ]
+  declarations: [NgxBootstrapComponent]
 })
 export class NgxBootstrapModule {}

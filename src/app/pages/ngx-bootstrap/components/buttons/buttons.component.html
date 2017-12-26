@@ -1,0 +1,76 @@
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">buttons</div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <p>Default static button with two states</p>
+                    <button type="button" class="btn btn-primary" [(ngModel)]="singleValue" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+                      Single Toggle
+                    </button>
+                </div>
+                <div class="alert alert-info mb-0">
+                    <strong>Selected Value: </strong>{{singleValue}}
+                </div>
+                <hr>
+
+
+
+                <div class="mb-3">
+                    <p>Radio buttons with checked/unchecked states</p>
+                    <div class="btn-group">
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Left">Left</label>
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Middle">Middle</label>
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Right">Right</label>
+                    </div>
+                    <div class="btn-group">
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Left" uncheckable>Left</label>
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Middle" uncheckable>Middle</label>
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Right" uncheckable>Right</label>
+                    </div>
+                </div>
+                <div class="alert alert-info mb-0">{{radioModel || 'null'}}</div>
+                <hr>
+
+
+
+                <div class="mb-3">
+                    <p>Default</p>
+                    <!-- <form>
+                        <div class="btn-group">
+                            <label class="btn btn-primary" [class.active]="myForm.value.left" btnCheckbox formControlName="left">Left</label>
+
+                            <label class="btn btn-primary" [class.active]="myForm.value.middle" btnCheckbox formControlName="middle">Middle</label>
+
+                            <label class="btn btn-primary" [class.active]="myForm.value.right" btnCheckbox formControlName="right">Right</label>
+                        </div>
+                    </form> -->
+                </div>
+                <div class="alert alert-info mb-0">{{myForm.value | json}}</div>
+                <hr>
+
+
+
+                <div class="mb-3">
+                    <p>Default</p>
+                </div>
+                <div class="alert alert-info mb-0">{{radioModel || 'null'}}</div>
+                <hr>
+                <div class="mb-3">
+                    <p>Default</p>
+                </div>
+                <div class="alert alert-info mb-0">{{radioModel || 'null'}}</div>
+                <hr>
+                <div class="mb-3">
+                    <p>Default</p>
+                </div>
+                <div class="alert alert-info mb-0">{{radioModel || 'null'}}</div>
+                <hr>
+                <div class="mb-3">
+                    <p>Default</p>
+                </div>
+                <div class="alert alert-info mb-0">{{radioModel || 'null'}}</div>
+            </div>
+        </div>
+    </div>
+</div>
