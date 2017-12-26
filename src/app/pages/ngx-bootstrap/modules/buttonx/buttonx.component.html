@@ -1,3 +1,81 @@
-<p>
-  buttonx works!
-</p>
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Buttons</div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <p>Default static button with two states</p>
+                    <button type="button" class="btn btn-primary" [(ngModel)]="singleModel" btnCheckbox btnCheckboxTrue="1" btnCheckboxFalse="0">
+                      Single Toggle
+                    </button>
+                </div>
+                <div class="alert alert-info mb-0">
+                    {{singleModel}}
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <p>Checkbox-like buttons set with variable states</p>
+                    <div class="btn-group">
+                        <label class="btn btn-primary" [(ngModel)]="checkModel.left" btnCheckbox>Left</label>
+                        <label class="btn btn-primary" [(ngModel)]="checkModel.middle" btnCheckbox>Middle</label>
+                        <label class="btn btn-primary" [(ngModel)]="checkModel.right" btnCheckbox>Right</label>
+                    </div>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    {{checkModel | json}}
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <p>Radio buttons with checked/unchecked states</p>
+                    <div class="btn-group">
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Left">Left</label>
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Middle">Middle</label>
+                        <label class="btn btn-primary" [(ngModel)]="radioModel" btnRadio="Right">Right</label>
+                    </div>
+                    <div class="btn-group">
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Left" uncheckable>Left</label>
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Middle" uncheckable>Middle</label>
+                        <label class="btn btn-success" [(ngModel)]="radioModel" btnRadio="Right" uncheckable>Right</label>
+                    </div>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    {{radioModel || 'null'}}
+                </div>
+
+                <div class="mb-3">
+                    <p>Checkbox buttons with ReactiveForms</p>
+                    <form [formGroup]="myForm">
+                        <div class="btn-group">
+                            <label class="btn btn-primary" [class.active]="myForm.value.left" btnCheckbox formControlName="left">Left</label>
+
+                            <label class="btn btn-primary" [class.active]="myForm.value.middle" btnCheckbox formControlName="middle">Middle</label>
+
+                            <label class="btn btn-primary" [class.active]="myForm.value.right" btnCheckbox formControlName="right">Right</label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    {{myForm.value | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Disabled Buttons</p>
+                    <button type="button" class="btn btn-primary" [disabled]="disabled">Button</button>
+                    <button type="button" class="btn btn-warning" (click)="disabled = !disabled">Enable/Disable</button>
+
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    {{disabled}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

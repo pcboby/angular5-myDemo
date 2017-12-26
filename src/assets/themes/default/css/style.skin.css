@@ -21,3 +21,12 @@ body {
 .table label {
     margin-bottom: 0 !important;
 }
+
+.table td,
+.table th {
+    vertical-align: middle !important;
+}
+
+.btn:not(.btn-default) {
+    color: #fff !important;
+}

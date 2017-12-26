@@ -23,7 +23,8 @@ import {
     CommonModule,
     AlertModule.forRoot()
   ],
-  declarations: [AlertsComponent],
+  declarations: [AlertsComponent
+],
   exports: [AlertsComponent]
 })
 export class AlertsModule {}

@@ -10,6 +10,7 @@ import {
   ButtonxRouting
 } from './buttonx.routing';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   NgModule
 } from '@angular/core';
@@ -19,6 +20,8 @@ import {
   imports: [
     ButtonxRouting,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ButtonsModule.forRoot()
   ],
   declarations: [ButtonxComponent],

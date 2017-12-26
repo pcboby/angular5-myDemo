@@ -1,9 +1,11 @@
 
+
 import {
   AlertsModule ,
   AccordionsModule,
   ButtonxModule,
-  TablesModule
+  TablesModule,
+  FileuploadModule
 } from './modules';
 import {
   NgxBootstrapComponent
@@ -23,7 +25,8 @@ import {
     AccordionsModule,
     AlertsModule,
     ButtonxModule,
-    TablesModule
+    TablesModule,
+    FileuploadModule
   ],
   declarations: [NgxBootstrapComponent]
 })
