@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AccordionsComponent } from './accordions.component';
+import { ButtonxComponent } from './buttonx.component';
 
 const routes: Routes = [
     {
       path: '',
-      component: AccordionsComponent
+      component: ButtonxComponent
     }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class AccordionsRouting {}
+export class ButtonxRouting {}
