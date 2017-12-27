@@ -1,9 +1,11 @@
+import { BreadcrumbModule } from './../../modules';
 
 
 import {
   AlertsModule ,
   AccordionsModule,
   ButtonxModule,
+  TypeaheadxModule,
   TablesModule,
   FileuploadModule
 } from './modules';
@@ -22,9 +24,11 @@ import {
 @NgModule({
   imports: [
     NgxBootstrapRouting,
+    BreadcrumbModule,
     AccordionsModule,
     AlertsModule,
     ButtonxModule,
+    TypeaheadxModule,
     TablesModule,
     FileuploadModule
   ],

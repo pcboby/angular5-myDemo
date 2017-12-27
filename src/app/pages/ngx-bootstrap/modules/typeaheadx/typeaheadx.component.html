@@ -1,0 +1,77 @@
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Typeahead</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <p>Static array</p>
+                    <input [(ngModel)]="selected" [typeahead]="data" class="form-control">
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{selected | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Option field</p>
+                    <input [(ngModel)]="customSelected" [typeahead]="complex" typeaheadOptionField="name" class="form-control">
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{customSelected | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Async data</p>
+                    <input [(ngModel)]="asyncSelected" [typeahead]="dataSource" (typeaheadLoading)="changeTypeaheadLoading($event)" (typeaheadNoResults)="changeTypeaheadNoResults($event)" (typeaheadOnSelect)="typeaheadOnSelect($event)" [typeaheadOptionsLimit]="7" typeaheadOptionField="name"
+                        placeholder="Locations loaded with timeout" class="form-control">
+                    <div *ngIf="typeaheadLoading===true">Loading</div>
+                    <div *ngIf="typeaheadNoResults===true">&#10060; No Results Found</div>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{asyncSelected | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Reactive forms </p>
+                    <form [formGroup]="myForm">
+                        <input formControlName="state" [typeahead]="states" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" placeholder="Typeahead inside a form" class="form-control">
+                    </form>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{myForm.value.state | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Grouping results</p>
+                    <input [(ngModel)]="groupSelected" [typeahead]="statesComplex" typeaheadOptionField="name" typeaheadGroupField="region" class="form-control">
+
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{groupSelected | json}}
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <p>Reactive forms</p>
+                    <form [formGroup]="myForm">
+                        <input formControlName="state" [typeahead]="states" [typeaheadOptionsLimit]="7" [typeaheadMinLength]="0" placeholder="Typeahead inside a form" class="form-control">
+                    </form>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                    Model: {{myForm.value.state | json}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

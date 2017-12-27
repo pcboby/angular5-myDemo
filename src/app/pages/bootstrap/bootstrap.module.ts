@@ -1,3 +1,5 @@
+import { BreadcrumbModule } from './../../modules';
+
 import {
   NgModule
 } from '@angular/core';
@@ -16,7 +18,8 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    BootstrapRouting
+    BootstrapRouting,
+    BreadcrumbModule
   ],
   declarations: [BootstrapComponent]
 })

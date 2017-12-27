@@ -32,6 +32,7 @@ import {
   TimepickerComponent,
   TypeaheadComponent
 } from './components';
+import { BreadcrumbModule } from '../../modules';
 
 import {
   NgBootstrapComponent
@@ -41,6 +42,7 @@ import {
   imports: [
     CommonModule,
     NgBootstrapRouting,
+    BreadcrumbModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot()

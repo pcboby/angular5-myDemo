@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgBootstrapComponent implements OnInit {
 
+  pageTitle = 'ng-bootstrap';
+
   constructor() { }
 
   ngOnInit() {
