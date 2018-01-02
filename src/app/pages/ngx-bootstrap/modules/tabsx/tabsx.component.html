@@ -1,0 +1,145 @@
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Tabs</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <h4>Static tabs</h4>
+                </div>
+
+                <div class="mb-3">
+                    <tabset>
+                        <tab heading="Static title" id="tab1">Static content</tab>
+                        <tab heading="Static Title 1">Static content 1</tab>
+                        <tab heading="Static Title 2">Static content 2</tab>
+                        <tab (select)="alertMe()">
+                            <ng-template tabHeading>
+                                <span class="badge badge-secondary">Click here!</span>
+                            </ng-template>
+                            I've got an HTML heading, and a select callback. Pretty cool!
+                        </tab>
+                    </tabset>
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <h4>Manual selection</h4>
+                    <p>Access to static tab from component</p>
+                </div>
+
+                <div class="mb-3">
+                    <p>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="selectTab(1)">Select second tab</button>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="selectTab(2)">Select third tab</button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="disableEnable()">
+                          Enable / Disable third tab
+                        </button>
+                    </p>
+                    <tabset #staticTabs>
+                        <tab heading="Static title">Static content</tab>
+                        <tab heading="Static Title 1">Static content 1</tab>
+                        <tab heading="Static Title 2">Static content 2</tab>
+                        <tab heading="Static Title 3" [removable]="true">Static content 3</tab>
+                    </tabset>
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <h4>Dynamic tabs</h4>
+                    <p>Add / remove new tabs by manipulating tabs array:</p>
+                </div>
+
+                <div class="mb-3" (click)="$event.preventDefault()">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="addNewTab()">
+                      Add new tab
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="tabs = []" *ngIf="tabs.length">
+                      Remove all tabs
+                    </button>
+                </div>
+                <div class="mb-3">
+                    <tabset>
+                        <tab heading="Static title">Static content</tab>
+                        <tab *ngFor="let tabz of tabs" [heading]="tabz.title" [active]="tabz.active" (select)="tabz.active = true" (deselect)="tabz.active = false" [disabled]="tabz.disabled" [removable]="tabz.removable" (removed)="removeTabHandler(tabz)" [customClass]="tabz.customClass">
+                            {{tabz?.content}}
+                        </tab>
+                    </tabset>
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <h4>Justified</h4>
+                    <p>Bootstrap 4 doesn't have justified classes</p>
+                </div>
+
+                <div class="mb-3">
+                    <tabset [justified]="true">
+                        <tab heading="Justified">Justified content</tab>
+                        <tab heading="SJ">Short Labeled Justified content</tab>
+                        <tab heading="Long Justified">Long Labeled Justified content</tab>
+                    </tabset>
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <h4>Styling</h4>
+                </div>
+
+                <div class="mb-3">
+                    <tabset>
+                        <tab heading="Static title" customClass="customClass">Static content</tab>
+                        <tab *ngFor="let tabz of stylingTabs" [heading]="tabz.title" [customClass]="tabz.customClass">
+                            {{tabz?.content}}
+                        </tab>
+                    </tabset>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">Pills</div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <h4>Static</h4>
+                </div>
+
+                <div class="mb-3">
+                    <tabset type="pills">
+                        <tab heading="Pills 1">Pills content 1</tab>
+                        <tab heading="Pills 2">Pills content 2</tab>
+                    </tabset>
+                </div>
+
+                <hr>
+
+                <div class="mb-3">
+                    <h4>Vertical Pills</h4>
+                </div>
+
+                <div class="mb-3">
+                    <tabset [vertical]="true" type="pills">
+                        <tab heading="Vertical 1">Vertical content 1</tab>
+                        <tab heading="Vertical 2">Vertical content 2</tab>
+                    </tabset>
+                </div>
+
+                <div class="alert alert-info mb-0">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
