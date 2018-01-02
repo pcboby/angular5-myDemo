@@ -27,6 +27,6 @@ body {
     vertical-align: middle !important;
 }
 
-.btn:not(.btn-default) {
+.table .btn:not(.btn-default) {
     color: #fff !important;
 }

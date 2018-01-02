@@ -1,3 +1,4 @@
+
 import { BreadcrumbModule } from './../../modules';
 
 
@@ -5,6 +6,9 @@ import {
   AlertsModule ,
   AccordionsModule,
   ButtonxModule,
+  CarouselxModule,
+  CollapsexModule,
+  ModalxModule,
   TypeaheadxModule,
   TablesModule,
   FileuploadModule
@@ -28,6 +32,9 @@ import {
     AccordionsModule,
     AlertsModule,
     ButtonxModule,
+    CarouselxModule,
+    CollapsexModule,
+    ModalxModule,
     TypeaheadxModule,
     TablesModule,
     FileuploadModule
