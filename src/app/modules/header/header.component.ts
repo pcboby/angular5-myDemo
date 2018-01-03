@@ -12,6 +12,9 @@ const navDatas = [{
 }, {
   title: 'NgxBootstrap',
   routerLink: '/ngxBootstrap'
+}, {
+  title: 'Example',
+  routerLink: '/example'
 }];
 
 @Component({

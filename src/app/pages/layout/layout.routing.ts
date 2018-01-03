@@ -31,6 +31,10 @@ const routes: Routes = [{
     {
       path: 'ngxBootstrap',
       loadChildren: '../ngx-bootstrap/ngx-bootstrap.module#NgxBootstrapModule'
+    },
+    {
+      path: 'example',
+      loadChildren: '../example/example.module#ExampleModule'
     }
   ]
 }];
