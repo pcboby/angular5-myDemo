@@ -33,6 +33,10 @@ const routes: Routes = [{
       loadChildren: '../ngx-bootstrap/ngx-bootstrap.module#NgxBootstrapModule'
     },
     {
+      path: 'ngCharts',
+      loadChildren: '../ng-charts/ng-charts.module#NgChartsModule'
+    },
+    {
       path: 'example',
       loadChildren: '../example/example.module#ExampleModule'
     }

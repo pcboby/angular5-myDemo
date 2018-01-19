@@ -13,6 +13,9 @@ const navDatas = [{
   title: 'NgxBootstrap',
   routerLink: '/ngxBootstrap'
 }, {
+  title: 'NgCharts',
+  routerLink: '/ngCharts'
+}, {
   title: 'Example',
   routerLink: '/example'
 }];
