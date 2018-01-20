@@ -1,24 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavData } from '../../../api/nav-data';
 
-const navDatas = [{
-  title: 'Home',
-  routerLink: '/dashboard'
-}, {
-  title: 'Bootstrap',
-  routerLink: '/bootstrap'
-}, {
-  title: 'NgBootstrap',
-  routerLink: '/ngBootstrap'
-}, {
-  title: 'NgxBootstrap',
-  routerLink: '/ngxBootstrap'
-}, {
-  title: 'NgCharts',
-  routerLink: '/ngCharts'
-}, {
-  title: 'Example',
-  routerLink: '/example'
-}];
 
 @Component({
   selector: 'app-header',
@@ -28,7 +10,7 @@ const navDatas = [{
 
 export class HeaderComponent implements OnInit {
 
-  private navs: Array<any>= navDatas;
+  private navs: Array<any>= NavData;
 
   constructor() {
   }

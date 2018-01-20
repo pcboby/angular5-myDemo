@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TablesData } from './tables-data';
+import { TablesData } from '../../../../../api/tables-data';
+
 
 @Component({
   selector: 'app-tables',
