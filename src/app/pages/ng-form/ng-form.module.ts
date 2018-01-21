@@ -22,9 +22,7 @@ import {
 import {
   DrivenComponent
 } from './components/driven/driven.component';
-import {
-  ReactiveComponent
-} from './components/reactive/reactive.component';
+import { ReactiveComponent } from './components/reactive/reactive.component';
 @NgModule({
   imports: [NgFormRouting, CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [NgFormComponent, DefaultComponent, DrivenComponent, ReactiveComponent]
