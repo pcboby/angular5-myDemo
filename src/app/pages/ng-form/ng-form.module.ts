@@ -1,5 +1,7 @@
+
 import {
-  FormsModule
+  FormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
 import {
   NgFormComponent
@@ -17,9 +19,14 @@ import {
 import {
   CommonModule
 } from '@angular/common/';
-
+import {
+  DrivenComponent
+} from './components/driven/driven.component';
+import {
+  ReactiveComponent
+} from './components/reactive/reactive.component';
 @NgModule({
-  imports: [NgFormRouting, CommonModule, FormsModule],
-  declarations: [NgFormComponent, DefaultComponent]
+  imports: [NgFormRouting, CommonModule, FormsModule, ReactiveFormsModule],
+  declarations: [NgFormComponent, DefaultComponent, DrivenComponent, ReactiveComponent]
 })
 export class NgFormModule {}

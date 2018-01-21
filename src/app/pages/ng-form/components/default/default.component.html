@@ -55,8 +55,9 @@
                         <!-- NOT SHOWN IN DOCS -->
                         <div>
                             <hr>
-                            <p>heroForm.form.valid: {{heroForm.form.valid}}</p>
-                            <p> Name heroForm['controls'] = {{heroForm['controls']['name'].value}}</p>
+                            <h5>heroForm.form</h5>
+                            <p>valid:{{heroForm.form.valid}} | invalid:{{heroForm.form.invalid}} | pending:{{heroForm.form.pending}} | pristine:{{heroForm.form.pristine}} | dirty:{{heroForm.form.dirty}} | untouched:{{heroForm.form.untouched}} | touched:{{heroForm.form.touched}}</p>
+                            <!-- <p> Name heroForm['controls'] = {{heroForm['controls']['name'].value}}</p> -->
                             <p> Name via form.controls = {{showFormControls(heroForm)}}</p>
                         </div>
                     </div>
