@@ -1,0 +1,117 @@
+<div class="row mb-3">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">ngx-validator form</div>
+      <div class="card-body">
+        <!-- start -->
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="row">
+              <div class="form-group col-sm-4">
+                <label for="whitespace">whitespace</label>
+                <input id="whitespace" name="whitespace" type="text" class="form-control" [(ngModel)]="model.whitespace" #formControl="ngModel"
+                  noWhitespace placeholder="whitespace">
+                <small class="form-text text-muted" [hidden]="!formControl.hasError('noWhitespaceRequired')">No whitespace allowed</small>
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="emptyString">emptyString</label>
+                <input id="emptyString" name="emptyString" type="text" class="form-control" [(ngModel)]="model.emptyString" #formControl1="ngModel"
+                  noEmptyString placeholder="EmptyString">
+                <small class="form-text text-muted" [hidden]="!formControl1.hasError('noEmptyString')">No emptyString allowed</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="isNumber">isNumber</label>
+                <input type="text" [(ngModel)]="model.isNumber" id="isNumber" name="isNumber" class="form-control" #formControl2="ngModel"
+                  isNumber placeholder="isNumber">
+                <small [hidden]="!formControl2.hasError('numberRequired')" class="form-text text-muted">Is not a number</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="range">range</label>
+                <input type="text" [(ngModel)]="model.range" id="range" name="range" class="form-control" #formControl3="ngModel" isInRange
+                  minValue="2" maxValue="100" placeholder="Range (2-100)">
+                <small [hidden]="!formControl3.hasError('numberRequired')" class="form-text text-muted">Needs to be a number</small>
+                <small [hidden]="!formControl3.hasError('rangeValueToSmall')" class="form-text text-muted">Number to small</small>
+                <small [hidden]="!formControl3.hasError('rangeValueToBig')" class="form-text text-muted">Number to big</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="min">min</label>
+                <input type="text" [(ngModel)]="model.min" id="min" name="min" class="form-control" #formControl4="ngModel" min="2" placeholder="min (2)">
+                <small [hidden]="!formControl4.hasError('numberRequired')" class="form-text text-muted">Needs to be a number</small>
+                <small [hidden]="!formControl4.hasError('min')" class="form-text text-muted">Number to small</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="max">max</label>
+                <input type="text" [(ngModel)]="model.max" id="max" name="max" class="form-control" #formControl5="ngModel" max="22" placeholder="max (22)">
+                <small [hidden]="!formControl5.hasError('numberRequired')" class="form-text text-muted">Needs to be a number</small>
+                <small [hidden]="!formControl5.hasError('max')" class="form-text text-muted">Number to big</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="countryCode">countryCode</label>
+                <input type="text" [(ngModel)]="model.countryCode" id="countryCode" class="form-control" name="countryCode" #formControl6="ngModel"
+                  countryCode placeholder="Country code">
+                <small [hidden]="!formControl6.hasError('noValidRegionCode')" class="form-text text-muted">Is not a countryCode</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="phone">phone</label>
+                <input type="text" [(ngModel)]="model.phone" id="phone" class="form-control" name="phone" #formControl7="ngModel" phone="US"
+                  placeholder="Phone">
+                <small [hidden]="!formControl7.hasError('noValidRegionCode')" class="form-text text-muted">Is not a countryCode</small>
+                <small [hidden]="!formControl7.hasError('noPhoneNumber')" class="form-text text-muted">Is not a phone number</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="possiblePhone">possiblePhone</label>
+                <input type="text" [(ngModel)]="model.phone2" id="possiblePhone" class="form-control" name="possiblePhone" #formControl8="ngModel"
+                  possiblePhone="US" placeholder="Possible phone">
+                <small [hidden]="!formControl8.hasError('noValidRegionCode')" class="form-text text-muted">Is not a countryCode</small>
+                <small [hidden]="!formControl8.hasError('phoneNumberTooLong')" class="form-text text-muted">Phone number is to long</small>
+                <small [hidden]="!formControl8.hasError('phoneNumberTooShort')" class="form-text text-muted">Phone number is to short</small>
+                <small [hidden]="!formControl8.hasError('noPhoneNumber')" class="form-text text-muted">Is not a phone number</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="creditcard">creditcard</label>
+                <input type="creditcard" [(ngModel)]="model.card" id="creditcard" name="creditcard" class="form-control" #formControl9="ngModel"
+                  creditCard placeholder="Creditcard">
+                <small class="form-text text-muted" [hidden]="!formControl9.hasError('creditcard')">Is not a creditcard</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="email">email</label>
+                <input type="email" class="form-control" [(ngModel)]="model.email" name="email" #formControl10="ngModel" email placeholder="Email">
+                <small class="form-text text-muted" [hidden]="!formControl10.hasError('normalEmailRule')">Is not a email</small>
+              </div>
+
+              <div class="form-group col-sm-4">
+                <label for="password">password</label>
+                <input type="password" class="form-control" [(ngModel)]="model.password" id="password" name="password" #formControl11="ngModel"
+                  password placeholder="Password">
+                <small [hidden]="!formControl11.hasError('repeatCharacterRegexRule')" class="form-text text-muted">Password contains repeating characters</small>
+                <small [hidden]="!formControl11.hasError('digitCharacterRule')" class="form-text text-muted">Password should contain at least on digit</small>
+                <small [hidden]="!formControl11.hasError('alphabeticalCharacterRule')" class="form-text text-muted">Password should contain at least on alphabetical character</small>
+                <small [hidden]="!formControl11.hasError('lowercaseCharacterRule')" class="form-text text-muted">Password should contain at least on lowercase character</small>
+                <small [hidden]="!formControl11.hasError('uppercaseCharacterRule')" class="form-text text-muted">Password should contain at least on uppercase character</small>
+              </div>
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+              </div>
+
+              <!-- - -->
+            </form>
+          </div>
+          <div class="col-sm-12">
+            <p>model: {{model | json}}</p>
+          </div>
+        </div>
+        <!-- end -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,8 +9,8 @@
                         <form #heroForm="ngForm">
 
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input id="name" name="name" class="form-control" required minlength="4" forbiddenName="bob" [(ngModel)]="hero.name" #name="ngModel">
+                                <label for="name2">Name</label>
+                                <input id="name2" name="name" class="form-control" required minlength="4" forbiddenName="bob" [(ngModel)]="hero.name" #name="ngModel">
 
                                 <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
 
@@ -28,13 +28,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="alterEgo">Alter Ego</label>
-                                <input id="alterEgo" class="form-control" name="alterEgo" [(ngModel)]="hero.alterEgo">
+                                <label for="alterEgo2">Alter Ego</label>
+                                <input id="alterEgo2" class="form-control" name="alterEgo" [(ngModel)]="hero.alterEgo">
                             </div>
 
                             <div class="form-group">
-                                <label for="power">Hero Power</label>
-                                <select id="power" name="power" class="form-control" required [(ngModel)]="hero.power" #power="ngModel">
+                                <label for="power2">Hero Power</label>
+                                <select id="power2" name="power" class="form-control" required [(ngModel)]="hero.power" #power="ngModel">
                                       <option *ngFor="let p of powers" [value]="p.id">{{p.title}}</option>
                                     </select>
 
