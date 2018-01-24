@@ -25,5 +25,9 @@ export const NavData: Array < any > = [{
   {
     'title': 'NgForm',
     'routerLink': '/ngForm'
+  },
+  {
+    'title': 'MyTest',
+    'routerLink': '/myTest'
   }
 ];

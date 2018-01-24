@@ -45,6 +45,10 @@ const routes: Routes = [
       {
         path: 'ngForm',
         loadChildren: '../ng-form/ng-form.module#NgFormModule'
+      },
+      {
+        path: 'myTest',
+        loadChildren: '../my-test/my-test.module#MyTestModule'
       }
     ]
   }
