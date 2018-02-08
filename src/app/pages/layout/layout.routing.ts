@@ -49,6 +49,10 @@ const routes: Routes = [
       {
         path: 'myTest',
         loadChildren: '../my-test/my-test.module#MyTestModule'
+      },
+      {
+        path: 'ngxDndx',
+        loadChildren: '../ngx-dndx/ngx-dndx.module#NgxDndxModule'
       }
     ]
   }

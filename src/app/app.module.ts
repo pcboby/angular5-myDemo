@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule , HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TranslateFactory } from './config/factorys/translate';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     TranslateModule.forRoot({
         loader: {

@@ -29,5 +29,9 @@ export const NavData: Array < any > = [{
   {
     'title': 'MyTest',
     'routerLink': '/myTest'
+  },
+  {
+    'title': 'ngxDnd',
+    'routerLink': '/ngxDndx'
   }
 ];
