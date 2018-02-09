@@ -1,36 +1,54 @@
 import {
-    NgxDndxComponent
+  NgxDndxComponent
 } from './ngx-dndx.component';
 import {
-    NgxDndxRouting
+  NgxDndxRouting
 } from './ngx-dndx.routing';
 
 import {
-    NgModule
+  NgModule
 } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  CommonModule
+} from '@angular/common';
+import {
+  BrowserModule
+} from '@angular/platform-browser';
+import {
+  BrowserAnimationsModule
+} from '@angular/platform-browser/animations';
+import {
+  FormsModule
+} from '@angular/forms';
+import {
+  FlexLayoutModule
+} from '@angular/flex-layout';
 
-import { NgxUIModule } from '@swimlane/ngx-ui';
+import {
+  NgxUIModule
+} from '@swimlane/ngx-ui';
 import '@swimlane/ngx-ui/release/index.css';
-import { NgxDnDModule } from '@swimlane/ngx-dnd';
+import {
+  NgxDnDModule
+} from '@swimlane/ngx-dnd';
 
 
+import {
+  MyDndComponent,
+  DndExampleComponent
+} from './components';
 @NgModule({
-    imports: [
-        // CommonModule,
-        // BrowserModule,
-        // BrowserAnimationsModule,
-        FormsModule,
-        FlexLayoutModule,
-        NgxUIModule,
-        NgxDndxRouting,
-        NgxDnDModule
-    ],
-    declarations: [NgxDndxComponent]
+  imports: [
+    // CommonModule,
+    // BrowserModule,
+    // BrowserAnimationsModule,
+    FormsModule,
+    FlexLayoutModule,
+    NgxUIModule,
+    NgxDndxRouting,
+    NgxDnDModule
+  ],
+  declarations: [NgxDndxComponent, MyDndComponent, DndExampleComponent]
 })
-export class NgxDndxModule { }
+export class NgxDndxModule {}
