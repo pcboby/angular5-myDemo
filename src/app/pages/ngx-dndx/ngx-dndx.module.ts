@@ -33,6 +33,7 @@ import {
   NgxDnDModule
 } from '@swimlane/ngx-dnd';
 
+import { SourceItemsComponent, TargetItemsComponent } from './components/myDnd/components';
 
 import {
   MyDndComponent,
@@ -40,7 +41,7 @@ import {
 } from './components';
 @NgModule({
   imports: [
-    // CommonModule,
+// CommonModule,
     // BrowserModule,
     // BrowserAnimationsModule,
     FormsModule,
@@ -49,6 +50,12 @@ import {
     NgxDndxRouting,
     NgxDnDModule
   ],
-  declarations: [NgxDndxComponent, MyDndComponent, DndExampleComponent]
+  declarations: [
+    NgxDndxComponent,
+    MyDndComponent,
+    DndExampleComponent,
+    SourceItemsComponent,
+    TargetItemsComponent
+  ]
 })
 export class NgxDndxModule {}
