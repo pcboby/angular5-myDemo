@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-myDnd',
   templateUrl: './myDnd.component.html',
   styleUrls: ['./myDnd.component.css']

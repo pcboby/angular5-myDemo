@@ -33,5 +33,9 @@ export const NavData: Array < any > = [{
   {
     'title': 'ngxDnd',
     'routerLink': '/ngxDndx'
+  },
+  {
+    'title': 'WDEditor',
+    'routerLink': '/webDesignEditor'
   }
 ];

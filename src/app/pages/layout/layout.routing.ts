@@ -53,6 +53,10 @@ const routes: Routes = [
       {
         path: 'ngxDndx',
         loadChildren: '../ngx-dndx/ngx-dndx.module#NgxDndxModule'
+      },
+      {
+        path: 'webDesignEditor',
+        loadChildren: '../webDesignEditor/webDesignEditor.module#WebDesignEditorModule'
       }
     ]
   }

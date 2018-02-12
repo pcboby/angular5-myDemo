@@ -6,3 +6,11 @@
     {{item.name}}
   </ng-template>
 </ngx-dnd-container>
+<ngx-dnd-container class="root-container" [model]="sourceBuilder" [dropZones]="['builder-target']" [copy]="true" [droppableItemClass]="droppableItemClass"
+  (drag)="builderDrag($event)">
+
+  <ng-template let-item="model">
+    <ngx-icon [fontIcon]="item.icon"></ngx-icon>
+    {{item.name}}
+  </ng-template>
+</ngx-dnd-container>
