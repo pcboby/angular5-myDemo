@@ -1,0 +1,21 @@
+<app-container class="root-container" [model]="targetBuilder" dropZone="builder-target" [removeOnSpill]="true" (drag)="log($event)"
+  (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
+
+  <ng-template let-model="model" let-template="template">
+    <div [ngSwitch]="model.inputType">
+      <div *ngSwitchCase="'section'">
+        <div class="card">
+          <div class="card-header">{{model.name}}</div>
+          <div class="card-body">
+            <app-container dropZone="builder-target" [model]="model.children" [removeOnSpill]="true" [template]="template" (drag)="log($event)"
+              (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
+            </app-container>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchDefault>
+        <input [type]="model.inputType" [name]="model.name" [autofocus]="false" [ngModel]="model.data">
+      </div>
+    </div>
+  </ng-template>
+</app-container>

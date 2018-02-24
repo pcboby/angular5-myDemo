@@ -56,7 +56,7 @@ const routes: Routes = [
       },
       {
         path: 'webDesignEditor',
-        loadChildren: '../webDesignEditor/webDesignEditor.module#WebDesignEditorModule'
+        loadChildren: '../wd-editor/wd-editor.module#WdEditorModule'
       }
     ]
   }

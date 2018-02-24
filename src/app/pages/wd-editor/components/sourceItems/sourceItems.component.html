@@ -1,0 +1,16 @@
+<app-container class="root-container" [model]="sourceBuilder" [dropZones]="['builder-target']" [copy]="true" [droppableItemClass]="droppableItemClass"
+  (drag)="builderDrag($event)">
+
+  <ng-template let-item="model">
+    <i [class]="item.icon"></i>
+    {{item.name}}
+  </ng-template>
+</app-container>
+<app-container class="root-container" [model]="sourceBuilder" [dropZones]="['builder-target']" [copy]="true" [droppableItemClass]="droppableItemClass"
+  (drag)="builderDrag($event)">
+
+  <ng-template let-item="model">
+    <i [class]="item.icon"></i>
+    {{item.name}}
+  </ng-template>
+</app-container>
