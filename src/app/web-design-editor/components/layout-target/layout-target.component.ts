@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-targetItems',
-  templateUrl: './targetItems.component.html',
-  styleUrls: ['./targetItems.component.css']
+  selector: 'app-layout-target',
+  templateUrl: './layout-target.component.html',
+  styleUrls: ['./layout-target.component.css']
 })
-export class TargetItemsComponent implements OnInit {
+export class LayoutTargetComponent implements OnInit {
 
   @Input()
   $targetBuilder;
@@ -20,7 +20,6 @@ export class TargetItemsComponent implements OnInit {
   }
   constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

@@ -12,7 +12,10 @@ import {
 } from './directives';
 import {
   ContainerComponent,
-  ItemComponent
+  ItemComponent,
+  LayoutSourceComponent,
+  LayoutTargetComponent,
+  LayoutCodeComponent
 } from './components';
 import {
   DrakeStoreService
@@ -20,13 +23,30 @@ import {
 import {
   WebDesignEditorComponent
 } from './web-design-editor.component';
-
-const components = [WebDesignEditorComponent, ContainerComponent, ItemComponent];
-const directives = [DraggableDirective, DroppableDirective, DragHandleDirective];
+import {
+  FormsModule
+} from '@angular/forms';
+const modules = [
+  FormsModule,
+  CommonModule
+];
+const components = [
+  WebDesignEditorComponent,
+  ContainerComponent,
+  ItemComponent,
+  LayoutSourceComponent,
+  LayoutTargetComponent,
+  LayoutCodeComponent
+];
+const directives = [
+  DraggableDirective,
+  DroppableDirective,
+  DragHandleDirective
+];
 
 @NgModule({
   imports: [
-    CommonModule
+    ...modules
   ],
   declarations: [
     ...components,

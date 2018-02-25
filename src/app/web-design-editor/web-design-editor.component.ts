@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-web-design-editor',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./web-design-editor.component.scss']
 })
 export class WebDesignEditorComponent implements OnInit {
+
+  @Input()
+  $sourceBuilder;
+
+  @Input()
+  $targetBuilder;
 
   constructor() { }
 

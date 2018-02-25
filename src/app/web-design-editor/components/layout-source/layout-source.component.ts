@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-sourceItems',
-  templateUrl: './sourceItems.component.html',
-  styleUrls: ['./sourceItems.component.css']
+  selector: 'app-layout-source',
+  templateUrl: './layout-source.component.html',
+  styleUrls: ['./layout-source.component.css']
 })
-export class SourceItemsComponent implements OnInit {
+export class LayoutSourceComponent implements OnInit {
   @Input()
   $sourceBuilder;
 

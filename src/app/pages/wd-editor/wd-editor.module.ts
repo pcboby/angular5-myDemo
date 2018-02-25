@@ -10,10 +10,6 @@ import {
 } from '@angular/core';
 
 import {
-  TargetItemsComponent,
-  SourceItemsComponent
-} from './components';
-import {
   CommonModule
 } from '@angular/common';
 import {
@@ -23,7 +19,6 @@ import {
   FormsModule
 } from '@angular/forms';
 
-const components = [ TargetItemsComponent, SourceItemsComponent];
 
 @NgModule({
   imports: [
@@ -33,8 +28,7 @@ const components = [ TargetItemsComponent, SourceItemsComponent];
     WebDesignEditorModule
   ],
   declarations: [
-    WdEditorComponent,
-    ...components
+    WdEditorComponent
   ]
 })
 export class WdEditorModule {}
