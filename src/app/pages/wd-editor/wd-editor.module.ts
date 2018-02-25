@@ -23,7 +23,6 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     WdEditorRouting,
     WebDesignEditorModule
   ],
