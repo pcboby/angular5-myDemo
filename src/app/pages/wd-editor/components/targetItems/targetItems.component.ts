@@ -14,7 +14,6 @@ export class TargetItemsComponent implements OnInit {
   @Input()
   $targetBuilder;
 
-  targetBuilder: any[] = [];
   droppableItemClass = (item: any) => `${item.class} ${item.inputType}`;
   log(e: any) {
     console.log(e.type, e);
@@ -22,7 +21,6 @@ export class TargetItemsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.targetBuilder = this.$targetBuilder;
   }
 
 }

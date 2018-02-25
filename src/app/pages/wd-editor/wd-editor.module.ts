@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 
 import {
-  ExampleComponent,
   TargetItemsComponent,
   SourceItemsComponent
 } from './components';
@@ -23,15 +22,13 @@ import {
 import {
   FormsModule
 } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
-const components = [ExampleComponent, TargetItemsComponent, SourceItemsComponent];
+const components = [ TargetItemsComponent, SourceItemsComponent];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    FlexLayoutModule,
     WdEditorRouting,
     WebDesignEditorModule
   ],

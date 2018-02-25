@@ -6,8 +6,12 @@ import {
   HostBinding
 } from '@angular/core';
 
-import { ContainerComponent } from '../container/container.component';
-import { DraggableDirective } from '../../directives/draggable.directive';
+import {
+  ContainerComponent
+} from '../container/container.component';
+import {
+  DraggableDirective
+} from '../../directives/draggable.directive';
 
 @Component({
   selector: 'app-item',
@@ -86,7 +90,7 @@ export class ItemComponent implements OnInit {
     if (this.hasHandle) {
       classes.push('has-handle');
     }
-    return  classes.join(' ');
+    return classes.join(' ');
   }
 
   get type() {

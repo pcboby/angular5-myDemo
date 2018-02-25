@@ -10,11 +10,9 @@ import {
   styleUrls: ['./sourceItems.component.css']
 })
 export class SourceItemsComponent implements OnInit {
-  sourceBuilder = [
-    { name: 'Section', children: [], inputType: 'section', icon: 'section', class: 'wide' },
-    { name: 'A String', inputType: 'string', icon: 'field-text', class: 'half' },
-    { name: 'A Number', inputType: 'number', icon: 'field-numeric', class: 'half' }
-  ];
+  @Input()
+  $sourceBuilder;
+
   builderDrag(e: any) {
     const item = e.value;
     item.data = item.inputType === 'number' ?

@@ -17,8 +17,11 @@ import {
 import {
   DrakeStoreService
 } from './services';
+import {
+  WebDesignEditorComponent
+} from './web-design-editor.component';
 
-const components = [ContainerComponent, ItemComponent];
+const components = [WebDesignEditorComponent, ContainerComponent, ItemComponent];
 const directives = [DraggableDirective, DroppableDirective, DragHandleDirective];
 
 @NgModule({
