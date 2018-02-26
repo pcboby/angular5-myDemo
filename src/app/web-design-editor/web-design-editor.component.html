@@ -1,26 +1,16 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h4>Source List</h4>
+    <app-layout-source [model]="sourceModel" [dropZones]="dropZones"></app-layout-source>
 
-        <div class="row mb-3">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header">my ngx-dnd</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h4>Source List</h4>
-                    <app-layout-source [$sourceBuilder]="$sourceBuilder"></app-layout-source>
+  </div>
+  <div class="col-sm-6">
+    <h4>Target View</h4>
+    <app-layout-target [model]="targetModel" [dropZone]="dropZone"></app-layout-target>
 
-                  </div>
-                  <div class="col-sm-6">
-                    <h4>Target View</h4>
-                    <app-layout-target [$targetBuilder]="$targetBuilder"></app-layout-target>
-
-                  </div>
-                  <div class="col-sm-3">
-                    <h3>Model Code</h3>
-                    <app-layout-code [$targetBuilder]="$targetBuilder"></app-layout-code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  </div>
+  <div class="col-sm-3">
+    <h3>Model Code</h3>
+    <app-layout-code [model]="targetModel"></app-layout-code>
+  </div>
+</div>

@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LayoutCodeComponent implements OnInit {
 
   @Input()
-  $targetBuilder;
+  model;
 
   constructor() { }
 

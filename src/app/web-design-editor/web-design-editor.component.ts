@@ -1,21 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'app-web-design-editor',
   templateUrl: './web-design-editor.component.html',
-  styleUrls: ['./web-design-editor.component.scss']
+  styleUrls: ['./web-design-editor.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class WebDesignEditorComponent implements OnInit {
+  // 列表：可选卡片源
+  @Input()
+  sourceModel;
 
   @Input()
-  $sourceBuilder;
+  targetModel;
 
+  // 集合：目标容器
   @Input()
-  $targetBuilder;
+  dropZones = ['builder-target'];
+  // 区域：展示容器
+  @Input()
+  dropZone = 'builder-target';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

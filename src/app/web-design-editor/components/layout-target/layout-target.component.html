@@ -1,4 +1,4 @@
-<app-container class="target-container" [model]="$targetBuilder" dropZone="builder-target" [removeOnSpill]="true" (drag)="log($event)"
+<app-container class="target-container" [model]="model" [dropZone]="dropZone" [removeOnSpill]="true" (drag)="log($event)"
   (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
 
   <ng-template let-model="model" let-template="template">

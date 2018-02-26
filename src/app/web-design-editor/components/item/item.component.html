@@ -1,62 +1,42 @@
+<!-- <div class="app-item-contents">
+  <div class="app-item-contents-title">title</div>
+  <div class="app-item-contents-toolbar">toolbar</div> -->
+<!-- 根据数据类型区分单卡、多卡 -->
 <ng-container [ngSwitch]="type">
-
+  <!-- 当数据类型为array（多卡）时，重复调用容器 -->
   <ng-container *ngSwitchCase="'array'">
-    <app-container
-      [model]="model"
-      [template]="container.template"
-      [dropZone]="dropZone"
-      [dropZones]="dropZones"
-      [removeOnSpill]="removeOnSpill"
-      [droppableItemClass]="droppableItemClass"
-      [copy]="copy">
+    <app-container [model]="model" [template]="container.template" [dropZone]="dropZone" [dropZones]="dropZones" [removeOnSpill]="removeOnSpill"
+      [droppableItemClass]="droppableItemClass" [copy]="copy">
     </app-container>
   </ng-container>
-
+  <!-- 当数据类型为object（单卡）时，显示卡内容 -->
   <ng-container *ngSwitchCase="'object'">
-    <ng-template
-      *ngIf="container.template"
-      [ngTemplateOutlet]="container.template"
-      [ngTemplateOutletContext]="data">
+    <!-- 当数据指向的卡中另外新定义了卡内容时，使用新定义的内容 -->
+    <ng-template *ngIf="container.template" [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
     </ng-template>
+    <!-- 当数据指向的卡中未定义了卡内容时，使用原有的内容 -->
     <ng-container *ngIf="!container.template">
-      <div
-        class="app-content">
-        {{model.label}}
+      <div class="app-content">
+        {{model.title}}
       </div>
-      <app-container
-        *ngIf="model.children"
-        [model]="model.children"
-        [template]="container.template"
-        [dropZone]="dropZone"
-        [dropZones]="dropZones"
-        [removeOnSpill]="removeOnSpill"
-        [droppableItemClass]="droppableItemClass"
-        [copy]="copy">
+      <!-- 当单卡数据中包含子卡时，重复调用容器 -->
+      <app-container *ngIf="model.children" [model]="model.children" [template]="container.template" [dropZone]="dropZone" [dropZones]="dropZones"
+        [removeOnSpill]="removeOnSpill" [droppableItemClass]="droppableItemClass" [copy]="copy">
       </app-container>
     </ng-container>
   </ng-container>
-
+  <!-- 当数据类型无法判断时，显示的内容 -->
   <ng-container *ngSwitchCase="'undefined'">
+    Error
   </ng-container>
 
   <ng-container *ngSwitchDefault>
-    <ng-template
-      *ngIf="container.template"
-      [ngTemplateOutlet]="container.template"
-      [ngTemplateOutletContext]="data">
+    <ng-template *ngIf="container.template" [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
     </ng-template>
-    <div
-      *ngIf="!container.template"
-      class="ngx-dnd-content">
+    <div *ngIf="!container.template" class="ngx-dnd-content">
       {{model}}
     </div>
   </ng-container>
 
 </ng-container>
-
-
-
-
-
-
-
+<!-- <div> -->

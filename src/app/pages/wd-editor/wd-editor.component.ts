@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-wd-editor',
@@ -6,15 +9,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wd-editor.component.css']
 })
 export class WdEditorComponent implements OnInit {
-  targetBuilder: any[] = [{ name: 'sectionBox', children: [], inputType: 'section', icon: 'fa fa-tag', class: 'wide' }];
-  sourceBuilder: any[] = [
-    { name: 'sectionBox', children: [], inputType: 'section', icon: 'fa fa-tag', class: 'wide' },
-    { name: 'A String', inputType: 'string', icon: 'fa fa-tag', class: 'half' },
-    { name: 'A Number', inputType: 'number', icon: 'fa fa-tag', class: 'half' }
+  targetBuilder: any[] = [{
+    name: 'cardBox',
+    children: [],
+    options: [{
+      name: 'title',
+      type: 'string',
+      defaultValue: 'card box title'
+    }],
+    inputType: 'section',
+    icon: 'fa fa-tag',
+    class: 'wide'
+  }];
+  sourceBuilder: any[] = [{
+      name: 'cardBox',
+      children: [],
+      options: [{
+        name: 'title',
+        type: 'string',
+        defaultValue: 'card box title'
+      }],
+      inputType: 'section',
+      icon: 'fa fa-tag',
+      class: 'wide'
+    },
+    {
+      name: 'A String',
+      inputType: 'string',
+      icon: 'fa fa-tag',
+      class: 'half'
+    },
+    {
+      name: 'A Number',
+      inputType: 'number',
+      icon: 'fa fa-tag',
+      class: 'half'
+    }
   ];
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

@@ -83,7 +83,7 @@ export class ItemComponent implements OnInit {
       this.droppableItemClass(this.model) :
       this.droppableItemClass;
 
-    const classes = ['ngx-dnd-item', itemClass || ''];
+    const classes = ['app-item', itemClass || ''];
     if (this.moveDisabled) {
       classes.push('move-disabled');
     }

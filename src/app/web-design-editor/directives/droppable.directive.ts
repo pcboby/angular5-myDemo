@@ -25,9 +25,10 @@ function getNextId() {
 })
 export class DroppableDirective implements OnInit, OnDestroy, AfterViewInit {
   @Input() model: any;
+  // 复制模式
   @Input() copy = false;
   @Input() removeOnSpill = false;
-  @Input() ngxDroppable: string;
+  @Input() appDroppable: string;
 
   @Output()
   drop: EventEmitter < any > = new EventEmitter < any > ();
@@ -53,7 +54,7 @@ export class DroppableDirective implements OnInit, OnDestroy, AfterViewInit {
 
   @Input()
   get dropZone(): string {
-    return this._dropZone || this.ngxDroppable || this.defaultZone;
+    return this._dropZone || this.appDroppable || this.defaultZone;
   }
   set dropZone(val: string) {
     this._dropZone = val;

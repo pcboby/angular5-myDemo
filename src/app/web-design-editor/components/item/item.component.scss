@@ -1,13 +1,14 @@
-.ngx-dnd-item {
+.app-item {
   /*margin: 10px;
   padding: 10px;*/
   /*background-color: rgba(0, 0, 0, 0.2);*/
   transition: opacity 0.4s ease-in-out;
+  position: relative;
   /*border: 1px solid lightblue;*/
   display: block;
   &:not(.has-handle):not(.move-disabled),
-  &.has-handle [ngxdraghandle],
-  &.has-handle [ngxDragHandle] {
+  &.has-handle [appdraghandle],
+  &.has-handle [appDragHandle] {
     cursor: move;
     cursor: grab;
     cursor: -moz-grab;
@@ -19,6 +20,9 @@
   &:hover {
     /*border: 1px solid blue;*/
   }
+}
+.app-item>.app-item-contents{
+
 }
 
 .gu-mirror {
@@ -32,13 +36,6 @@
 
 .gu-hide {
   display: none !important;
-}
-
-.gu-unselectable {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
 }
 
 .gu-transit {

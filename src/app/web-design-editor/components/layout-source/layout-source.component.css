@@ -1,1 +1,5 @@
 .source-container {}
+.source-container .app-container-contents {
+
+    border: none;
+}

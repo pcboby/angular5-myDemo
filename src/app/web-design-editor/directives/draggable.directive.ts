@@ -21,19 +21,18 @@ import {
 })
 export class DraggableDirective implements OnInit, OnDestroy {
 
-  @Input() ngxDraggable: string[];
+  @Input() appDraggable: string[];
   @Input() model: any;
 
   @Input()
   get dropZones(): any {
-    return this._dropZones || this.ngxDraggable || this._parentDropzones;
+    return this._dropZones || this.appDraggable || this._parentDropzones;
   }
   set dropZones(val: any) {
     this._dropZones = val;
   }
 
-  @Input('moves')
-  _moves = true;
+  @Input('moves') _moves = true;
 
 
   handles: any[] = [];
@@ -104,13 +103,13 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   updateElements(): void {
     const nativeElement = this.el.nativeElement;
-    const handles: NodeList = nativeElement.querySelectorAll('[ngxdraghandle]');
+    const handles: NodeList = nativeElement.querySelectorAll('[appdraghandle]');
     this.handles = Array.from(handles).filter((h: any) => findFirstDraggableParent(h) === nativeElement);
 
     function findFirstDraggableParent(c: any) {
       while (c.parentNode) {
         c = c.parentNode;
-        if (c.hasAttribute && c.hasAttribute('ngxdraggable')) {
+        if (c.hasAttribute && c.hasAttribute('appdraggable')) {
           return c;
         }
       }
