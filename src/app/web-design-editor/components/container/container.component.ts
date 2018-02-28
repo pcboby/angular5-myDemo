@@ -29,6 +29,7 @@ function getNextId() {
 })
 export class ContainerComponent implements OnInit, AfterViewInit {
   @Input() model: any;
+  @Input() isEdit = true;
   @Input() copy = false;
   @Input() removeOnSpill = false;
   @Input() droppableItemClass: string | ((o: any) => any);

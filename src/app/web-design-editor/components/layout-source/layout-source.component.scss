@@ -1,0 +1,11 @@
+.source-container {}
+
+.source-container .app-container-contents {
+  border: none;
+  &.gu-empty,
+  &.gu-over {
+    border: none !important;
+    background-color: transparent !important;
+
+  }
+}

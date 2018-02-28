@@ -2,20 +2,35 @@
   (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
 
   <ng-template let-model="model" let-template="template">
-    <div [ngSwitch]="model.inputType">
-      <div *ngSwitchCase="'section'">
+    <ng-container [ngSwitch]="model.code">
+      <!-- card: container-card -->
+      <ng-container *ngSwitchCase="'container-card'">
         <div class="card">
-          <div class="card-header">{{model.name}}</div>
+          <div class="card-header">{{getEditorValueBy(model,'cardTitle')}}</div>
           <div class="card-body">
-            <app-container dropZone="builder-target" [model]="model.children" [removeOnSpill]="true" [template]="template" (drag)="log($event)"
+            <app-container [dropZone]="dropZone" [model]="model.children" [removeOnSpill]="true" [template]="template" (drag)="log($event)"
               (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
             </app-container>
           </div>
         </div>
-      </div>
-      <div *ngSwitchDefault>
-        <input [type]="model.inputType" [name]="model.name" [autofocus]="false" [ngModel]="model.data">
-      </div>
-    </div>
+      </ng-container>
+      <!-- card: form-input-group -->
+      <ng-container *ngSwitchCase="'form-input-control'">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label text-right">{{getEditorValueBy(model,'inputLabel')}}</label>
+          <div class="col-sm-8">
+            <input [type]="getEditorValueBy(model,'inputType')" [name]="model.name" class="form-control" [placeholder]="getEditorValueBy(model,'inputPlaceholder')">
+          </div>
+        </div>
+      </ng-container>
+      <!-- nofound -->
+      <ng-container *ngSwitchDefault>
+        <!-- <input [type]="model.type" [name]="model.name" [autofocus]="false" [ngModel]="model.data"> -->
+        <div class="alert alert-danger" style="margin-bottom: 0;">
+          <h5>Error [{{model.code}}]</h5>
+           <p>the cards is removed or reset version, please show it in cards market!</p>
+        </div>
+      </ng-container>
+    </ng-container>
   </ng-template>
 </app-container>

@@ -20,6 +20,7 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class ItemComponent implements OnInit {
+  @Input() isEdit = true;
   @Input() model: any;
 
   @Input()

@@ -1,5 +1,5 @@
-<app-container class="source-container" [model]="model" [dropZones]="dropZones" [copy]="true" [droppableItemClass]="droppableItemClass"
-  (drag)="builderDrag($event)">
+<app-container class="source-container" [isEdit]="false" [model]="model" [dropZones]="dropZones" [copy]="true" [droppableItemClass]="droppableItemClass">
+  <!-- (drag)="builderDrag($event)" -->
 
   <ng-template let-item="model">
     <i [class]="item.icon"></i>

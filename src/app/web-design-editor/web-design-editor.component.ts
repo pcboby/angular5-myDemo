@@ -23,10 +23,10 @@ export class WebDesignEditorComponent implements OnInit {
 
   // 集合：目标容器
   @Input()
-  dropZones = ['builder-target'];
+  dropZones = ['web-design-target'];
   // 区域：展示容器
   @Input()
-  dropZone = 'builder-target';
+  dropZone = 'web-design-target';
 
   constructor() {}
 

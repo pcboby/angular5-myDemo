@@ -9,43 +9,102 @@ import {
   styleUrls: ['./wd-editor.component.css']
 })
 export class WdEditorComponent implements OnInit {
-  targetBuilder: any[] = [{
-    name: 'cardBox',
-    children: [],
-    options: [{
-      name: 'title',
-      type: 'string',
-      defaultValue: 'card box title'
-    }],
-    inputType: 'section',
+  targetData: any[] = [{
+    name: 'container-card',
+    code: 'container-card',
+    cardTitle: '',
     icon: 'fa fa-tag',
-    class: 'wide'
-  }];
-  sourceBuilder: any[] = [{
-      name: 'cardBox',
-      children: [],
-      options: [{
-        name: 'title',
+    class: 'wide',
+    editors: [{
+      key: 'cardTitle',
+      type: 'string',
+      value: 'example title'
+    }],
+    children: [{
+      name: 'form-input-control',
+      code: 'form-input-control',
+      class: 'half',
+      inputType: 'text',
+      inputLabel: '',
+      inputPlaceholder: 'please input in here.',
+      editors: [{
+        key: 'inputLabel',
         type: 'string',
-        defaultValue: 'card box title'
+        value: '帐号'
+      }, {
+        key: 'inputPlaceholder',
+        type: 'string',
+        value: '帐号/用户名/邮箱'
+      }, {
+        key: 'inputType',
+        type: 'string',
+        value: 'text'
+      }]
+    }, {
+      name: 'form-input-control',
+      code: 'form-input-control',
+      class: 'half',
+      inputType: 'text',
+      inputLabel: '',
+      inputPlaceholder: 'please input in here.',
+      editors: [{
+        key: 'inputLabel',
+        type: 'string',
+        value: '密码'
+      }, {
+        key: 'inputPlaceholder',
+        type: 'string',
+        value: '请在这里输入密码'
+      }, {
+        key: 'inputType',
+        type: 'string',
+        value: 'password'
+      }]
+    }]
+  },{
+    name: 'XXX-card',
+    code: 'XXX-card'
+  }];
+  sourceData: any[] = [{
+      name: 'container-card',
+      code: 'container-card',
+      cardTitle: '',
+      icon: 'fa fa-tag',
+      class: 'wide',
+      editors: [{
+        key: 'cardTitle',
+        type: 'string',
+        value: ''
       }],
-      inputType: 'section',
-      icon: 'fa fa-tag',
-      class: 'wide'
+      children: []
     },
     {
-      name: 'A String',
-      inputType: 'string',
+      name: 'form-input-control',
+      code: 'form-input-control',
+      class: 'half',
       icon: 'fa fa-tag',
-      class: 'half'
-    },
-    {
-      name: 'A Number',
-      inputType: 'number',
-      icon: 'fa fa-tag',
-      class: 'half'
+      inputType: 'text',
+      inputLabel: '',
+      inputPlaceholder: 'please input in here.',
+      editors: [{
+        key: 'inputLabel',
+        type: 'string',
+        value: ''
+      }, {
+        key: 'inputPlaceholder',
+        type: 'string',
+        value: ''
+      }, {
+        key: 'inputType',
+        type: 'string',
+        value: ''
+      }]
     }
   ];
+
+  log(e: any) {
+    console.log(e.type, e);
+  }
   constructor() {}
 
   ngOnInit() {}

@@ -1,6 +1,3 @@
-<!-- <div class="app-item-contents">
-  <div class="app-item-contents-title">title</div>
-  <div class="app-item-contents-toolbar">toolbar</div> -->
 <!-- 根据数据类型区分单卡、多卡 -->
 <ng-container [ngSwitch]="type">
   <!-- 当数据类型为array（多卡）时，重复调用容器 -->
@@ -11,15 +8,23 @@
   </ng-container>
   <!-- 当数据类型为object（单卡）时，显示卡内容 -->
   <ng-container *ngSwitchCase="'object'">
-    <!-- 当数据指向的卡中另外新定义了卡内容时，使用新定义的内容 -->
-    <ng-template *ngIf="container.template" [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
-    </ng-template>
-    <!-- 当数据指向的卡中未定义了卡内容时，使用原有的内容 -->
+    <!-- 显示有卡片模板的 -->
+    <ng-container *ngIf="container.template">
+      <div *ngIf="isEdit" class="app-item-contents">
+        <div class="app-item-contents-label">{{model.name}}</div>
+        <!-- 卡片内容 start -->
+        <ng-template [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
+        </ng-template>
+        <!-- 卡片内容 end -->
+      </div>
+      <ng-template *ngIf="!isEdit" [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
+      </ng-template>
+    </ng-container>
+    <!-- 显示无卡片模板的 -->
     <ng-container *ngIf="!container.template">
       <div class="app-content">
-        {{model.title}}
+        {{model.name}}
       </div>
-      <!-- 当单卡数据中包含子卡时，重复调用容器 -->
       <app-container *ngIf="model.children" [model]="model.children" [template]="container.template" [dropZone]="dropZone" [dropZones]="dropZones"
         [removeOnSpill]="removeOnSpill" [droppableItemClass]="droppableItemClass" [copy]="copy">
       </app-container>
@@ -39,4 +44,3 @@
   </ng-container>
 
 </ng-container>
-<!-- <div> -->

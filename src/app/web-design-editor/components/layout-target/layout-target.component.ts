@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'app-layout-target',
   templateUrl: './layout-target.component.html',
-  styleUrls: ['./layout-target.component.css'],
+  styleUrls: ['./layout-target.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class LayoutTargetComponent implements OnInit {
@@ -19,7 +19,21 @@ export class LayoutTargetComponent implements OnInit {
   @Input()
   dropZone;
 
-  droppableItemClass = (item: any) => `${item.class} ${item.inputType}`;
+  droppableItemClass = (item: any) => `${item.class}`; //  ${item.type}
+  getEditorValueBy(item: any, str: string) {
+    if (item.editors) {
+      for (let i = 0; i < item.editors.length; i++) {
+        const e = item.editors[i];
+        if (e.key === str) {
+          if (e.value) {
+            return e.value;
+          }
+          continue;
+        }
+      }
+    }
+    return item[str] || '{' + str + '}';
+  }
   log(e: any) {
     console.log(e.type, e);
   }

@@ -87,6 +87,11 @@ export class DraggableDirective implements OnInit, OnDestroy {
     }
   }
 
+  @HostListener('click', ['$event'])
+  onclick() {
+    console.log('11111',this);
+  }
+
   ngOnInit(): void {
     this.update();
   }

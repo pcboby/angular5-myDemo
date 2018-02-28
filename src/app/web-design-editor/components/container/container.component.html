@@ -1,12 +1,15 @@
-<div appDroppable [dropZone]="dropZone" [model]="model" [copy]="copy" [ngClass]="{ 'none-empty': !model?.length }" [removeOnSpill]="removeOnSpill"
+<div appDroppable [dropZone]="dropZone" [model]="model" [copy]="copy" [ngClass]="{ 'gu-empty': !model?.length }" [removeOnSpill]="removeOnSpill"
   class='app-container-contents'>
   <ng-container *ngIf="model">
     <ng-container *ngFor="let item of model">
-      <app-item appDraggable [model]="item" [dropZone]="dropZone" [dropZones]="dropZones" [copy]="copy" [moves]="moves" [removeOnSpill]="removeOnSpill"
-        [droppableItemClass]="droppableItemClass">
+      <app-item appDraggable [isEdit]="isEdit" [model]="item" [dropZone]="dropZone" [dropZones]="dropZones" [copy]="copy" [moves]="moves"
+        [removeOnSpill]="removeOnSpill" [droppableItemClass]="droppableItemClass">
       </app-item>
     </ng-container>
   </ng-container>
-  <ng-content *ngIf="!model">
-  </ng-content>
+  <ng-container *ngIf="!model">
+    aaaaa
+    <ng-content>
+    </ng-content>
+  </ng-container>
 </div>
