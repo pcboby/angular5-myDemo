@@ -34,6 +34,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   @Input('moves') _moves = true;
 
+  @Input('isEdit') _isEdit = true;
 
   handles: any[] = [];
 
@@ -88,8 +89,13 @@ export class DraggableDirective implements OnInit, OnDestroy {
   }
 
   @HostListener('click', ['$event'])
-  onclick() {
-    console.log('11111', this);
+  onclick(e: Event) {
+    if (this._isEdit) {
+      e.stopPropagation();
+      clearTimeout(this.touchTimeout);
+      console.log('onClick', this);
+      this.drakesService.registerSelector(this);
+    }
   }
 
   ngOnInit(): void {
@@ -108,7 +114,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   updateElements(): void {
     const nativeElement = this.el.nativeElement;
-    const handles: NodeList = nativeElement.querySelectorAll('[appdraghandle]');
+    const handles: NodeList = nativeElement.querySelectorAll('[appDragHandle]');
     this.handles = Array.from(handles).filter((h: any) => findFirstDraggableParent(h) === nativeElement);
 
     function findFirstDraggableParent(c: any) {

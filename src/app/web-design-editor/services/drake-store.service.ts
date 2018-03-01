@@ -11,6 +11,7 @@ import {
 
 @Injectable()
 export class DrakeStoreService {
+  private selectorMap = new WeakMap < any, DraggableDirective > ();
   private droppableMap = new WeakMap < any, DroppableDirective > ();
   private draggableMap = new WeakMap < any, DraggableDirective > ();
   private dragulaOptions: dragula.DragulaOptions;
@@ -22,6 +23,10 @@ export class DrakeStoreService {
     this.registerEvents();
   }
 
+  registerSelector(draggable: DraggableDirective) {
+    this.selectorMap = new WeakMap<any, DraggableDirective>();
+    this.selectorMap.set(draggable.element, draggable);
+  }
   register(droppable: DroppableDirective) {
     this.droppableMap.set(droppable.container, droppable);
     this.drake.containers.push(droppable.container);
