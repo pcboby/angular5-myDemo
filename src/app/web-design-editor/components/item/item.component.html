@@ -10,13 +10,13 @@
   <ng-container *ngSwitchCase="'object'">
     <!-- 显示有卡片模板的 -->
     <ng-container *ngIf="container.template">
-      <div *ngIf="isEdit" class="app-item-contents">
+      <!-- 编辑状态显示的内容 -->
+      <div *ngIf="isEdit" class="app-item-contents" [ngClass]="{'openCardLabel':openCardLabel}">
         <div class="app-item-contents-label">{{model.name}}</div>
-        <!-- 卡片内容 start -->
         <ng-template [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
         </ng-template>
-        <!-- 卡片内容 end -->
       </div>
+      <!-- 演示状态显示的内容 -->
       <ng-template *ngIf="!isEdit" [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
       </ng-template>
     </ng-container>

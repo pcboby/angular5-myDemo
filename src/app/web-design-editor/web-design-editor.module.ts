@@ -15,7 +15,8 @@ import {
   ItemComponent,
   LayoutSourceComponent,
   LayoutTargetComponent,
-  LayoutCodeComponent
+  LayoutCodeComponent,
+  LayoutToolbarComponent
 } from './components';
 import {
   DrakeStoreService
@@ -24,16 +25,21 @@ import {
   WebDesignEditorComponent
 } from './web-design-editor.component';
 import {
-  FormsModule
+  FormsModule, ReactiveFormsModule
 } from '@angular/forms';
+import { EditorStoreService } from './services/editor-store.service';
+import { ButtonsModule } from 'ngx-bootstrap';
 const modules = [
   FormsModule,
-  CommonModule
+  CommonModule,
+  ReactiveFormsModule,
+  ButtonsModule.forRoot()
 ];
 const components = [
   WebDesignEditorComponent,
   ContainerComponent,
   ItemComponent,
+  LayoutToolbarComponent,
   LayoutSourceComponent,
   LayoutTargetComponent,
   LayoutCodeComponent
@@ -56,6 +62,6 @@ const directives = [
     ...components,
     ...directives
   ],
-  providers: [DrakeStoreService]
+  providers: [EditorStoreService, DrakeStoreService]
 })
 export class WebDesignEditorModule {}

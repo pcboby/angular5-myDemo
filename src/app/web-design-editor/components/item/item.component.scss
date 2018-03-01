@@ -20,16 +20,22 @@
   // }
   .app-item-contents {
     position: relative;
-    border:1px solid rgba(255, 156, 27,.9);
+    &.openCardLabel {
+      border: 1px solid rgba(255, 156, 27, .9);
+      .app-item-contents-label {
+        display: block;
+      }
+    }
     .app-item-contents-label {
       position: absolute;
+      display: none;
       padding: .125em .5em;
-      margin-bottom:1px;
+      margin-bottom: 1px;
       line-height: 1.5em;
       top: -1.75em;
-      left:-1px;
+      left: -1px;
       font-size: 9px;
-      background-color: rgba(255, 156, 27,.9);
+      background-color: rgba(255, 156, 27, .9);
       color: #fff;
     }
     .app-item-contents-toolbar {}

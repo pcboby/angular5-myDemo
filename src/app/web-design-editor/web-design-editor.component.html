@@ -1,16 +1,14 @@
-<div class="row">
-  <div class="col-sm-3">
-    <h4>Source List</h4>
-    <app-layout-source [model]="sourceModel" [dropZones]="dropZones"></app-layout-source>
 
+<div class="design-editor" [ngClass]="{'openSilder': editorService.openSilder}">
+  <div class="header gu-unselectable">
+    <app-layout-toolbar></app-layout-toolbar>
   </div>
-  <div class="col-sm-6">
-    <h4>Target View</h4>
-    <app-layout-target [model]="targetModel" [dropZone]="dropZone" class="app-layout-target"></app-layout-target>
-
+  <div class="silder">
+    <app-layout-source [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
   </div>
-  <div class="col-sm-3">
-    <h3>Model Code</h3>
-    <app-layout-code [model]="targetModel"></app-layout-code>
+  <div class="wraper">
+      <app-layout-code *ngIf="editorService.editorView=='CODE'" [model]="targetModel"></app-layout-code>
+      <app-layout-target *ngIf="editorService.editorView=='TAEGET'" [model]="targetModel" [dropZone]="dropZone" [isEdit]="editorService.isEdit" [openCardLabel]="editorService.openCardLabel"></app-layout-target>
   </div>
+  <div class="footer"></div>
 </div>

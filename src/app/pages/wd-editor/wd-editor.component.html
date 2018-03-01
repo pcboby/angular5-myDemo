@@ -1,16 +1,19 @@
-<div class="row mb-3">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">web design editor example</div>
-      <div class="card-body">
-        <app-web-design-editor
-          [sourceModel]="sourceData"
-          [targetModel]="targetData"
-          ></app-web-design-editor>
-        <!-- <p>
-            {{targetBuilder | json}}
-        </p> -->
-      </div>
-    </div>
+<div class="card mb-3">
+  <div class="card-header">web design editor example</div>
+  <div class="card-body">
+    <app-web-design-editor
+      [sourceModel]="sourceData"
+      [targetModel]="targetData"
+      ></app-web-design-editor>
+    <!-- <p>
+        {{targetBuilder | json}}
+    </p> -->
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-header">editor target view example</div>
+  <div class="card-body">
+    <app-layout-target [model]="targetData" [isEdit]="false"></app-layout-target>
   </div>
 </div>

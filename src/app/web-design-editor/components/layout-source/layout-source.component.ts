@@ -6,7 +6,6 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-
 @Component({
   selector: 'app-layout-source',
   templateUrl: './layout-source.component.html',
@@ -14,6 +13,9 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class LayoutSourceComponent implements OnInit {
+
+@Input()
+isEdit = true;
 
   @Input()
   model;

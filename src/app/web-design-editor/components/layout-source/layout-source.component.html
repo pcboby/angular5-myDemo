@@ -1,6 +1,6 @@
-<app-container class="source-container" [isEdit]="false" [model]="model" [dropZones]="dropZones" [copy]="true" [droppableItemClass]="droppableItemClass">
+<app-container class="source-container" [isEdit]="false" [moves]="isEdit" [model]="model" [dropZones]="dropZones" [copy]="true" [droppableItemClass]="droppableItemClass">
   <!-- (drag)="builderDrag($event)" -->
-
+<!-- 显示模板 -->
   <ng-template let-item="model">
     <i [class]="item.icon"></i>
     {{item.name}}

@@ -1,4 +1,7 @@
 import {
+  EditorStoreService
+} from './services/editor-store.service';
+import {
   Component,
   OnInit,
   Input,
@@ -28,7 +31,9 @@ export class WebDesignEditorComponent implements OnInit {
   @Input()
   dropZone = 'web-design-target';
 
-  constructor() {}
+
+  constructor(public editorService: EditorStoreService) {
+  }
 
   ngOnInit() {}
 

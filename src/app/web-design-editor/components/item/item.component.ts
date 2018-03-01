@@ -21,6 +21,7 @@ import {
 })
 export class ItemComponent implements OnInit {
   @Input() isEdit = true;
+  @Input() openCardLabel = true;
   @Input() model: any;
 
   @Input()
@@ -104,7 +105,8 @@ export class ItemComponent implements OnInit {
   constructor(
     public container: ContainerComponent,
     public draggableDirective: DraggableDirective
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.data = {

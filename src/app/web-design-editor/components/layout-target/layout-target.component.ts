@@ -1,4 +1,7 @@
 import {
+  EditorStoreService
+} from '../../services/editor-store.service';
+import {
   Component,
   OnInit,
   Input,
@@ -12,6 +15,12 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class LayoutTargetComponent implements OnInit {
+
+  @Input()
+  isEdit = true;
+
+  @Input()
+  openCardLabel = true;
 
   @Input()
   model;

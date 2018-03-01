@@ -23,14 +23,81 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
 }
+
 .gu-moved {
   background-color: #e74c3c;
 }
 
 .gu-over {
-  background-color: rgba(255, 0, 0, 0.15) !important;
-
+  background-color: rgba(254, 190, 190, 1) !important;
   border-color: #e74c3c !important;
-
 }
 
+.design-editor {
+  border: 1px solid #d4d4d4;
+  margin:-1px;
+  min-height: 420px;
+  background-color: rgb(43, 43, 43);
+  position: relative;
+  overflow: hidden;
+&.openSilder>.silder {
+  display: block;
+}
+
+&.openSilder>.wraper {
+  right: 240px;
+}
+
+
+  >.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: 32px;
+    height: 46px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #d4d4d4;
+    background-color: #fafafa;
+    background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+    background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+    background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+    background-repeat: repeat-x;
+
+  }
+  >.silder {
+    position: absolute;
+    display: none;
+    z-index: 3;
+    top: 46px;
+    bottom: 24px;
+    right: 0;
+    width: 240px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .95);
+  }
+  >.wraper {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    overflow: auto;
+    padding:20px 20px 0 20px;
+    >app-layout-code {
+    }
+    >app-layout-target {
+    }
+  }
+  >.footer {
+    position: absolute;
+    line-height: 24px;
+    height: 24px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(30, 30, 30);
+  }
+}

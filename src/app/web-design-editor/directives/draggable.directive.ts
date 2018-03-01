@@ -89,7 +89,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   @HostListener('click', ['$event'])
   onclick() {
-    console.log('11111',this);
+    console.log('11111', this);
   }
 
   ngOnInit(): void {
@@ -122,20 +122,28 @@ export class DraggableDirective implements OnInit, OnDestroy {
   }
 
   canMove(source ? : any, handle ? : any, sibling ? : any): boolean {
-    if (typeof this._moves === 'boolean') return this._moves;
-    if (typeof this._moves === 'function') return this._moves(this.model, source, handle, sibling);
+    if (typeof this._moves === 'boolean') {
+      return this._moves;
+    }
+    if (typeof this._moves === 'function') {
+      return this._moves(this.model, source, handle, sibling);
+    }
     return true;
   }
 
   moves(source: any, handle: any, sibling: any): boolean {
-    if (!this.canMove(source, handle, sibling)) return false;
+    if (!this.canMove(source, handle, sibling)) {
+      return false
+    };
 
     return this.hasHandle ?
       this.handles.some(h => handelFor(handle, h)) :
       true;
 
     function handelFor(c: any, p: any) {
-      if (c === p) return true;
+      if (c === p) {
+        return true;
+      }
       while ((c = c.parentNode) && c !== p); // tslint:disable-line
       return !!c;
     }

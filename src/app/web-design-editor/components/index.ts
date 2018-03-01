@@ -8,3 +8,5 @@ export * from './layout-source/layout-source.component';
 export * from './layout-target/layout-target.component';
 // 区域：编辑源码
 export * from './layout-code/layout-code.component';
+// 区域：工具栏
+export * from './layout-toolbar/layout-toolbar.component';

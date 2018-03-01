@@ -29,6 +29,7 @@ function getNextId() {
 })
 export class ContainerComponent implements OnInit, AfterViewInit {
   @Input() model: any;
+  @Input() openCardLabel = true;
   @Input() isEdit = true;
   @Input() copy = false;
   @Input() removeOnSpill = false;
