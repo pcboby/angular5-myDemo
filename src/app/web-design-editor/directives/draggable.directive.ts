@@ -36,10 +36,15 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   @Input('isEdit') _isEdit = true;
 
+
   handles: any[] = [];
 
   get hasHandle() {
     return !!this.handles.length;
+  }
+
+  get selected() {
+    return this.drakesService.selectorEvent(this);
   }
 
   @Output()
@@ -92,9 +97,8 @@ export class DraggableDirective implements OnInit, OnDestroy {
   onclick(e: Event) {
     if (this._isEdit) {
       e.stopPropagation();
-      clearTimeout(this.touchTimeout);
-      console.log('onClick', this);
       this.drakesService.registerSelector(this);
+      console.log(this);
     }
   }
 

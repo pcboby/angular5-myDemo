@@ -79,6 +79,10 @@ export class ItemComponent implements OnInit {
     return !this.draggableDirective.canMove();
   }
 
+  get selected(): boolean {
+    return this.draggableDirective.selected;
+  }
+
   @HostBinding('class')
   get classString() {
     const itemClass = (typeof this.droppableItemClass === 'function') ?
@@ -91,6 +95,9 @@ export class ItemComponent implements OnInit {
     }
     if (this.hasHandle) {
       classes.push('has-handle');
+    }
+    if (this.selected) {
+      classes.push('gu-selected');
     }
     return classes.join(' ');
   }
@@ -105,8 +112,7 @@ export class ItemComponent implements OnInit {
   constructor(
     public container: ContainerComponent,
     public draggableDirective: DraggableDirective
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.data = {

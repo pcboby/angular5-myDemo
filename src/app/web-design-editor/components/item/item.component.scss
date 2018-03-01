@@ -13,6 +13,14 @@
     cursor: -moz-grab;
     cursor: -webkit-grab;
   }
+  &.gu-selected {
+    >.app-item-contents {
+      border-color: rgba(255, 156, 27, .9) !important;
+      >.app-item-contents-label {
+        background-color: rgba(255, 156, 27, .9);
+      }
+    }
+  }
   .app-content {
     user-select: none;
   } // &:hover {
@@ -21,7 +29,7 @@
   .app-item-contents {
     position: relative;
     &.openCardLabel {
-      border: 1px solid rgba(255, 156, 27, .9);
+      border: 2px solid rgba(27, 145, 255, 0.9);
       .app-item-contents-label {
         display: block;
       }
@@ -33,9 +41,9 @@
       margin-bottom: 1px;
       line-height: 1.5em;
       top: -1.75em;
-      left: -1px;
+      left: -2px;
       font-size: 9px;
-      background-color: rgba(255, 156, 27, .9);
+      background-color: rgba(27, 145, 255, 0.9);
       color: #fff;
     }
     .app-item-contents-toolbar {}

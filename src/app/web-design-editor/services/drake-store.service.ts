@@ -24,8 +24,11 @@ export class DrakeStoreService {
   }
 
   registerSelector(draggable: DraggableDirective) {
-    this.selectorMap = new WeakMap<any, DraggableDirective>();
+    this.selectorMap = new WeakMap < any, DraggableDirective > ();
     this.selectorMap.set(draggable.element, draggable);
+  }
+  selectorEvent(draggable: DraggableDirective): boolean {
+    return this.selectorMap.has(draggable.element);
   }
   register(droppable: DroppableDirective) {
     this.droppableMap.set(droppable.container, droppable);
