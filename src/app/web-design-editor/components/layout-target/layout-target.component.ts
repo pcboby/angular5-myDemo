@@ -16,17 +16,26 @@ import {
 })
 export class LayoutTargetComponent implements OnInit {
 
+  /**
+   * 接收/返回
+   * @memberof LayoutTargetComponent
+   */
   @Input()
   isEdit = true;
-
   @Input()
   showLabel = true;
-
   @Input()
   model;
-
   @Input()
   dropZone;
+
+  /**
+   * Creates an instance of LayoutTargetComponent.
+   * @memberof LayoutTargetComponent
+   */
+  constructor() {}
+
+  ngOnInit() {}
 
   droppableItemClass = (item: any) => `${item.class}`; //  ${item.type}
   getEditorValueBy(item: any, str: string) {
@@ -46,8 +55,5 @@ export class LayoutTargetComponent implements OnInit {
   log(e: any) {
     console.log(e.type, e);
   }
-  constructor() {}
-
-  ngOnInit() {}
 
 }

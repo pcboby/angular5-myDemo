@@ -37,7 +37,7 @@ export class DrakeStoreService {
 
   /**
    * 方法
-   * @param {DraggableDirective} draggable 
+   * @param {DraggableDirective} draggable
    * @memberof DrakeStoreService
    */
   registerSelect(draggable: DraggableDirective) {
@@ -113,10 +113,10 @@ export class DrakeStoreService {
       return false;
     };
 
-    const moves = (el ? : any, source ? : any, handle ? : any, sibling ? : any) => {
+    const moves = (el ?: any, source ?: any, handle ?: any, sibling ?: any) => {
       const elementComponent = this.draggableMap.get(el);
       if (elementComponent) {
-        return elementComponent.moves(source, handle, sibling);
+        return elementComponent.moving(source, handle, sibling);
       }
       return true;
     };

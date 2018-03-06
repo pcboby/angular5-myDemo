@@ -34,10 +34,10 @@ export class WebDesignEditorComponent implements OnInit {
    * @memberof WebDesignEditorComponent
    */
   @Input()
-  sourceModel:any;
+  sourceModel: any;
 
   @Input()
-  targetModel:any;
+  targetModel: any;
 
   // 集合：目标容器
   @Input()

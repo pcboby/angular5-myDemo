@@ -15,12 +15,6 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class LayoutToolbarComponent implements OnInit {
-  
-  // @Input() editorView = 'TAEGET'; // 'TAEGET' or 'CODE'
-  // @Input() openSilder = true;
-  // @Input() isEdit = true;
-  // @Input() showLabel = true;
-
 
   constructor(public editorService: EditorStoreService) {
   }

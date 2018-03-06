@@ -28,6 +28,8 @@ export class DraggableDirective implements OnInit, OnDestroy {
   dragDelay = 200; // milliseconds
   dragDelayed = true;
   touchTimeout: any;
+  _moves: any;
+  _isEdit = true;
   _dropZones: string[];
   _parentDropzones: string[];
   /**
@@ -47,9 +49,21 @@ export class DraggableDirective implements OnInit, OnDestroy {
     this._dropZones = val;
   }
   // 是否可移动
-  @Input('moves') _moves = true;
+  @Input()
+  get moves(): boolean {
+    return this._moves;
+  }
+  set moves(val: boolean) {
+    this._moves = true;
+  }
   // 是否可编辑
-  @Input('isEdit') _isEdit = true;
+  @Input()
+  get isEdit(): boolean {
+    return this._isEdit;
+  }
+  set isEdit(val: boolean) {
+    this._isEdit = true;
+  }
   @Output()
   drag: EventEmitter < any > = new EventEmitter < any > ();
 
@@ -96,8 +110,8 @@ export class DraggableDirective implements OnInit, OnDestroy {
   // 帧听点击
   @HostListener('click', ['$event'])
   onClick(e: Event) {
+    e.stopPropagation();
     if (this._isEdit) {
-      e.stopPropagation();
       this.drakesService.registerSelect(this);
     }
   }
@@ -144,7 +158,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
     }
   }
 
-  canMove(source ? : any, handle ? : any, sibling ? : any): boolean {
+  canMove(source ?: any, handle ?: any, sibling ?: any): boolean {
     if (typeof this._moves === 'boolean') {
       return this._moves;
     }
@@ -154,7 +168,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
     return true;
   }
 
-  moves(source: any, handle: any, sibling: any): boolean {
+  moving(source: any, handle: any, sibling: any): boolean {
     if (!this.canMove(source, handle, sibling)) {
       return false;
     }
