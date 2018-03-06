@@ -2,6 +2,9 @@ import {
   EditorStoreService
 } from './services/editor-store.service';
 import {
+  DrakeStoreService
+} from './services';
+import {
   Component,
   OnInit,
   Input,
@@ -17,12 +20,24 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class WebDesignEditorComponent implements OnInit {
-  // 列表：可选卡片源
+
+  /**
+   * 默认参数
+   * @memberof WebDesignEditorComponent
+   */
+
+
+
+
+  /**
+   * 接收/返回
+   * @memberof WebDesignEditorComponent
+   */
   @Input()
-  sourceModel;
+  sourceModel:any;
 
   @Input()
-  targetModel;
+  targetModel:any;
 
   // 集合：目标容器
   @Input()
@@ -32,8 +47,12 @@ export class WebDesignEditorComponent implements OnInit {
   dropZone = 'web-design-target';
 
 
-  constructor(public editorService: EditorStoreService) {
+
+  get selectModel() {
+    return this.drakeService.selectModel();
   }
+
+  constructor(public editorService: EditorStoreService, public drakeService: DrakeStoreService) {}
 
   ngOnInit() {}
 

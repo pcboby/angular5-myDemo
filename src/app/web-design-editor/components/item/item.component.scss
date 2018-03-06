@@ -28,8 +28,8 @@
   // }
   .app-item-contents {
     position: relative;
-    &.openCardLabel {
-      border: 2px solid rgba(27, 145, 255, 0.9);
+    border: 2px solid rgba(27, 145, 255, 0.9);
+    &.showLabel {
       .app-item-contents-label {
         display: block;
       }
@@ -38,7 +38,7 @@
       position: absolute;
       display: none;
       padding: .125em .5em;
-      margin-bottom: 1px;
+      margin-top: -2px;
       line-height: 1.5em;
       top: -1.75em;
       left: -2px;

@@ -7,10 +7,14 @@
     <button class="btn btn-sm btn-outline-primary" (click)="editorService.openSilder=!editorService.openSilder">
       {{editorService.openSilder?'close silder':'open silder'}}</button>
   </div>
+  <!-- <div class="btn-group">
+    <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.protoView" btnRadio="SOURCE">Cards</button>
+    <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.protoView" btnRadio="ATTRIB">Attrib</button>
+  </div> -->
   <div class="btn-group">
     <button class="btn btn-sm btn-outline-primary" (click)="editorService.isEdit=!editorService.isEdit">
       {{editorService.isEdit?'view mode':'eidtor mode'}}</button>
-    <button [disabled]="!editorService.isEdit" class="btn btn-sm btn-outline-primary" (click)="editorService.openCardLabel=!editorService.openCardLabel">
-      {{editorService.openCardLabel?'close label':'open label'}}</button>
+    <button [disabled]="!editorService.isEdit" class="btn btn-sm btn-outline-primary" (click)="editorService.showLabel=!editorService.showLabel">
+      {{editorService.showLabel?'close card label':'open card label'}}</button>
   </div>
 </div>

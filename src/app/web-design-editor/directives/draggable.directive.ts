@@ -20,10 +20,25 @@ import {
   selector: '[appDraggable]'
 })
 export class DraggableDirective implements OnInit, OnDestroy {
-
+  /**
+   * 默认参数
+   * @memberof DraggableDirective
+   */
+  handles: any[] = [];
+  dragDelay = 200; // milliseconds
+  dragDelayed = true;
+  touchTimeout: any;
+  _dropZones: string[];
+  _parentDropzones: string[];
+  /**
+   * 接收/返回
+   * @memberof DraggableDirective
+   */
+  // 移动的卡片名称
   @Input() appDraggable: string[];
+  // 卡片数据
   @Input() model: any;
-
+  // 设置/获取容器
   @Input()
   get dropZones(): any {
     return this._dropZones || this.appDraggable || this._parentDropzones;
@@ -31,43 +46,29 @@ export class DraggableDirective implements OnInit, OnDestroy {
   set dropZones(val: any) {
     this._dropZones = val;
   }
-
+  // 是否可移动
   @Input('moves') _moves = true;
-
+  // 是否可编辑
   @Input('isEdit') _isEdit = true;
-
-
-  handles: any[] = [];
-
-  get hasHandle() {
-    return !!this.handles.length;
-  }
-
-  get selected() {
-    return this.drakesService.selectorEvent(this);
-  }
-
   @Output()
   drag: EventEmitter < any > = new EventEmitter < any > ();
 
-  dragDelay = 200; // milliseconds
-  dragDelayed = true;
 
-  touchTimeout: any;
+  // 是否有独立的拖动区
+  get hasHandle() {
+    return !!this.handles.length;
+  }
+  // 是否被选中
+  get isSelected() {
+    return this.drakesService.selectTrace(this);
+  }
 
+  // 返回卡对像
   get element(): any {
     return this.el.nativeElement;
   }
 
-  _dropZones: string[];
-  _parentDropzones: string[];
-
-  constructor(
-    private el: ElementRef,
-    private drakesService: DrakeStoreService,
-    private droppableDirective: DroppableDirective,
-  ) {}
-
+  // 帧听移动
   @HostListener('touchmove', ['$event'])
   onMove(e: Event) {
     if (!this._moves || this.dragDelayed) {
@@ -75,7 +76,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
       clearTimeout(this.touchTimeout);
     }
   }
-
+  // 帧听按下并拖动
   @HostListener('touchstart', ['$event'])
   onDown() {
     if (this._moves) {
@@ -84,7 +85,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
       }, this.dragDelay);
     }
   }
-
+  // 帧听松开
   @HostListener('touchend', ['$event'])
   onUp() {
     if (this._moves) {
@@ -92,15 +93,27 @@ export class DraggableDirective implements OnInit, OnDestroy {
       this.dragDelayed = true;
     }
   }
-
+  // 帧听点击
   @HostListener('click', ['$event'])
-  onclick(e: Event) {
+  onClick(e: Event) {
     if (this._isEdit) {
       e.stopPropagation();
-      this.drakesService.registerSelector(this);
-      console.log(this);
+      this.drakesService.registerSelect(this);
     }
   }
+  /**
+   * Creates an instance of DraggableDirective.
+   * @param {ElementRef} el
+   * @param {DrakeStoreService} drakesService
+   * @param {DroppableDirective} droppableDirective
+   * @memberof DraggableDirective
+   */
+  constructor(
+    private el: ElementRef,
+    private drakesService: DrakeStoreService,
+    private droppableDirective: DroppableDirective,
+  ) {}
+
 
   ngOnInit(): void {
     this.update();
@@ -143,8 +156,8 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   moves(source: any, handle: any, sibling: any): boolean {
     if (!this.canMove(source, handle, sibling)) {
-      return false
-    };
+      return false;
+    }
 
     return this.hasHandle ?
       this.handles.some(h => handelFor(handle, h)) :
@@ -159,6 +172,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
     }
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck(): void {
     this.updateElements();
   }

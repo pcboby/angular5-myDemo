@@ -14,8 +14,8 @@ import {
 })
 export class LayoutSourceComponent implements OnInit {
 
-@Input()
-isEdit = true;
+  @Input()
+  isEdit = true;
 
   @Input()
   model;

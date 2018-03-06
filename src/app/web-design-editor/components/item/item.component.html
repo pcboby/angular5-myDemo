@@ -11,7 +11,7 @@
     <!-- 显示有卡片模板的 -->
     <ng-container *ngIf="container.template">
       <!-- 编辑状态显示的内容 -->
-      <div *ngIf="isEdit" class="app-item-contents" [ngClass]="{'openCardLabel':openCardLabel}">
+      <div *ngIf="isEdit" class="app-item-contents" [ngClass]="{'showLabel':showLabel}">
         <div class="app-item-contents-label">{{model.name}}</div>
         <ng-template [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
         </ng-template>

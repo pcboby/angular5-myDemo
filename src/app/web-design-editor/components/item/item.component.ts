@@ -20,10 +20,30 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class ItemComponent implements OnInit {
-  @Input() isEdit = true;
-  @Input() openCardLabel = true;
-  @Input() model: any;
 
+  /**
+   * 默认参数
+   *
+   * @memberof ItemComponent
+   */
+  _copy = false;
+  _dropZone: any;
+  _dropZones: any;
+  _droppableItemClass: any;
+  _removeOnSpill = false;
+  data: any;
+
+  /**
+   * 接收/返回参数
+   *
+   * @memberof ItemComponent
+   */
+  @Input() isEdit = true;
+  // 卡标签状态
+  @Input() showLabel = true;
+  // 卡数据
+  @Input() model: any;
+  // 目标容器
   @Input()
   get dropZone() {
     return this._dropZone || this.container.dropZone;
@@ -31,7 +51,7 @@ export class ItemComponent implements OnInit {
   set dropZone(val) {
     this._dropZone = val;
   }
-
+  // 来源容器
   @Input()
   get dropZones() {
     return this._dropZones || this.container.dropZones;
@@ -39,7 +59,7 @@ export class ItemComponent implements OnInit {
   set dropZones(val) {
     this._dropZones = val;
   }
-
+  // 放置后卡片的样式
   @Input()
   get droppableItemClass() {
     return this._droppableItemClass || this.container.droppableItemClass;
@@ -47,7 +67,7 @@ export class ItemComponent implements OnInit {
   set droppableItemClass(val) {
     this._droppableItemClass = val;
   }
-
+  // 是否能删除（移除）
   @Input()
   get removeOnSpill() {
     return typeof this._removeOnSpill === 'boolean' ? this._removeOnSpill : this.container.removeOnSpill;
@@ -55,7 +75,7 @@ export class ItemComponent implements OnInit {
   set removeOnSpill(val) {
     this._removeOnSpill = val;
   }
-
+  // 是否能复制到目标容器
   @Input()
   get copy() {
     return typeof this._copy === 'boolean' ? this._copy : this.container.copy;
@@ -64,25 +84,7 @@ export class ItemComponent implements OnInit {
     this._copy = val;
   }
 
-  _copy = false;
-  _dropZone: any;
-  _dropZones: any;
-  _droppableItemClass: any;
-  _removeOnSpill = false;
-  data: any;
-
-  get hasHandle(): boolean {
-    return this.draggableDirective.hasHandle;
-  }
-
-  get moveDisabled(): boolean {
-    return !this.draggableDirective.canMove();
-  }
-
-  get selected(): boolean {
-    return this.draggableDirective.selected;
-  }
-
+  // 梆定样式：根据当前不同的状态梆定样式
   @HostBinding('class')
   get classString() {
     const itemClass = (typeof this.droppableItemClass === 'function') ?
@@ -96,12 +98,25 @@ export class ItemComponent implements OnInit {
     if (this.hasHandle) {
       classes.push('has-handle');
     }
-    if (this.selected) {
+    if (this.isSelected) {
       classes.push('gu-selected');
     }
     return classes.join(' ');
   }
 
+  // 有单独的拖动区
+  get hasHandle(): boolean {
+    return this.draggableDirective.hasHandle;
+  }
+  // 是否禁止拖动
+  get moveDisabled(): boolean {
+    return !this.draggableDirective.canMove();
+  }
+  // 是否为选中
+  get isSelected(): boolean {
+    return this.draggableDirective.isSelected;
+  }
+  // 返回数据对像的类型：array表示卡集，object表示单卡
   get type() {
     if (Array.isArray(this.model)) {
       return 'array';
@@ -109,11 +124,12 @@ export class ItemComponent implements OnInit {
     return typeof this.model;
   }
 
+  // 初始
   constructor(
     public container: ContainerComponent,
     public draggableDirective: DraggableDirective
   ) {}
-
+  // 完成
   ngOnInit() {
     this.data = {
       model: this.model,

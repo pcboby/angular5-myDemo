@@ -16,7 +16,8 @@ import {
   LayoutSourceComponent,
   LayoutTargetComponent,
   LayoutCodeComponent,
-  LayoutToolbarComponent
+  LayoutToolbarComponent,
+  LayoutAttribComponent
 } from './components';
 import {
   DrakeStoreService
@@ -25,15 +26,22 @@ import {
   WebDesignEditorComponent
 } from './web-design-editor.component';
 import {
-  FormsModule, ReactiveFormsModule
+  FormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
-import { EditorStoreService } from './services/editor-store.service';
-import { ButtonsModule } from 'ngx-bootstrap';
+import {
+  EditorStoreService
+} from './services/editor-store.service';
+import {
+  ButtonsModule,
+  TabsModule
+} from 'ngx-bootstrap';
 const modules = [
   FormsModule,
   CommonModule,
   ReactiveFormsModule,
-  ButtonsModule.forRoot()
+  ButtonsModule.forRoot(),
+  TabsModule.forRoot()
 ];
 const components = [
   WebDesignEditorComponent,
@@ -41,6 +49,7 @@ const components = [
   ItemComponent,
   LayoutToolbarComponent,
   LayoutSourceComponent,
+  LayoutAttribComponent,
   LayoutTargetComponent,
   LayoutCodeComponent
 ];
@@ -48,6 +57,9 @@ const directives = [
   DraggableDirective,
   DroppableDirective,
   DragHandleDirective
+];
+const services = [
+  EditorStoreService, DrakeStoreService
 ];
 
 @NgModule({
@@ -62,6 +74,8 @@ const directives = [
     ...components,
     ...directives
   ],
-  providers: [EditorStoreService, DrakeStoreService]
+  providers: [
+    ...services
+  ]
 })
 export class WebDesignEditorModule {}

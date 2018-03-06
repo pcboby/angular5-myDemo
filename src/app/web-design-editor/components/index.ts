@@ -4,6 +4,8 @@ export * from './container/container.component';
 export * from './item/item.component';
 // 区域：可选卡片
 export * from './layout-source/layout-source.component';
+// 区域：卡片属性
+export * from './layout-attrib/layout-attrib.component';
 // 区域：编辑内容
 export * from './layout-target/layout-target.component';
 // 区域：编辑源码

@@ -2,7 +2,7 @@
   class='app-container-contents'>
   <ng-container *ngIf="model">
     <ng-container *ngFor="let item of model">
-      <app-item appDraggable [(isEdit)]="isEdit" [openCardLabel]="openCardLabel" [model]="item" [dropZone]="dropZone" [dropZones]="dropZones" [copy]="copy" [moves]="moves"
+      <app-item appDraggable [isEdit]="isEdit" [showLabel]="showLabel" [model]="item" [dropZone]="dropZone" [dropZones]="dropZones" [copy]="copy" [moves]="moves"
         [removeOnSpill]="removeOnSpill" [droppableItemClass]="droppableItemClass">
       </app-item>
     </ng-container>

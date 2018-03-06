@@ -1,3 +1,7 @@
+/**
+GLOBEL CSS
+**/
+
 .gu-unselectable {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
@@ -33,22 +37,23 @@
   border-color: #e74c3c !important;
 }
 
+/**
+DESIGN EDITOR CSS
+**/
+
 .design-editor {
   border: 1px solid #d4d4d4;
-  margin:-1px;
+  margin: -1px;
   min-height: 420px;
   background-color: rgb(43, 43, 43);
   position: relative;
   overflow: hidden;
-&.openSilder>.silder {
-  display: block;
-}
-
-&.openSilder>.wraper {
-  right: 240px;
-}
-
-
+  &.openSilder>.silder {
+    display: block;
+  }
+  &.openSilder>.wraper {
+    right: 240px;
+  }
   >.header {
     position: absolute;
     top: 0;
@@ -65,7 +70,6 @@
     background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
     background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
     background-repeat: repeat-x;
-
   }
   >.silder {
     position: absolute;
@@ -75,8 +79,54 @@
     bottom: 24px;
     right: 0;
     width: 240px;
-    padding: 10px;
     background-color: rgba(255, 255, 255, .95);
+    border-left: 1px solid #d4d4d4;
+    >.silder-header {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        list-style-type: none;
+        display: flex;
+        border-bottom: 1px solid #d4d4d4;
+      }
+      ul li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        list-style-type: none;
+        flex: 1;
+        text-align: center;
+        line-height: 24px;
+        &.active {
+          border-left: 1px solid #d4d4d4;
+          border-right: 1px solid #d4d4d4;
+          background-color: #fff;
+          margin-bottom: -1px;
+        }
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+        >a {
+          display: block;
+          padding: 4px;
+          cursor: default;
+        }
+      }
+    }
+    >.silder-wraper {
+      position: absolute;
+      padding: 10px;
+      top: 33px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: auto;
+      background-color: #fff;
+    }
   }
   >.wraper {
     position: absolute;
@@ -85,11 +135,9 @@
     right: 0;
     bottom: 24px;
     overflow: auto;
-    padding:20px 20px 0 20px;
-    >app-layout-code {
-    }
-    >app-layout-target {
-    }
+    padding: 20px 20px 0 20px;
+    >app-layout-code {}
+    >app-layout-target {}
   }
   >.footer {
     position: absolute;
@@ -100,4 +148,9 @@
     right: 0;
     background-color: rgb(30, 30, 30);
   }
+}
+
+.design-editor-silder-tab {
+  height: 100%;
+  background-color: red;
 }

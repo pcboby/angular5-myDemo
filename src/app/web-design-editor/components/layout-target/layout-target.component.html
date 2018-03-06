@@ -1,4 +1,4 @@
-<app-container class="target-container" [isEdit]="isEdit" [openCardLabel]="openCardLabel" [moves]="isEdit" [model]="model" [dropZone]="dropZone" [removeOnSpill]="true" (drag)="log($event)"
+<app-container class="target-container" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [model]="model" [dropZone]="dropZone" [removeOnSpill]="true" (drag)="log($event)"
   (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
 
   <ng-template let-model="model" let-template="template">
@@ -8,14 +8,14 @@
         <div class="card">
           <div class="card-header">{{getEditorValueBy(model,'cardTitle')}}</div>
           <div class="card-body">
-            <app-container [isEdit]="isEdit" [openCardLabel]="openCardLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.children" [removeOnSpill]="true" [template]="template" (drag)="log($event)"
+            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.children" [removeOnSpill]="true" [template]="template" (drag)="log($event)"
               (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
             </app-container>
           </div>
         </div>
       </ng-container>
       <!-- card: form-input-group -->
-      <ng-container *ngSwitchCase="'form-input-control'">
+      <ng-container *ngSwitchCase="'form-group'">
         <div class="form-group row">
           <label class="col-sm-4 col-form-label text-right">{{getEditorValueBy(model,'inputLabel')}}</label>
           <div class="col-sm-8">
@@ -29,7 +29,7 @@
         <!-- <input [type]="model.type" [name]="model.name" [autofocus]="false" [ngModel]="model.data"> -->
         <div class="alert alert-danger" style="margin-bottom: 0;">
           <h5>Error [{{model.code}}]</h5>
-           <p>the cards is removed or reset version, please show it in cards market!</p>
+           <p>the cards is offline or reset version, please show it in card-market and reset it ! the error card is not showed in product place.</p>
         </div>
       </ng-container>
       </ng-container>

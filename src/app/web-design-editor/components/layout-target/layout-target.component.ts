@@ -20,7 +20,7 @@ export class LayoutTargetComponent implements OnInit {
   isEdit = true;
 
   @Input()
-  openCardLabel = true;
+  showLabel = true;
 
   @Input()
   model;

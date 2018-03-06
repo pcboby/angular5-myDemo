@@ -28,8 +28,20 @@ function getNextId() {
   encapsulation: ViewEncapsulation.None
 })
 export class ContainerComponent implements OnInit, AfterViewInit {
+  /**
+   * 默认参数
+   *
+   * @memberof ContainerComponent
+   */
+  _dropZones: string[];
+  _defaultZones: string[];
+  /**
+   * 接收/返回参数
+   *
+   * @memberof ContainerComponent
+   */
   @Input() model: any;
-  @Input() openCardLabel = true;
+  @Input() showLabel = true;
   @Input() isEdit = true;
   @Input() copy = false;
   @Input() removeOnSpill = false;
@@ -77,8 +89,6 @@ export class ContainerComponent implements OnInit, AfterViewInit {
   @Output()
   cancel: EventEmitter < any > = new EventEmitter < any > ();
 
-  _dropZones: string[];
-  _defaultZones: string[];
 
   ngOnInit() {
     this._defaultZones = [this.dropZone];
