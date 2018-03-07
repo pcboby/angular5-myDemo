@@ -9,55 +9,60 @@ import {
   styleUrls: ['./wd-editor.component.css']
 })
 export class WdEditorComponent implements OnInit {
-  targetData: any[] = [
-    {
+  targetData: any[] = [{
     name: 'container-card',
     code: 'container-card',
-    cardTitle: '',
     icon: 'fa fa-tag',
     class: 'wide',
+    options: {
+      title: ''
+    },
     editors: [{
-      key: 'cardTitle',
+      key: 'title',
       type: 'text',
       value: 'example title'
     }],
     children: [{
-      name: 'form-group',
-      code: 'form-group',
+      name: 'control-input-group',
+      code: 'control-input-group',
       class: 'half',
-      inputType: 'text',
-      inputLabel: '',
-      inputPlaceholder: 'please input in here.',
+      options: {
+        type: 'text',
+        label: '',
+        placeholder: 'please input in here.'
+      },
       editors: [{
-        key: 'inputLabel',
+        key: 'label',
         type: 'text',
         value: '帐号'
       }, {
-        key: 'inputPlaceholder',
+        key: 'placeholder',
         type: 'text',
         value: '帐号/用户名/邮箱'
       }, {
-        key: 'inputType',
+        key: 'type',
         type: 'text',
         value: 'text'
       }]
     }, {
-      name: 'form-group',
-      code: 'form-group',
+      name: 'control-input-group',
+      code: 'control-input-group',
       class: 'half',
-      inputType: 'text',
-      inputLabel: '',
-      inputPlaceholder: 'please input in here.',
+      options: {
+        type: 'text',
+        label: '',
+        placeholder: 'please input in here.'
+      },
       editors: [{
-        key: 'inputLabel',
+        key: 'label',
         type: 'text',
         value: '密码'
       }, {
-        key: 'inputPlaceholder',
+        key: 'placeholder',
         type: 'text',
         value: '请在这里输入密码'
       }, {
-        key: 'inputType',
+        key: 'type',
         type: 'text',
         value: 'password'
       }]
@@ -65,39 +70,75 @@ export class WdEditorComponent implements OnInit {
   }, {
     name: 'XXX-card',
     code: 'XXX-card'
-  }
-];
+  }];
   sourceData: any[] = [{
-      name: 'container-card',
-      code: 'container-card',
-      cardTitle: '',
+      name: 'container-column',
+      code: 'container-column',
       icon: 'fa fa-tag',
       class: 'wide',
+      options: {
+        colCls: 'col-6'
+      },
       editors: [{
-        key: 'cardTitle',
+        key: 'colCls',
+        type: 'text',
+        value: ''
+      }],
+      children: [
+        [],
+        []
+      ]
+    },
+    {
+      name: 'container-card',
+      code: 'container-card',
+      icon: 'fa fa-tag',
+      class: 'wide',
+      options: {
+        title: '',
+
+      },
+      editors: [{
+        key: 'title',
         type: 'text',
         value: ''
       }],
       children: []
     },
     {
-      name: 'form-group',
-      code: 'form-group',
+      name: 'control-input-group',
+      code: 'control-input-group',
       class: 'half',
       icon: 'fa fa-tag',
-      inputType: 'text',
-      inputLabel: '',
-      inputPlaceholder: 'please input in here.',
+      options: {
+        type: 'text',
+        label: '',
+        placeholder: 'please input in here.'
+
+      },
       editors: [{
-        key: 'inputLabel',
+        key: 'label',
         type: 'text',
         value: ''
       }, {
-        key: 'inputPlaceholder',
+        key: 'placeholder',
         type: 'text',
         value: ''
       }, {
-        key: 'inputType',
+        key: 'type',
+        type: 'text',
+        value: ''
+      }]
+    }, {
+      name: 'control-iframe',
+      code: 'control-iframe',
+      class: 'ifrmae',
+      icon: 'fa fa-tag',
+      options: {
+        src: 'about:blank'
+      },
+      editors: [{
+        key: 'src',
         type: 'text',
         value: ''
       }]

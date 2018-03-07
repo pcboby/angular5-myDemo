@@ -12,7 +12,7 @@
     <ng-container *ngIf="container.template">
       <!-- 编辑状态显示的内容 -->
       <div *ngIf="isEdit" class="app-item-contents" [ngClass]="{'showLabel':showLabel}">
-        <div class="app-item-contents-label">{{model.name}}</div>
+        <div class="app-item-contents-label"><span>{{model.name}}</span></div>
         <ng-template [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
         </ng-template>
       </div>

@@ -54,7 +54,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
     return this._moves;
   }
   set moves(val: boolean) {
-    this._moves = true;
+    this._moves = val;
   }
   // 是否可编辑
   @Input()
@@ -62,7 +62,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
     return this._isEdit;
   }
   set isEdit(val: boolean) {
-    this._isEdit = true;
+    this._isEdit = val;
   }
   @Output()
   drag: EventEmitter < any > = new EventEmitter < any > ();

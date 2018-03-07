@@ -39,7 +39,7 @@ export class LayoutTargetComponent implements OnInit {
 
   droppableItemClass = (item: any) => `${item.class}`; //  ${item.type}
   getEditorValueBy(item: any, str: string) {
-    if (item.editors) {
+    if (item.options && item.editors) {
       for (let i = 0; i < item.editors.length; i++) {
         const e = item.editors[i];
         if (e.key === str) {
@@ -50,7 +50,7 @@ export class LayoutTargetComponent implements OnInit {
         }
       }
     }
-    return item[str] || '{' + str + '}';
+    return item.options[str] || '{' + str + '}';
   }
   log(e: any) {
     console.log(e.type, e);

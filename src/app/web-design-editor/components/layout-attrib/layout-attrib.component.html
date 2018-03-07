@@ -3,10 +3,13 @@
   <div *ngIf="model.code">
     <div *ngIf="!model.editors">当前卡无属性项</div>
     <div *ngIf="model.editors">
-      <div class="form-group" *ngFor="let item of model.editors">
-        <label>{{item.key}}</label>
-        <input type="{{item.inputType || 'text'}}" [ngModel]="item.value">
+      <div class="form-group" *ngFor="let editor of model.editors">
+        <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
+        <input type="{{editor.inputType || 'text'}}" class="form-control form-control-sm" [(ngModel)]="editor.value">
       </div>
     </div>
+    <!-- <pre>
+        {{model | json}}
+      </pre> -->
   </div>
 </div>
