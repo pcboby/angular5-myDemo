@@ -1,6 +1,6 @@
 <div>
-  <div *ngIf="!model">尚未选中卡片</div>
-  <div *ngIf="model">
+  <div *ngIf="!model.code">尚未选中卡片</div>
+  <div *ngIf="model.code">
     <div *ngIf="!model.editors">当前卡无属性项</div>
     <div *ngIf="model.editors">
       <div class="form-group" *ngFor="let editor of model.editors">

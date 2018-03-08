@@ -16,7 +16,7 @@ export class DrakeStoreService {
    * 默认参数
    * @memberof DrakeStoreService
    */
-  public selectEl: any;
+  private selectEl: any;
   private selectMap = new WeakMap < any, DraggableDirective > ();
   // 容器集
   private droppableMap = new WeakMap < any, DroppableDirective > ();
@@ -43,6 +43,7 @@ export class DrakeStoreService {
   registerSelect(draggable: DraggableDirective) {
     this.selectClear();
     this.selectEl = draggable.element;
+    // console.log('@@@@',this.selectEl);
     this.selectMap.set(this.selectEl, draggable);
   }
   selectClear() {
@@ -53,28 +54,21 @@ export class DrakeStoreService {
   selectTrace(draggable: DraggableDirective): boolean {
     return this.selectMap.has(draggable.element);
   }
+  // 获取当前选中的内容
   selectModel() {
     if (this.selectEl) {
       return this.selectMap.get(this.selectEl).model;
     }
-    return null;
+    return {};
   }
-  // 获取当前选中的内容
-  // selectorModel() {
-  //   if (this.selectEl) {
-
-  //     const item = this.selectMap.get(this.selectEl);
-  //     return item.model;
-  //   }
-  //   return;
-  // }
   // 注册容器
-  register(droppable: DroppableDirective) {
+  registerDroppable(droppable: DroppableDirective) {
     this.droppableMap.set(droppable.container, droppable);
     this.drake.containers.push(droppable.container);
   }
   // 移除容器
-  remove(droppable: DroppableDirective) {
+  removeDroppable(droppable: DroppableDirective) {
+    // console.log('$$$removeDroppable');
     this.droppableMap.delete(droppable.container);
     const idx = this.drake.containers.indexOf(droppable.container);
     if (idx > -1) {
@@ -88,8 +82,11 @@ export class DrakeStoreService {
   }
   // 移除卡
   removeDraggable(draggable: DraggableDirective) {
-    // console.log('do removeDraggable', draggable);
+    console.log('$$$removeDraggable');
     this.draggableMap.delete(draggable.element);
+    if (this.selectTrace(draggable)) {
+      this.selectClear();
+    }
   }
   // 初始化组件参数
   createDrakeOptions(): dragula.DragulaOptions {
@@ -115,6 +112,7 @@ export class DrakeStoreService {
 
     const moves = (el ?: any, source ?: any, handle ?: any, sibling ?: any) => {
       const elementComponent = this.draggableMap.get(el);
+      // console.log('######',elementComponent);
       if (elementComponent) {
         return elementComponent.moving(source, handle, sibling);
       }

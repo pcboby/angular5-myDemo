@@ -90,7 +90,7 @@ export class DroppableDirective implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     this.defaultZone = `@@DefaultDropZone-${getNextId()}@@`;
-    this.drakesService.register(this);
+    this.drakesService.registerDroppable(this);
   }
 
   ngAfterViewInit(): void {
@@ -117,6 +117,6 @@ export class DroppableDirective implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.drakesService.remove(this);
+    this.drakesService.removeDroppable(this);
   }
 }

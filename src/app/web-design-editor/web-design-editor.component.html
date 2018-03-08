@@ -5,22 +5,22 @@
   <div class="silder">
     <div class="silder-header">
       <ul>
-        <li [ngClass]="{'active':editorService.protoView=='SOURCE'}">
-          <a (click)="editorService.protoView='SOURCE'">Cards</a>
+        <li [ngClass]="{'active':editorService.optionMode=='SOURCE'}">
+          <a (click)="editorService.optionMode='SOURCE'">Cards</a>
         </li>
-        <li [ngClass]="{'active':editorService.protoView=='ATTRIB'}">
-          <a (click)="editorService.protoView='ATTRIB'">Prototype</a>
+        <li [ngClass]="{'active':editorService.optionMode=='ATTRIB'}">
+          <a (click)="editorService.optionMode='ATTRIB'">Attribs</a>
         </li>
       </ul>
     </div>
     <div class="silder-wraper">
-      <app-layout-source *ngIf="editorService.protoView=='SOURCE'" [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
-      <app-layout-attrib *ngIf="editorService.protoView=='ATTRIB'" [model]="selectModel"></app-layout-attrib>
+      <app-layout-source *ngIf="editorService.optionMode=='SOURCE'" [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
+      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="selectModel"></app-layout-attrib>
     </div>
   </div>
   <div class="wraper">
-    <app-layout-code *ngIf="editorService.editorView=='CODE'" [model]="targetModel"></app-layout-code>
-    <app-layout-target *ngIf="editorService.editorView=='TAEGET'" [model]="targetModel" [dropZone]="dropZone" [isEdit]="editorService.isEdit"
+    <app-layout-code *ngIf="editorService.displayMode=='CODE'" [model]="targetModel"></app-layout-code>
+    <app-layout-target *ngIf="editorService.displayMode=='TAEGET'" [model]="targetModel" [dropZone]="dropZone" [isEdit]="editorService.isEdit"
       [showLabel]="editorService.showLabel"></app-layout-target>
   </div>
   <div class="footer"></div>

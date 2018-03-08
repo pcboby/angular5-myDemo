@@ -7,10 +7,14 @@
     </p> -->
   </div>
 </div>
-
 <div class="card mb-3">
   <div class="card-header">editor target view example</div>
   <div class="card-body">
     <app-layout-target [model]="targetData" [isEdit]="false"></app-layout-target>
+  </div>
+</div><div class="card mb-3">
+  <div class="card-header">editor code view example</div>
+  <div class="card-body">
+    <pre>{{targetData | json}}</pre>
   </div>
 </div>
