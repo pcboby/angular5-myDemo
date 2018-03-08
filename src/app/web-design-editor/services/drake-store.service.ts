@@ -57,7 +57,7 @@ export class DrakeStoreService {
     if (this.selectEl) {
       return this.selectMap.get(this.selectEl).model;
     }
-    return {};
+    return null;
   }
   // 获取当前选中的内容
   // selectorModel() {

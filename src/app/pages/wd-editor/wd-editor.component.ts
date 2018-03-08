@@ -22,7 +22,7 @@ export class WdEditorComponent implements OnInit {
       type: 'text',
       value: 'example title'
     }],
-    children: [{
+    contents: [{
       name: 'control-input-group',
       code: 'control-input-group',
       class: 'half',
@@ -77,14 +77,14 @@ export class WdEditorComponent implements OnInit {
       icon: 'fa fa-tag',
       class: 'wide',
       options: {
-        colCls: 'col-6'
+        columnClass: 'col-6'
       },
       editors: [{
-        key: 'colCls',
+        key: 'columnClass',
         type: 'text',
         value: ''
       }],
-      children: [
+      contents: [
         [],
         []
       ]
@@ -103,7 +103,7 @@ export class WdEditorComponent implements OnInit {
         type: 'text',
         value: ''
       }],
-      children: []
+      contents: []
     },
     {
       name: 'control-input-group',

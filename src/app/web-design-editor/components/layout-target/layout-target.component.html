@@ -6,8 +6,8 @@
       <!-- card: container-column -->
       <ng-container *ngSwitchCase="'container-column'">
         <div class="row" style="padding:1.25em;">
-          <div [class]="getEditorValueBy(model,'colCls')" *ngFor="let column of model.children">
-            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="column"
+          <div [class]="getEditorValueBy(model,'columnClass')" *ngFor="let content of model.contents">
+            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content"
               [removeOnSpill]="true" [template]="template" (drag)="log($event)" (drop)="log($event)" (over)="log($event)" (out)="log($event)"
               (remove)="log($event)">
             </app-container>
@@ -19,7 +19,7 @@
         <div class="card">
           <div class="card-header">{{getEditorValueBy(model,'title')}}</div>
           <div class="card-body">
-            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.children"
+            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.contents"
               [removeOnSpill]="true" [template]="template" (drag)="log($event)" (drop)="log($event)" (over)="log($event)" (out)="log($event)"
               (remove)="log($event)">
             </app-container>
