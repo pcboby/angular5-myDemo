@@ -16,8 +16,7 @@ export class DrakeStoreService {
    * 默认参数
    * @memberof DrakeStoreService
    */
-  private selectEl: any;
-  private selectMap = new WeakMap < any, DraggableDirective > ();
+  public selectModel: any = {};
   // 容器集
   private droppableMap = new WeakMap < any, DroppableDirective > ();
   // 卡片集
@@ -40,35 +39,27 @@ export class DrakeStoreService {
    * @param {DraggableDirective} draggable
    * @memberof DrakeStoreService
    */
-  registerSelect(draggable: DraggableDirective) {
-    this.selectClear();
-    this.selectEl = draggable.element;
-    // console.log('@@@@',this.selectEl);
-    this.selectMap.set(this.selectEl, draggable);
-  }
-  selectClear() {
-    this.selectEl = null;
-    this.selectMap = new WeakMap < any, DraggableDirective > ();
-  }
-  // 选中内容测试
-  selectTrace(draggable: DraggableDirective): boolean {
-    return this.selectMap.has(draggable.element);
-  }
-  // 获取当前选中的内容
-  selectModel() {
-    if (this.selectEl) {
-      return this.selectMap.get(this.selectEl).model;
-    }
-    return {};
-  }
+  // registerSelect(draggable: DraggableDirective) {
+  //   this.selectModel = draggable.model;
+  // }
+  // revomeSelect(draggable: DraggableDirective) {
+  //   if (this.hasSelect(draggable)) {
+  //     this.selectModel = {};
+  //   }
+  // }
+  // 选中的内容中是否包含
+  // hasSelect(draggable: DraggableDirective): boolean {
+  //   return this.selectModel === draggable.model;
+  // }
   // 注册容器
   registerDroppable(droppable: DroppableDirective) {
+    // console.log('$$$registerDroppable',droppable);
     this.droppableMap.set(droppable.container, droppable);
     this.drake.containers.push(droppable.container);
   }
   // 移除容器
   removeDroppable(droppable: DroppableDirective) {
-    // console.log('$$$removeDroppable');
+    // console.log('$$$removeDroppable',droppable);
     this.droppableMap.delete(droppable.container);
     const idx = this.drake.containers.indexOf(droppable.container);
     if (idx > -1) {
@@ -77,16 +68,13 @@ export class DrakeStoreService {
   }
   // 注册卡
   registerDraggable(draggable: DraggableDirective) {
-    // console.log('do registerDraggable', draggable);
+    // console.log('$$$registerDraggable', draggable);
     this.draggableMap.set(draggable.element, draggable);
   }
   // 移除卡
   removeDraggable(draggable: DraggableDirective) {
-    console.log('$$$removeDraggable');
+    // console.log('$$$removeDraggable');
     this.draggableMap.delete(draggable.element);
-    if (this.selectTrace(draggable)) {
-      this.selectClear();
-    }
   }
   // 初始化组件参数
   createDrakeOptions(): dragula.DragulaOptions {
@@ -132,7 +120,7 @@ export class DrakeStoreService {
     let draggedItem: any;
     // 当移动卡片时回调
     this.drake.on('drag', (el: any, source: any) => {
-      // console.log('drakeOnDrag');
+      console.log('drakeOnDrag');
       draggedItem = undefined;
       dragElm = el;
 
@@ -142,6 +130,7 @@ export class DrakeStoreService {
 
       if (this.draggableMap.has(el)) {
         const elementComponent = this.draggableMap.get(el);
+
         draggedItem = elementComponent.model;
 
         elementComponent.drag.emit({
@@ -167,7 +156,7 @@ export class DrakeStoreService {
     });
     // 卡片放下（松开鼠标键时）时回调
     this.drake.on('drop', (el: any, target: any, source: any) => {
-      // console.log('drakeOnDrop');
+      console.log('drakeOnDrop');
       if (this.droppableMap.has(target)) {
         const targetComponent = this.droppableMap.get(target);
         let dropElmModel = draggedItem;
@@ -216,12 +205,15 @@ export class DrakeStoreService {
 
     // 删除卡片时回调
     this.drake.on('remove', (el: any, container: any, source: any) => {
-      // console.log('drakeOnRemove');
       if (this.droppableMap.has(source)) {
         const sourceComponent = this.droppableMap.get(source);
         const sourceModel = sourceComponent.model;
 
         const dragIndex = (draggedItem && sourceModel) ? sourceModel.indexOf(draggedItem) : -1;
+
+        if (draggedItem===this.selectModel){
+          this.selectModel = {};
+        }
 
         if (dragIndex > -1) {
           if (el.parentNode !== source) {

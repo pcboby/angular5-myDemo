@@ -48,10 +48,18 @@ DESIGN EDITOR CSS
   background-color: rgb(43, 43, 43);
   position: relative;
   overflow: hidden;
-  &.openSilder>.silder {
+  &.fullscreen{
+    position: fixed;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  &.showSilder>.silder {
     display: block;
   }
-  &.openSilder>.wraper {
+  &.showSilder>.wraper {
     right: 240px;
   }
   >.header {

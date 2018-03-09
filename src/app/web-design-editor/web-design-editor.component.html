@@ -1,4 +1,4 @@
-<div class="design-editor" [ngClass]="{'openSilder': editorService.openSilder}">
+<div class="design-editor" [ngClass]="{'showSilder': editorService.showSilder, 'fullscreen':editorService.isFullscreen}">
   <div class="header gu-unselectable">
     <app-layout-toolbar></app-layout-toolbar>
   </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="silder-wraper">
       <app-layout-source *ngIf="editorService.optionMode=='SOURCE'" [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
-      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="selectModel"></app-layout-attrib>
+      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="drakeService.selectModel"></app-layout-attrib>
     </div>
   </div>
   <div class="wraper">

@@ -74,7 +74,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
   }
   // 是否被选中
   get isSelected() {
-    return this.drakesService.selectTrace(this);
+    return this.model === this.drakesService.selectModel;
   }
 
   // 返回卡对像
@@ -112,7 +112,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
   onClick(e: Event) {
     e.stopPropagation();
     if (this._isEdit) {
-      this.drakesService.registerSelect(this);
+      this.drakesService.selectModel = this.model;
     }
   }
   /**
@@ -139,9 +139,6 @@ export class DraggableDirective implements OnInit, OnDestroy {
     this.updateElements();
   }
 
-  ngOnDestroy(): void {
-    this.drakesService.removeDraggable(this);
-  }
 
   updateElements(): void {
     const nativeElement = this.el.nativeElement;
@@ -188,6 +185,10 @@ export class DraggableDirective implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngDoCheck(): void {
+    // console.log('&&&&ngDoCheck')
     this.updateElements();
+  }
+  ngOnDestroy(): void {
+    this.drakesService.removeDraggable(this);
   }
 }

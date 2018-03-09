@@ -1,15 +1,17 @@
 <div>
   <div *ngIf="!model.code">尚未选中卡片</div>
   <div *ngIf="model.code">
-    <div *ngIf="!model.editors">当前卡无属性项</div>
-    <div *ngIf="model.editors">
-      <div class="form-group" *ngFor="let editor of model.editors">
+    <div *ngIf="!editors">当前卡无属性项</div>
+    <div *ngIf="editors">
+      <div class="form-group" *ngFor="let editor of editors">
         <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
         <input type="{{editor.inputType || 'text'}}" class="form-control form-control-sm" [(ngModel)]="editor.value">
       </div>
+      <div>
+        <button type="button" class="btn btn-success btn-sm btn-block" (click)="save()">OK</button>
+        <button type="button" class="btn btn-light btn-sm btn-block" (click)="reset()">Reset</button>
+
+      </div>
     </div>
-    <!-- <pre>
-        {{model | json}}
-      </pre> -->
   </div>
 </div>

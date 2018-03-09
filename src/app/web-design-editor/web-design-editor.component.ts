@@ -48,11 +48,8 @@ export class WebDesignEditorComponent implements OnInit {
 
 
 
-  get selectModel() {
-    return this.drakeService.selectModel();
-  }
-
   constructor(public editorService: EditorStoreService, public drakeService: DrakeStoreService) {}
+
 
   ngOnInit() {}
 

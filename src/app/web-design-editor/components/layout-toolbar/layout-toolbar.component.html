@@ -4,10 +4,10 @@
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.displayMode" btnRadio="CODE">Code</button>
   </div>
   <div class="btn-group">
-    <button class="btn btn-sm btn-outline-primary" (click)="editorService.openSilder=!editorService.openSilder">
-      {{editorService.openSilder?'close silder':'open silder'}}</button>
+    <button class="btn btn-sm btn-outline-primary" (click)="editorService.showSilder=!editorService.showSilder">
+      {{editorService.showSilder?'close silder':'open silder'}}</button>
   </div>
-  <div class="btn-group" *ngIf="editorService.openSilder">
+  <div class="btn-group" *ngIf="editorService.showSilder">
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.optionMode" btnRadio="SOURCE">Cards</button>
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.optionMode" btnRadio="ATTRIB">Attrib</button>
   </div>
@@ -16,5 +16,9 @@
       {{editorService.isEdit?'view mode':'eidtor mode'}}</button>
     <button [disabled]="!editorService.isEdit" class="btn btn-sm btn-outline-primary" (click)="editorService.showLabel=!editorService.showLabel">
       {{editorService.showLabel?'close card label':'open card label'}}</button>
+  </div>
+  <div class="btn-group">
+    <button class="btn btn-sm btn-outline-primary" (click)="editorService.isFullscreen=!editorService.isFullscreen">
+      {{editorService.isFullscreen?'limit screen':'full screen'}}</button>
   </div>
 </div>
