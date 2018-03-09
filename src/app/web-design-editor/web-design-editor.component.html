@@ -23,5 +23,7 @@
     <app-layout-target *ngIf="editorService.displayMode=='TAEGET'" [model]="targetModel" [dropZone]="dropZone" [isEdit]="editorService.isEdit"
       [showLabel]="editorService.showLabel"></app-layout-target>
   </div>
-  <div class="footer"></div>
+  <div class="footer">
+    <app-layout-cascade></app-layout-cascade>
+  </div>
 </div>

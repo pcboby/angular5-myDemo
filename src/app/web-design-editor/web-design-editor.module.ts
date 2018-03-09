@@ -17,7 +17,8 @@ import {
   LayoutTargetComponent,
   LayoutCodeComponent,
   LayoutToolbarComponent,
-  LayoutAttribComponent
+  LayoutAttribComponent,
+  LayoutCascadeComponent
 } from './components';
 import {
   DrakeStoreService
@@ -51,7 +52,8 @@ const components = [
   LayoutSourceComponent,
   LayoutAttribComponent,
   LayoutTargetComponent,
-  LayoutCodeComponent
+  LayoutCodeComponent,
+  LayoutCascadeComponent
 ];
 const directives = [
   DraggableDirective,

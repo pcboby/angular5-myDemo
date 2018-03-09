@@ -12,3 +12,5 @@ export * from './layout-target/layout-target.component';
 export * from './layout-code/layout-code.component';
 // 区域：工具栏
 export * from './layout-toolbar/layout-toolbar.component';
+// 区域：选中后，卡所在结构
+export * from './layout-cascade/layout-cascade.component';
