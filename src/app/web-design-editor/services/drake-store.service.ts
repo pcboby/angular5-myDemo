@@ -17,6 +17,7 @@ export class DrakeStoreService {
    * @memberof DrakeStoreService
    */
   public selectModel: any = {};
+  public cascodeModel = [];
   // 容器集
   private droppableMap = new WeakMap < any, DroppableDirective > ();
   // 卡片集
@@ -39,6 +40,24 @@ export class DrakeStoreService {
    * @param {DraggableDirective} draggable
    * @memberof DrakeStoreService
    */
+  registerSelect(draggable: DraggableDirective) {
+    this.selectModel = draggable.model;
+    console.log('registerSelect!!!!', draggable.element);
+    this.updateCascade(draggable.element);
+  }
+
+  updateCascade(c: any) {
+    const v = [];
+    while (c) {
+      if (c.hasAttribute && c.hasAttribute('appdraggable')) {
+        console.log('updateCascade@@@@@', c, this.draggableMap, this.droppableMap);
+        v.unshift(this.draggableMap.get(c).model.name);
+      }
+      c = c.parentNode;
+    }
+    this.cascodeModel = v;
+  }
+
   // registerSelect(draggable: DraggableDirective) {
   //   this.selectModel = draggable.model;
   // }
@@ -157,11 +176,13 @@ export class DrakeStoreService {
     // 卡片放下（松开鼠标键时）时回调
     this.drake.on('drop', (el: any, target: any, source: any) => {
       console.log('drakeOnDrop');
+      // 如果有容器支持
       if (this.droppableMap.has(target)) {
         const targetComponent = this.droppableMap.get(target);
         let dropElmModel = draggedItem;
 
         if (this.droppableMap.has(source)) {
+          // console.log('@@@has:',el,target,source);
           const sourceComponent = this.droppableMap.get(source);
 
           const sourceModel = sourceComponent.model;
@@ -190,9 +211,14 @@ export class DrakeStoreService {
                 sourceModel.splice(dragIndex, 1);
               }
               targetModel.splice(dropIndex, 0, dropElmModel);
+              // setTimeout(() => {
+              //   this.updateCascade(dragElm);
+              // }, 110);
             }
           }
         }
+
+        // console.log('$#$#$#',this.draggableMap);
 
         targetComponent.drop.emit({
           type: 'drop',
@@ -205,16 +231,20 @@ export class DrakeStoreService {
 
     // 删除卡片时回调
     this.drake.on('remove', (el: any, container: any, source: any) => {
+      console.log('drakeOnRemove');
       if (this.droppableMap.has(source)) {
         const sourceComponent = this.droppableMap.get(source);
         const sourceModel = sourceComponent.model;
 
         const dragIndex = (draggedItem && sourceModel) ? sourceModel.indexOf(draggedItem) : -1;
 
-        if (draggedItem===this.selectModel){
+        // 当移出的内容与选中的内容相同时，清空选中的结构数据
+        if (draggedItem === this.selectModel) {
           this.selectModel = {};
+          this.cascodeModel = [];
         }
 
+        // 删除数据中选中的内容
         if (dragIndex > -1) {
           if (el.parentNode !== source) {
             // add element back, let angular remove it
@@ -235,7 +265,7 @@ export class DrakeStoreService {
 
     // 无差异容器时回调
     this.drake.on('cancel', (el: any, container: any, source: any) => {
-      // console.log('drakeOnCancel');
+      console.log('drakeOnCancel');
       if (this.droppableMap.has(container)) {
         const containerComponent = this.droppableMap.get(container);
         containerComponent.cancel.emit({
@@ -250,7 +280,7 @@ export class DrakeStoreService {
 
     // 移入容器时回调
     this.drake.on('over', (el: any, container: any, source: any) => {
-      // console.log('drakeOnOver');
+      console.log('drakeOnOver');
       if (this.droppableMap.has(container)) {
         const containerComponent = this.droppableMap.get(container);
         containerComponent.over.emit({
@@ -264,7 +294,7 @@ export class DrakeStoreService {
     });
     // 移出容器时回调
     this.drake.on('out', (el: any, container: any, source: any) => {
-      // console.log('drakeOnOut');
+      console.log('drakeOnOut',el, this.draggableMap.has(el));
       if (this.droppableMap.has(container)) {
         const containerComponent = this.droppableMap.get(container);
         containerComponent.out.emit({

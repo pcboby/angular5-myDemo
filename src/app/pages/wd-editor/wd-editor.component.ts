@@ -9,6 +9,7 @@ import {
   styleUrls: ['./wd-editor.component.css']
 })
 export class WdEditorComponent implements OnInit {
+  // targetData: any[] = [];
   targetData: any[] = [{
     name: 'container-card',
     code: 'container-card',
@@ -72,9 +73,9 @@ export class WdEditorComponent implements OnInit {
     code: 'XXX-card'
   }];
   sourceData: any[] = [{
-      name: 'container-column',
-      code: 'container-column',
-      icon: 'fa fa-tag',
+      name: 'container-columns',
+      code: 'container-columns',
+    icon: 'fa fa-columns',
       class: 'wide',
       options: {
         columnClass: 'col-6'
@@ -92,7 +93,7 @@ export class WdEditorComponent implements OnInit {
     {
       name: 'container-card',
       code: 'container-card',
-      icon: 'fa fa-tag',
+      icon: 'fa fa-list-alt',
       class: 'wide',
       options: {
         title: '',
@@ -109,7 +110,7 @@ export class WdEditorComponent implements OnInit {
       name: 'control-input-group',
       code: 'control-input-group',
       class: 'half',
-      icon: 'fa fa-tag',
+      icon: 'fa fa-font',
       options: {
         type: 'text',
         label: '',
@@ -133,7 +134,7 @@ export class WdEditorComponent implements OnInit {
       name: 'control-iframe',
       code: 'control-iframe',
       class: 'ifrmae',
-      icon: 'fa fa-tag',
+      icon: 'fa fa-globe',
       options: {
         src: 'about:blank'
       },

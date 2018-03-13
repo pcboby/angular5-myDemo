@@ -4,12 +4,11 @@
   <ng-template let-model="model" let-template="template">
     <ng-container [ngSwitch]="model.code">
       <!-- card: container-column -->
-      <ng-container *ngSwitchCase="'container-column'">
+      <ng-container *ngSwitchCase="'container-columns'">
         <div class="row" style="padding:1.25em;">
           <div [class]="getEditorValueBy(model,'columnClass')" *ngFor="let content of model.contents">
-            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content"
-              [removeOnSpill]="true" [template]="template" (drag)="log($event)" (drop)="log($event)" (over)="log($event)" (out)="log($event)"
-              (remove)="log($event)">
+            <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content" [removeOnSpill]="true"
+              [template]="template" (drag)="log($event)" (drop)="log($event)" (over)="log($event)" (out)="log($event)" (remove)="log($event)">
             </app-container>
           </div>
         </div>

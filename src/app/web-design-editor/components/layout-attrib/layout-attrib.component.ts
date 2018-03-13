@@ -3,13 +3,15 @@ import {
   OnInit,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
+  ViewEncapsulation
 } from '@angular/core';
 
 @Component({
   selector: 'app-layout-attrib',
   templateUrl: './layout-attrib.component.html',
-  styleUrls: ['./layout-attrib.component.scss']
+  styleUrls: ['./layout-attrib.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LayoutAttribComponent implements OnInit, OnChanges {
   _editors = [];

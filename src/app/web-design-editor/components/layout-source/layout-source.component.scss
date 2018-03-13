@@ -8,4 +8,39 @@
     background-color: transparent !important;
 
   }
+  .card-item{
+    float: left;
+    width: 50%;
+    
+  }
+
 }
+a.source-item{
+      display: block;
+      text-align: center;
+      margin: 5px;
+      i{
+        display: block;
+        margin: 0 auto;
+        height: 64px;
+        line-height: 64px;
+        border: 1px solid #f1f1f1;
+        font-size: 32px;
+      }
+      span{
+        display: block;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        line-height: 2em;
+      }
+
+      &:hover i{
+        border-color: rgba(255, 156, 27, 0.9);
+      }
+      &:hover span{
+        color:rgba(255, 156, 27, 0.9);
+
+      }
+    }

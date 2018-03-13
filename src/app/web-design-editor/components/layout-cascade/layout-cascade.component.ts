@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-layout-cascade',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout-cascade.component.scss']
 })
 export class LayoutCascadeComponent implements OnInit {
+
+  @Input() model = [];
 
   constructor() { }
 

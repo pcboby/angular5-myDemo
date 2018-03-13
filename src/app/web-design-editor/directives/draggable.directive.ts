@@ -113,9 +113,12 @@ export class DraggableDirective implements OnInit, OnDestroy {
     // console.log(this);
     e.stopPropagation();
     if (this._isEdit) {
-      this.drakesService.selectModel = this.model;
+      // this.drakesService.selectModel = this.model;
+      // this.drakesService.cascodeModel = [this.model.name];
+      this.drakesService.registerSelect(this);
     }
   }
+
   /**
    * Creates an instance of DraggableDirective.
    * @param {ElementRef} el

@@ -91,7 +91,7 @@ export class ItemComponent implements OnInit {
       this.droppableItemClass(this.model) :
       this.droppableItemClass;
 
-    const classes = ['app-item', itemClass || ''];
+    const classes = ['card-item', itemClass || ''];
     if (this.moveDisabled) {
       classes.push('move-disabled');
     }
