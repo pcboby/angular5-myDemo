@@ -74,7 +74,7 @@ export class DraggableDirective implements OnInit, OnDestroy {
   }
   // 是否被选中
   get isSelected() {
-    return this.model === this.drakesService.selectModel;
+    return this.drakesService.changeSelect(this);
   }
 
   // 返回卡对像

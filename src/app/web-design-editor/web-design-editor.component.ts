@@ -46,6 +46,14 @@ export class WebDesignEditorComponent implements OnInit {
   @Input()
   dropZone = 'web-design-target';
 
+  get selectModel (){
+    return this.drakeService.getSelectModel();
+  }
+
+  get casCadeModel(){
+    return this.drakeService.getSelectCascade();
+  }
+
 
 
   constructor(public editorService: EditorStoreService, public drakeService: DrakeStoreService) {}

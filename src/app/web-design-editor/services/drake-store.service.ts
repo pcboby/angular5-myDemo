@@ -16,8 +16,12 @@ export class DrakeStoreService {
    * 默认参数
    * @memberof DrakeStoreService
    */
-  public selectModel: any = {};
-  public cascodeModel = [];
+  // public selectModel: any = {};
+  // public cascodeModel = [];
+  private cascadePath = [];
+  private selectModel = {};
+  private selectElm: any;
+  private selectMap = new WeakMap < any, DraggableDirective > ();
   // 容器集
   private droppableMap = new WeakMap < any, DroppableDirective > ();
   // 卡片集
@@ -41,14 +45,31 @@ export class DrakeStoreService {
    * @memberof DrakeStoreService
    */
   registerSelect(draggable: DraggableDirective) {
+    this.selectElm = draggable.element;
     this.selectModel = draggable.model;
-    this.updateCascade(draggable.element);
+    this.selectMap = new WeakMap < any, DraggableDirective > ();
+    this.selectMap.set(this.selectElm, draggable);
+    this.updateCascade(this.selectElm);
   }
   removeSelect() {
+    this.selectMap.delete(this.selectElm);
+    this.selectElm = undefined;
+    this.cascadePath = [];
     this.selectModel = {};
-    this.cascodeModel = [];
   }
-
+  // 测试是否被选中
+  changeSelect(draggable: DraggableDirective) {
+    return draggable.model === this.selectModel;
+  }
+  // 获取选中的数据
+  getSelectModel() {
+    return this.selectModel;
+  }
+  // 获取选中的路径
+  getSelectCascade() {
+    return this.cascadePath;
+  }
+  // 更新选中的路径
   updateCascade(c: any) {
     const v = [];
     while (c) {
@@ -59,7 +80,7 @@ export class DrakeStoreService {
       }
       c = c.parentNode;
     }
-    this.cascodeModel = v;
+    this.cascadePath = v;
   }
 
   // 注册容器
@@ -80,17 +101,17 @@ export class DrakeStoreService {
     this.draggableMap.set(draggable.element, draggable);
     if (draggable.model === this.selectModel) {
       setTimeout(() => {
-        this.updateCascade(draggable.element);
+        this.registerSelect(draggable);
       }, 50);
     }
   }
   // 移除卡
   removeDraggable(draggable: DraggableDirective) {
     this.draggableMap.delete(draggable.element);
-    if (draggable.model === this.selectModel) {
+    if (draggable.element === this.selectElm) {
       setTimeout(() => {
-        this.updateCascade(draggable.element);
-      }, 10);
+        this.removeSelect();
+      }, 0);
     }
   }
   // 初始化组件参数
@@ -115,7 +136,7 @@ export class DrakeStoreService {
       return false;
     };
 
-    const moves = (el ?: any, source ?: any, handle ?: any, sibling ?: any) => {
+    const moves = (el ? : any, source ? : any, handle ? : any, sibling ? : any) => {
       const elementComponent = this.draggableMap.get(el);
       if (elementComponent) {
         return elementComponent.moving(source, handle, sibling);
@@ -227,9 +248,9 @@ export class DrakeStoreService {
         const dragIndex = (draggedItem && sourceModel) ? sourceModel.indexOf(draggedItem) : -1;
 
         // 当移出的内容与选中的内容相同时，清空选中的结构数据
-        if (draggedItem === this.selectModel) {
-          this.removeSelect();
-        }
+        // if (draggedItem === this.selectModel) {
+        //   this.removeSelect();
+        // }
 
         // 删除数据中选中的内容
         if (dragIndex > -1) {

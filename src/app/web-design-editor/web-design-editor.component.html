@@ -15,7 +15,7 @@
     </div>
     <div class="silder-wraper">
       <app-layout-source *ngIf="editorService.optionMode=='SOURCE'" [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
-      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="drakeService.selectModel"></app-layout-attrib>
+      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="selectModel"></app-layout-attrib>
     </div>
   </div>
   <div class="wraper">
@@ -24,6 +24,6 @@
       [showLabel]="editorService.showLabel"></app-layout-target>
   </div>
   <div class="footer">
-    <app-layout-cascade [model]="drakeService.cascodeModel"></app-layout-cascade>
+    <app-layout-cascade [model]="casCadeModel"></app-layout-cascade>
   </div>
 </div>
