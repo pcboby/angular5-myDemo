@@ -136,7 +136,7 @@ export class DrakeStoreService {
       return false;
     };
 
-    const moves = (el ? : any, source ? : any, handle ? : any, sibling ? : any) => {
+    const moves = (el ?: any, source ?: any, handle ?: any, sibling ?: any) => {
       const elementComponent = this.draggableMap.get(el);
       if (elementComponent) {
         return elementComponent.moving(source, handle, sibling);
