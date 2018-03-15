@@ -3,14 +3,15 @@
   <div *ngIf="model.code">
     <div *ngIf="!editors">当前卡无属性项</div>
     <div *ngIf="editors">
-      <div class="form-group" *ngFor="let editor of editors">
-        <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
-        <input type="{{editor.inputType || 'text'}}" class="form-control form-control-sm" [(ngModel)]="editor.value">
-      </div>
+      <ng-container *ngFor="let editor of editors">
+        <div class="form-group">
+          <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
+          <input type="{{editor.inputType || 'text'}}" class="form-control form-control-sm" [(ngModel)]="editor.value">
+        </div>
+      </ng-container>
       <div>
         <button type="button" class="btn btn-success btn-sm btn-block" (click)="save()">OK</button>
         <button type="button" class="btn btn-light btn-sm btn-block" (click)="reset()">Reset</button>
-
       </div>
     </div>
   </div>

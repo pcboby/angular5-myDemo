@@ -11,8 +11,8 @@ import {
 export class WdEditorComponent implements OnInit {
   // targetData: any[] = [];
   targetData: any[] = [{
-    name: 'container-card',
-    code: 'container-card',
+    name: 'container-panel',
+    code: 'container-panel',
     icon: 'fa fa-tag',
     class: 'wide',
     options: {
@@ -24,8 +24,8 @@ export class WdEditorComponent implements OnInit {
       value: 'example title'
     }],
     contents: [{
-      name: 'control-input-group',
-      code: 'control-input-group',
+      name: 'card-input-group',
+      code: 'card-input-group',
       class: 'half',
       options: {
         type: 'text',
@@ -46,8 +46,8 @@ export class WdEditorComponent implements OnInit {
         value: 'text'
       }]
     }, {
-      name: 'control-input-group',
-      code: 'control-input-group',
+      name: 'card-input-group',
+      code: 'card-input-group',
       class: 'half',
       options: {
         type: 'text',
@@ -91,8 +91,8 @@ export class WdEditorComponent implements OnInit {
       ]
     },
     {
-      name: 'container-card',
-      code: 'container-card',
+      name: 'container-panel',
+      code: 'container-panel',
       icon: 'fa fa-list-alt',
       class: 'wide',
       options: {
@@ -107,8 +107,8 @@ export class WdEditorComponent implements OnInit {
       contents: []
     },
     {
-      name: 'control-input-group',
-      code: 'control-input-group',
+      name: 'card-input-group',
+      code: 'card-input-group',
       class: 'half',
       icon: 'fa fa-font',
       options: {
@@ -131,8 +131,8 @@ export class WdEditorComponent implements OnInit {
         value: ''
       }]
     }, {
-      name: 'control-iframe',
-      code: 'control-iframe',
+      name: 'card-iframe',
+      code: 'card-iframe',
       class: 'ifrmae',
       icon: 'fa fa-globe',
       options: {

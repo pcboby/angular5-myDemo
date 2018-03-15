@@ -18,7 +18,26 @@ export class EditorStoreService {
   public showLabel = true;
   // 编辑器状态：true编辑状态，false演示状态
   public isEdit = true;
+  // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
+
+  getEditorValueBy(item: any, str: string) {
+    if (item.options && item.editors) {
+      for (let i = 0; i < item.editors.length; i++) {
+        const e = item.editors[i];
+        if (e.key === str) {
+          if (e.value) {
+            return e.value;
+          }
+          continue;
+        }
+      }
+    }
+    return item.options[str] || '{' + str + '}';
+  }
+  log(e: any) {
+    console.log(e.type, e);
+  }
 
   constructor() {}
 

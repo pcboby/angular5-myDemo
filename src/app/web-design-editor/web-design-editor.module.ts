@@ -37,12 +37,22 @@ import {
   ButtonsModule,
   TabsModule
 } from 'ngx-bootstrap';
+import {
+  ContainerColumnsComponent, CardErrorComponent, CardIframeComponent, CardInputGroupComponent, ContainerPanelComponent
+} from './cards';
 const modules = [
   FormsModule,
   CommonModule,
   ReactiveFormsModule,
   ButtonsModule.forRoot(),
   TabsModule.forRoot()
+];
+const systemCards = [
+  CardErrorComponent,
+  CardIframeComponent,
+  CardInputGroupComponent,
+  ContainerColumnsComponent,
+  ContainerPanelComponent
 ];
 const components = [
   WebDesignEditorComponent,
@@ -66,10 +76,11 @@ const services = [
 
 @NgModule({
   imports: [
-    ...modules
+...modules
   ],
   declarations: [
     ...components,
+    ...systemCards,
     ...directives
   ],
   exports: [

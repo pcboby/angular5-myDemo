@@ -33,27 +33,11 @@ export class LayoutTargetComponent implements OnInit {
    * Creates an instance of LayoutTargetComponent.
    * @memberof LayoutTargetComponent
    */
-  constructor() {}
+  constructor(public editorService: EditorStoreService) {}
 
   ngOnInit() {}
 
   droppableItemClass = (item: any) => `${item.class}`; //  ${item.type}
-  getEditorValueBy(item: any, str: string) {
-    if (item.options && item.editors) {
-      for (let i = 0; i < item.editors.length; i++) {
-        const e = item.editors[i];
-        if (e.key === str) {
-          if (e.value) {
-            return e.value;
-          }
-          continue;
-        }
-      }
-    }
-    return item.options[str] || '{' + str + '}';
-  }
-  log(e: any) {
-    console.log(e.type, e);
-  }
+
 
 }
