@@ -3,11 +3,6 @@
   <!-- (drag)="builderDrag($event)" -->
   <!-- 显示模板 -->
   <ng-template let-item="model">
-    <a class="source-item">
-      <i [class]="item.icon"></i>
-      <span>
-        {{item.name}}
-      </span>
-    </a>
+    <app-card-item [model]="item"></app-card-item>
   </ng-template>
 </app-container>

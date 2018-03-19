@@ -136,12 +136,13 @@ export class WdEditorComponent implements OnInit {
       class: 'ifrmae',
       icon: 'fa fa-globe',
       options: {
-        src: 'about:blank'
+        url: 'about:blank'
       },
       editors: [{
-        key: 'src',
+        key: 'url',
         type: 'text',
-        value: ''
+        value: '',
+        placeholder: 'http://...'
       }]
     }
   ];

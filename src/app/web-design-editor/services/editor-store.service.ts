@@ -33,7 +33,7 @@ export class EditorStoreService {
         }
       }
     }
-    return item.options[str] || '{' + str + '}';
+    return item.options[str] || '';
   }
   log(e: any) {
     console.log(e.type, e);

@@ -38,8 +38,19 @@ import {
   TabsModule
 } from 'ngx-bootstrap';
 import {
-  ContainerColumnsComponent, CardErrorComponent, CardIframeComponent, CardInputGroupComponent, ContainerPanelComponent
+  ContainerColumnsComponent,
+  CardErrorComponent,
+  CardIframeComponent,
+  CardInputGroupComponent,
+  ContainerPanelComponent,
+  CardItemComponent
 } from './cards';
+import {
+  WelcomePipe,
+  SafePipe,
+  SafeResourceUrlPipe
+} from './pipes';
+const pipes = [WelcomePipe, SafePipe, SafeResourceUrlPipe];
 const modules = [
   FormsModule,
   CommonModule,
@@ -49,6 +60,7 @@ const modules = [
 ];
 const systemCards = [
   CardErrorComponent,
+  CardItemComponent,
   CardIframeComponent,
   CardInputGroupComponent,
   ContainerColumnsComponent,
@@ -76,9 +88,10 @@ const services = [
 
 @NgModule({
   imports: [
-...modules
+    ...modules
   ],
   declarations: [
+    ...pipes,
     ...components,
     ...systemCards,
     ...directives

@@ -1,5 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { EditorStoreService } from '../../services/editor-store.service';
+import {
+  Component,
+  OnInit,
+  Input
+} from '@angular/core';
+import {
+  EditorStoreService
+} from '../../services/editor-store.service';
+import {
+  SafeResourceUrl,
+  DomSanitizer
+} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card-iframe',
@@ -8,15 +18,16 @@ import { EditorStoreService } from '../../services/editor-store.service';
 })
 export class CardIframeComponent implements OnInit {
 
+
   /**
    * 卡片参数
    */
 
   @Input() model: any; // 卡片数据（必加）
 
-  constructor(public editorService: EditorStoreService) { }
+  constructor(public editorService: EditorStoreService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
 }
