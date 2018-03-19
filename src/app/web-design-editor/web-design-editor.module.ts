@@ -46,11 +46,11 @@ import {
   CardItemComponent
 } from './cards';
 import {
-  WelcomePipe,
   SafePipe,
-  SafeResourceUrlPipe
+  SafeResourceUrlPipe,
+  TransNullPipe
 } from './pipes';
-const pipes = [WelcomePipe, SafePipe, SafeResourceUrlPipe];
+const pipes = [TransNullPipe, SafePipe, SafeResourceUrlPipe];
 const modules = [
   FormsModule,
   CommonModule,
@@ -88,7 +88,7 @@ const services = [
 
 @NgModule({
   imports: [
-    ...modules
+  ...modules
   ],
   declarations: [
     ...pipes,

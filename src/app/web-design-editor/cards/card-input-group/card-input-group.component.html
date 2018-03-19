@@ -1,6 +1,6 @@
 <div class="form-group row">
-  <label class="col-sm-4 col-form-label text-right">{{editorService.getEditorValueBy(model,'label')}}</label>
+  <label class="col-sm-4 col-form-label text-right">{{editorService.getEditorValueBy(model,'label') | transNull:'label'}}</label>
   <div class="col-sm-8">
-    <input [type]="editorService.getEditorValueBy(model,'type')" [name]="model.name" class="form-control" [placeholder]="editorService.getEditorValueBy(model,'placeholder')">
+    <input [type]="editorService.getEditorValueBy(model,'type') || 'text'" [name]="model.name" class="form-control" [placeholder]="editorService.getEditorValueBy(model,'placeholder') | transNull:'placeholder'">
   </div>
 </div>

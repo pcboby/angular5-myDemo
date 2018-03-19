@@ -28,9 +28,9 @@ export class WdEditorComponent implements OnInit {
       code: 'card-input-group',
       class: 'half',
       options: {
-        type: 'text',
         label: '',
-        placeholder: 'please input in here.'
+        type: 'text',
+        placeholder: ''
       },
       editors: [{
         key: 'label',
@@ -42,7 +42,17 @@ export class WdEditorComponent implements OnInit {
         value: '帐号/用户名/邮箱'
       }, {
         key: 'type',
-        type: 'text',
+        type: 'select',
+        options: [{
+          label: '文本',
+          value: 'text'
+        }, {
+          label: '密码',
+          value: 'password'
+        }, {
+          label: '数字',
+          value: 'number'
+        }],
         value: 'text'
       }]
     }, {
@@ -52,7 +62,7 @@ export class WdEditorComponent implements OnInit {
       options: {
         type: 'text',
         label: '',
-        placeholder: 'please input in here.'
+        placeholder: ''
       },
       editors: [{
         key: 'label',
@@ -64,7 +74,17 @@ export class WdEditorComponent implements OnInit {
         value: '请在这里输入密码'
       }, {
         key: 'type',
-        type: 'text',
+        type: 'select',
+        options: [{
+          label: '文本',
+          value: 'text'
+        }, {
+          label: '密码',
+          value: 'password'
+        }, {
+          label: '数字',
+          value: 'number'
+        }],
         value: 'password'
       }]
     }]
@@ -75,7 +95,7 @@ export class WdEditorComponent implements OnInit {
   sourceData: any[] = [{
       name: 'container-columns',
       code: 'container-columns',
-    icon: 'fa fa-columns',
+      icon: 'fa fa-columns',
       class: 'wide',
       options: {
         columnClass: 'col-6'
@@ -114,8 +134,7 @@ export class WdEditorComponent implements OnInit {
       options: {
         type: 'text',
         label: '',
-        placeholder: 'please input in here.'
-
+        placeholder: ''
       },
       editors: [{
         key: 'label',
@@ -127,8 +146,18 @@ export class WdEditorComponent implements OnInit {
         value: ''
       }, {
         key: 'type',
-        type: 'text',
-        value: ''
+        type: 'select',
+        options: [{
+          label: '文本',
+          value: 'text'
+        }, {
+          label: '密码',
+          value: 'password'
+        }, {
+          label: '数字',
+          value: 'number'
+        }],
+        value: 'text'
       }]
     }, {
       name: 'card-iframe',
@@ -142,7 +171,7 @@ export class WdEditorComponent implements OnInit {
         key: 'url',
         type: 'text',
         value: '',
-        placeholder: 'http://...'
+        placeholder: 'http://'
       }]
     }
   ];

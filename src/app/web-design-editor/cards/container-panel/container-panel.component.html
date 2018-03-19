@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header">{{editorService.getEditorValueBy(model,'title')}}</div>
+  <div class="card-header">{{editorService.getEditorValueBy(model,'title') | transNull:'title'}}</div>
   <div class="card-body">
     <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.contents"
       [removeOnSpill]="true" [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)" (over)="editorService.log($event)"

@@ -29,8 +29,7 @@ export class LayoutAttribComponent implements OnInit, OnChanges {
     this.model.editors = clone(this._editors);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     this.editors = clone(this.model.editors);
@@ -39,11 +38,14 @@ export class LayoutAttribComponent implements OnInit, OnChanges {
 
 
 }
-function clone(obj) {
+
+function clone(obj): any {
   let copy;
 
   // Handle the 3 simple types, and null or undefined
-  if (null == obj || "object" != typeof obj) return obj;
+  if (null == obj || 'object' !== typeof obj) {
+    return obj;
+  }
 
   // Handle Date
   if (obj instanceof Date) {
@@ -64,11 +66,13 @@ function clone(obj) {
   // Handle Object
   if (obj instanceof Object) {
     copy = {};
-    for (let attr in obj) {
-      if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+    for (const attr in obj) {
+      if (obj.hasOwnProperty(attr)) {
+        copy[attr] = clone(obj[attr]);
+      }
     }
     return copy;
   }
 
-  throw new Error("Unable to copy obj! Its type isn't supported.");
+  throw new Error('Unable to copy obj! Its type isn\'t supported.');
 }
