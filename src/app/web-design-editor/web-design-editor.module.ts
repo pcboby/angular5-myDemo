@@ -18,7 +18,8 @@ import {
   LayoutCodeComponent,
   LayoutToolbarComponent,
   LayoutAttribComponent,
-  LayoutCascadeComponent
+  LayoutCascadeComponent,
+  ItemMaskComponent
 } from './components';
 import {
   DrakeStoreService
@@ -70,6 +71,7 @@ const components = [
   WebDesignEditorComponent,
   ContainerComponent,
   ItemComponent,
+  ItemMaskComponent,
   LayoutToolbarComponent,
   LayoutSourceComponent,
   LayoutAttribComponent,
@@ -88,7 +90,7 @@ const services = [
 
 @NgModule({
   imports: [
-  ...modules
+...modules
   ],
   declarations: [
     ...pipes,

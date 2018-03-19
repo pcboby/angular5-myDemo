@@ -14,7 +14,7 @@ import {
 @Component({
   selector: 'app-card-iframe',
   templateUrl: './card-iframe.component.html',
-  styleUrls: ['./card-iframe.component.css']
+  styleUrls: ['./card-iframe.component.scss']
 })
 export class CardIframeComponent implements OnInit {
 

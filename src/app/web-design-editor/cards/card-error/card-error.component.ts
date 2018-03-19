@@ -4,7 +4,7 @@ import { EditorStoreService } from '../../services/editor-store.service';
 @Component({
   selector: 'app-card-error',
   templateUrl: './card-error.component.html',
-  styleUrls: ['./card-error.component.css']
+  styleUrls: ['./card-error.component.scss']
 })
 export class CardErrorComponent implements OnInit {
 

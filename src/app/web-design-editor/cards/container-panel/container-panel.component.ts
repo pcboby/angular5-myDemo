@@ -11,7 +11,7 @@ import {
 @Component({
   selector: 'app-container-panel',
   templateUrl: './container-panel.component.html',
-  styleUrls: ['./container-panel.component.css']
+  styleUrls: ['./container-panel.component.scss']
 })
 export class ContainerPanelComponent implements OnInit {
 

@@ -34,6 +34,15 @@
         display: block;
       }
     }
+    .card-item-contents-masker {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0);
+    }
     .card-item-contents-label {
       position: absolute;
       display: none;
@@ -46,11 +55,11 @@
       background-color: rgba(27, 145, 255, 0.9);
       color: #fff;
     }
-    .card-item-contents-label>span{
-      display:inline-block;
-      -webkit-transform:scale(.75);
-      -moz-transform:scale(.75);
-      -o-transform:scale(.75);
+    .card-item-contents-label>span {
+      display: inline-block;
+      -webkit-transform: scale(.75);
+      -moz-transform: scale(.75);
+      -o-transform: scale(.75);
     }
     .card-item-contents-toolbar {}
   }

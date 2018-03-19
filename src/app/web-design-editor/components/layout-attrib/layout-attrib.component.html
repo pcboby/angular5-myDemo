@@ -16,7 +16,7 @@
           <ng-container *ngSwitchDefault>
             <div class="form-group mb-0">
               <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
-              <input [type]="editor.type || 'text'" class="form-control" [(ngModel)]="editor.value" [placeholder]="editor.placeholder||''">
+              <input [type]="editor.type || 'text'" class="form-control" [(ngModel)]="editor.value" [placeholder]="editor.placeholder || ''">
             </div>
           </ng-container>
         </ng-container>

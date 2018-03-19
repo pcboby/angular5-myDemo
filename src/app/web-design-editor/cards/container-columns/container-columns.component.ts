@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-container-columns',
   templateUrl: './container-columns.component.html',
-  styleUrls: ['./container-columns.component.css']
+  styleUrls: ['./container-columns.component.scss']
 })
 export class ContainerColumnsComponent implements OnInit {
 

@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'app-card-input-group',
   templateUrl: './card-input-group.component.html',
-  styleUrls: ['./card-input-group.component.css']
+  styleUrls: ['./card-input-group.component.scss']
 })
 export class CardInputGroupComponent implements OnInit {
 

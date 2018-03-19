@@ -5,6 +5,9 @@ import {
   DrakeStoreService
 } from './services';
 import {
+  AllSystemCards
+} from './cards/cards';
+import {
   Component,
   OnInit,
   Input,
@@ -34,10 +37,10 @@ export class WebDesignEditorComponent implements OnInit {
    * @memberof WebDesignEditorComponent
    */
   @Input()
-  sourceModel: any;
+  sourceModel: any = [];
 
   @Input()
-  targetModel: any;
+  targetModel: any = [];
 
   // 集合：目标容器
   @Input()
@@ -46,11 +49,11 @@ export class WebDesignEditorComponent implements OnInit {
   @Input()
   dropZone = 'web-design-target';
 
-  get selectModel (){
+  get selectModel() {
     return this.drakeService.getSelectModel();
   }
 
-  get casCadeModel(){
+  get casCadeModel() {
     return this.drakeService.getSelectCascade();
   }
 
@@ -59,6 +62,8 @@ export class WebDesignEditorComponent implements OnInit {
   constructor(public editorService: EditorStoreService, public drakeService: DrakeStoreService) {}
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sourceModel = [...AllSystemCards, ...this.sourceModel];
+  }
 
 }

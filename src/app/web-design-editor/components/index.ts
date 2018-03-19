@@ -2,6 +2,8 @@
 export * from './container/container.component';
 // 基础：卡片
 export * from './item/item.component';
+// 基础：卡片遮罩
+export * from './item-mask/item-mask.component';
 // 区域：可选卡片
 export * from './layout-source/layout-source.component';
 // 区域：卡片属性
