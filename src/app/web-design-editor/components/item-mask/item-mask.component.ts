@@ -5,7 +5,6 @@ import {
 import {
   EditorStoreService
 } from '../../services/editor-store.service';
-
 @Component({
   selector: 'app-item-mask',
   templateUrl: './item-mask.component.html',

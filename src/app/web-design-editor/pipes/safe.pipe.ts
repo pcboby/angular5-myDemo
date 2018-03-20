@@ -9,18 +9,18 @@ import { SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl, DomSanitizer
 })
 export class SafePipe implements PipeTransform {
 
-  constructor(protected _sanitizer: DomSanitizer) {
+  constructor(protected sanitizer: DomSanitizer) {
 
   }
 
   public transform(value: string, type: string = 'url'): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
-    if (value) { return 'about:blank'; }
+    if (value && type === 'url') { return 'about:blank'; }
     switch (type) {
-      case 'html': return this._sanitizer.bypassSecurityTrustHtml(value);
-      case 'style': return this._sanitizer.bypassSecurityTrustStyle(value);
-      case 'script': return this._sanitizer.bypassSecurityTrustScript(value);
-      case 'url': return this._sanitizer.bypassSecurityTrustUrl(value);
-      case 'resourceUrl': return this._sanitizer.bypassSecurityTrustResourceUrl(value);
+      case 'html': return this.sanitizer.bypassSecurityTrustHtml(value);
+      case 'style': return this.sanitizer.bypassSecurityTrustStyle(value);
+      case 'script': return this.sanitizer.bypassSecurityTrustScript(value);
+      case 'url': return this.sanitizer.bypassSecurityTrustUrl(value);
+      case 'resourceUrl': return this.sanitizer.bypassSecurityTrustResourceUrl(value);
       default: throw new Error(`Invalid safe type specified: ${type}`);
     }
   }

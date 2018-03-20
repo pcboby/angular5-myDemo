@@ -110,10 +110,10 @@ export class DraggableDirective implements OnInit, OnDestroy {
   // 帧听点击
   @HostListener('click', ['$event'])
   onClick(e: Event) {
-    console.log('click elmt',e);
+    // console.log('click elmt',e);
     e.stopPropagation();
     if (this._isEdit && !this.drakesService.changeSelect(this)) {
-      console.log('do click')
+      // console.log('do click')
       this.drakesService.registerSelect(this);
     }
   }

@@ -18,6 +18,9 @@
       border-color: rgba(255, 156, 27, .9) !important;
       >.card-item-contents-label {
         background-color: rgba(255, 156, 27, .9);
+        &::after{
+          border-bottom-color: rgba(255, 156, 27, .9);
+        }
       }
     }
   }
@@ -44,18 +47,40 @@
       background-color: rgba(0, 0, 0, 0);
     }
     .card-item-contents-label {
+
       position: absolute;
       display: none;
       padding: .25em;
       line-height: 1em;
       top: -1.5em;
-      left: -2px;
+      left: -1px;
       font-size: 12px;
       font-weight: 100;
       background-color: rgba(27, 145, 255, 0.9);
       color: #fff;
+      &::after {
+        position: absolute;
+        top:0em;
+        left: 100%;
+        content: '';
+        width: 0;
+        height: 0;
+        border-bottom: 1.5em solid rgba(27, 145, 255, 0.9);
+        border-right: 1em solid transparent;
+      }
+      &.right {
+        left: auto;
+        right: -1px;
+        &::after{
+          left: auto;
+          right:100%;
+          border-right:none;
+          border-left: 1em solid transparent;
+        }
+
+      }
     }
-    .card-item-contents-label>span {
+    .card-item-contents-label .titles>span {
       display: inline-block;
       -webkit-transform: scale(.75);
       -moz-transform: scale(.75);

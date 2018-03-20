@@ -48,16 +48,15 @@ import {
 } from './cards';
 import {
   SafePipe,
-  SafeResourceUrlPipe,
   TransNullPipe
 } from './pipes';
-const pipes = [TransNullPipe, SafePipe, SafeResourceUrlPipe];
+const pipes = [TransNullPipe, SafePipe];
 const modules = [
   FormsModule,
   CommonModule,
   ReactiveFormsModule,
   ButtonsModule.forRoot(),
-  TabsModule.forRoot()
+  // TabsModule.forRoot()
 ];
 const systemCards = [
   CardErrorComponent,
@@ -90,7 +89,7 @@ const services = [
 
 @NgModule({
   imports: [
-...modules
+    ...modules
   ],
   declarations: [
     ...pipes,

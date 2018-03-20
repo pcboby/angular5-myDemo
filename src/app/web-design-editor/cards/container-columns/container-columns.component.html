@@ -1,4 +1,4 @@
-<div class="row" style="padding:1.25em;">
+<div class="row" [style]="editorService.getEditorValueBy(model,'style') | safe:'style'">
   <div [class]="editorService.getEditorValueBy(model,'columnClass')" *ngFor="let content of model.contents">
     <app-container [removeOnSpill]="true" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit"
       [dropZone]="dropZone" [model]="content" [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)"

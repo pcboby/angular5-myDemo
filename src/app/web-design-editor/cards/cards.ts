@@ -5,12 +5,40 @@ export const containerColumns = {
   icon: 'fa fa-columns',
   class: 'wide',
   options: {
+    style: 'padding: 1.5em;',
+    columns: 2,
     columnClass: 'col-6'
   },
   editors: [{
+    key: 'columns',
+    type: 'number',
+    value: '',
+    max: 12,
+    min: 2
+  }, {
     key: 'columnClass',
-    type: 'text',
-    value: ''
+    type: 'select',
+    value: 'col-6',
+    options: [{
+      label: '每行一栏',
+      value: 'col-12'
+    }, {
+      label: '每行二栏',
+      value: 'col-6'
+    }, {
+      label: '每行三栏',
+      value: 'col-4'
+    }, {
+      label: '每行四栏',
+      value: 'col-3'
+    }, {
+      label: '每行六栏',
+      value: 'col-2'
+    }]
+  }, {
+    key: 'style',
+    type: 'textarea',
+    value: 'padding:1.5em;'
   }],
   contents: [
     [],
@@ -76,10 +104,10 @@ export const cardIframe = {
   class: 'ifrmae',
   icon: 'fa fa-globe',
   options: {
-    url: 'about:blank'
+    src: 'about:blank'
   },
   editors: [{
-    key: 'url',
+    key: 'src',
     type: 'text',
     value: '',
     placeholder: 'http://'

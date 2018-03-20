@@ -12,8 +12,10 @@
     <ng-container *ngIf="container.template">
       <!-- 编辑状态显示的内容 -->
       <div *ngIf="isEdit" class="card-item-contents" [ngClass]="{'showLabel':showLabel}">
-        <div class="card-item-contents-label">
-          <span>{{model.name}}</span>
+        <div class="card-item-contents-label" [ngClass]="{'right':model.contents}">
+          <div class="titles">
+            <span>{{model.name}}</span>
+          </div>
         </div>
         <ng-template [ngTemplateOutlet]="container.template" [ngTemplateOutletContext]="data">
         </ng-template>

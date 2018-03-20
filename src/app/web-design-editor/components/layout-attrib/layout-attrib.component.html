@@ -13,6 +13,13 @@
                 </select>
             </div>
           </ng-container>
+          <ng-container *ngSwitchCase="'textarea'">
+            <div class="form-group mb-0">
+              <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
+              <textarea name="" id="" cols="30" rows="10" class="form-control" [placeholder]="editor.placeholder || ''" [(ngModel)]="editor.value">
+              </textarea>
+            </div>
+          </ng-container>
           <ng-container *ngSwitchDefault>
             <div class="form-group mb-0">
               <label class="col-form-label col-form-label-sm">{{editor.key}}</label>
