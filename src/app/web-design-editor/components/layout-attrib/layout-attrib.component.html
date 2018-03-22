@@ -38,27 +38,31 @@
         <ng-container *ngFor="let editor of editors">
           <el-form-item [label]="(editor.label || editor.key) + (editor.unit?' ('+editor.value+editor.unit+')':'')">
             <ng-container [ngSwitch]="editor.type">
+              <!-- switch -->
+              <ng-container *ngSwitchCase="'switch'">
+                <el-switch [(model)]="editor.value" active-text="开" inactive-text="关" style="float: right;"></el-switch>
+              </ng-container>
               <!-- checkbox -->
               <ng-container *ngSwitchCase="'checkbox'">
                 <el-checkbox-group [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value">
-                  <el-checkbox *ngFor="let opt of editor.options" [label]="opt.value">{{opt.label}}</el-checkbox>
+                  <el-checkbox *ngFor="let opt of editor.options.data" [label]="opt.value">{{opt.label}}</el-checkbox>
                 </el-checkbox-group>
               </ng-container>
               <!-- radio -->
               <ng-container *ngSwitchCase="'radio'">
                 <el-radio-group [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value">
-                  <el-radio *ngFor="let opt of editor.options" [label]="opt.value">{{opt.label}}</el-radio>
+                  <el-radio *ngFor="let opt of editor.options.data" [label]="opt.value">{{opt.label}}</el-radio>
                 </el-radio-group>
               </ng-container>
               <!-- select -->
               <ng-container *ngSwitchCase="'select'">
-                <el-select [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''">
-                  <el-option *ngFor="let opt of editor.options" [label]="opt.label" [value]="opt.value"></el-option>
+                <el-select [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''" style="float: right;">
+                  <el-option *ngFor="let opt of editor.options.data" [label]="opt.label" [value]="opt.value"></el-option>
                 </el-select>
               </ng-container>
               <!-- numberPicker -->
               <ng-container *ngSwitchCase="'numberPicker'">
-                <el-input-number [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [min]="editor.min" [max]="editor.max"></el-input-number>
+                <el-input-number [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [min]="editor.min" [max]="editor.max" style="float: right;"></el-input-number>
               </ng-container>
               <!-- slider -->
               <ng-container *ngSwitchCase="'slider'">

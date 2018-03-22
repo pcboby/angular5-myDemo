@@ -1,6 +1,6 @@
 <div class="card">
-  <div class="card-header">{{editorService.getEditorValueBy(model,'title') | transNull:'title'}}</div>
-  <div class="card-body">
+  <div *ngIf="editorService.getEditorValueBy(model,'head_open')" class="card-header">{{editorService.getEditorValueBy(model,'head_title') | transNull:'title'}}</div>
+  <div class="card-body" [style]="editorService.getEditorValueBy(model,'body_style') | safe:'style'">
     <app-container [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="model.contents"
       [removeOnSpill]="true" [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)" (over)="editorService.log($event)"
       (out)="editorService.log($event)" (remove)="editorService.log($event)">

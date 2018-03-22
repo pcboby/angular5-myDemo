@@ -63,9 +63,9 @@ export class ContainerColumnsComponent implements OnInit {
       for (let i = 0; i < v - n; i++) {
         this.model.contents.push([]);
       }
-    }else{
-      for (let i = n; i > v ; i--){
-        this.model.contents.splice(i - 1 , 1);
+    } else {
+      for (let i = n; i > v; i--) {
+        this.model.contents.splice(i - 1, 1);
       }
     }
 

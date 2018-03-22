@@ -6,9 +6,9 @@ export const containerColumns = {
   class: 'wide',
   options: {
     row_style: 'padding: 1.5em;',
+    row_gutter: 20,
     col_number: 2,
-    col_space: 12,
-    row_gutter: 20
+    col_space: 12
   },
   editors: [{
     key: 'col_number',
@@ -22,31 +22,33 @@ export const containerColumns = {
     label: '单行栏数',
     type: 'select',
     value: 12,
-    options: [{
-      label: '每行一栏',
-      value: 24
-    }, {
-      label: '每行二栏',
-      value: 12
-    }, {
-      label: '每行三栏',
-      value: 8
-    }, {
-      label: '每行四栏',
-      value: 6
-    }, {
-      label: '每行六栏',
-      value: 4
-    }, {
-      label: '每行八栏',
-      value: 3
-    }, {
-      label: '每行十二栏',
-      value: 2
-    }, {
-      label: '每行二十四栏',
-      value: 1
-    }]
+    options: {
+      data: [{
+        label: '每行一栏',
+        value: 24
+      }, {
+        label: '每行二栏',
+        value: 12
+      }, {
+        label: '每行三栏',
+        value: 8
+      }, {
+        label: '每行四栏',
+        value: 6
+      }, {
+        label: '每行六栏',
+        value: 4
+      }, {
+        label: '每行八栏',
+        value: 3
+      }, {
+        label: '每行十二栏',
+        value: 2
+      }, {
+        label: '每行二十四栏',
+        value: 1
+      }]
+    }
   }, {
     key: 'row_gutter',
     label: '栏间距',
@@ -73,12 +75,21 @@ export const containerPanel = {
   icon: 'fa fa-list-alt',
   class: 'wide',
   options: {
-    title: '',
-
+    head_open: true,
+    head_title: '',
+    body_style: ''
   },
   editors: [{
-    key: 'title',
+    key: 'head_open',
+    type: 'switch',
+    value: true
+  }, {
+    key: 'head_title',
     type: 'text',
+    value: ''
+  }, {
+    key: 'body_style',
+    type: 'textarea',
     value: ''
   }],
   contents: []
@@ -105,16 +116,18 @@ export const cardInputGroup = {
   }, {
     key: 'type',
     type: 'select',
-    options: [{
-      label: '文本',
-      value: 'text'
-    }, {
-      label: '密码',
-      value: 'password'
-    }, {
-      label: '数字',
-      value: 'number'
-    }],
+    options: {
+      data: [{
+        label: '文本',
+        value: 'text'
+      }, {
+        label: '密码',
+        value: 'password'
+      }, {
+        label: '数字',
+        value: 'number'
+      }]
+    },
     value: 'text'
   }]
 };
