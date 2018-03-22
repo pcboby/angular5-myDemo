@@ -4,6 +4,7 @@ import {
 import {
   CommonModule
 } from '@angular/common';
+import 'element-angular/theme/index.css';
 
 import {
   DraggableDirective,
@@ -46,6 +47,7 @@ import {
   ContainerPanelComponent,
   CardItemComponent
 } from './cards';
+import { ElModule } from 'element-angular';
 import {
   SafePipe,
   TransNullPipe
@@ -56,7 +58,8 @@ const modules = [
   CommonModule,
   ReactiveFormsModule,
   ButtonsModule.forRoot(),
-  // TabsModule.forRoot()
+  // TabsModule.forRoot(),
+  ElModule.forRoot()
 ];
 const systemCards = [
   CardErrorComponent,

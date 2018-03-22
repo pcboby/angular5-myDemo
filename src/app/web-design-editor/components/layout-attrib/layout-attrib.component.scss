@@ -1,3 +1,40 @@
-.item-options{
-    margin: 5px;
+.item-options {
+  margin: 5px;
+}
+.el-select-dropdown{
+    z-index: 1002;
+}
+.layout-attrib-form {
+  .el-form-item__label {
+      position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0;
+    margin:0;
+    padding-left: 14px;
+    font-size: 12px;
+    &::after{
+        position: absolute;
+        content: '';
+        top:50%;
+        height: 16px;
+        margin-top:-8px;
+        left:0;
+        width:2px;
+        background-color: green;
+    }
+  }
+  .layout-attrib-form-btns {
+    .el-form-item {
+      margin-top: 16px;
+    }
+    .el-form-item__content {
+      margin-left: 0 !important;
+      text-align: center;
+    }
+  }
+  .el-form-item {
+    margin-bottom: 0;
+  }
 }

@@ -1,16 +1,26 @@
 <div>
-  <div class="btn-group">
+  <el-radio-group [(model)]="editorService.displayMode" [size]="editorService.ATTRIB_FORM_SIZE">
+    <el-radio-button label="TAEGET">编辑</el-radio-button>
+    <el-radio-button label="CODE">代码</el-radio-button>
+  </el-radio-group>
+  <!-- <div class="btn-group">
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.displayMode" btnRadio="TAEGET">Editor</button>
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.displayMode" btnRadio="CODE">Code</button>
-  </div>
+  </div> -->
   <div class="btn-group">
     <button class="btn btn-sm btn-outline-primary" (click)="editorService.showSilder=!editorService.showSilder">
       {{editorService.showSilder?'close silder':'open silder'}}</button>
   </div>
-  <div class="btn-group" *ngIf="editorService.showSilder">
+
+
+  <el-radio-group [(model)]="editorService.optionMode" [size]="editorService.ATTRIB_FORM_SIZE">
+    <el-radio-button label="SOURCE" [elDisabled]="!editorService.showSilder" [(model)]="editorService.optionMode">卡片</el-radio-button>
+    <el-radio-button label="ATTRIB" [elDisabled]="!editorService.showSilder" [(model)]="editorService.optionMode">属性</el-radio-button>
+  </el-radio-group>
+  <!-- <div class="btn-group" *ngIf="editorService.showSilder">
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.optionMode" btnRadio="SOURCE">Cards</button>
     <button class="btn btn-sm btn-outline-primary" [(ngModel)]="editorService.optionMode" btnRadio="ATTRIB">Attrib</button>
-  </div>
+  </div> -->
   <div class="btn-group">
     <button class="btn btn-sm btn-outline-primary" (click)="editorService.isEdit=!editorService.isEdit">
       {{editorService.isEdit?'view mode':'eidtor mode'}}</button>

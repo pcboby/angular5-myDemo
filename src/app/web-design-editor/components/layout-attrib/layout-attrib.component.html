@@ -3,7 +3,8 @@
   <div *ngIf="model.code">
     <div *ngIf="!editors">当前卡无属性项</div>
     <div *ngIf="editors">
-      <ng-container *ngFor="let editor of editors">
+      <!-- bootstrap ui -->
+      <!-- <ng-container *ngFor="let editor of editors">
         <ng-container [ngSwitch]="editor.type">
           <ng-container *ngSwitchCase="'select'">
             <div class="form-group mb-0">
@@ -31,7 +32,64 @@
       <div class="mt-3">
         <button type="button" class="btn btn-success btn-block" (click)="save()">OK</button>
         <button type="button" class="btn btn-light btn-block" (click)="reset()">Reset</button>
-      </div>
+      </div> -->
+      <!-- angular element ui -->
+      <el-form [size]="editorService.ATTRIB_FORM_SIZE" label-position="top" class="layout-attrib-form">
+        <ng-container *ngFor="let editor of editors">
+          <el-form-item [label]="(editor.label || editor.key) + (editor.unit?' ('+editor.value+editor.unit+')':'')">
+            <ng-container [ngSwitch]="editor.type">
+              <!-- checkbox -->
+              <ng-container *ngSwitchCase="'checkbox'">
+                <el-checkbox-group [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value">
+                  <el-checkbox *ngFor="let opt of editor.options" [label]="opt.value">{{opt.label}}</el-checkbox>
+                </el-checkbox-group>
+              </ng-container>
+              <!-- radio -->
+              <ng-container *ngSwitchCase="'radio'">
+                <el-radio-group [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value">
+                  <el-radio *ngFor="let opt of editor.options" [label]="opt.value">{{opt.label}}</el-radio>
+                </el-radio-group>
+              </ng-container>
+              <!-- select -->
+              <ng-container *ngSwitchCase="'select'">
+                <el-select [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''">
+                  <el-option *ngFor="let opt of editor.options" [label]="opt.label" [value]="opt.value"></el-option>
+                </el-select>
+              </ng-container>
+              <!-- numberPicker -->
+              <ng-container *ngSwitchCase="'numberPicker'">
+                <el-input-number [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [min]="editor.min" [max]="editor.max"></el-input-number>
+              </ng-container>
+              <!-- slider -->
+              <ng-container *ngSwitchCase="'slider'">
+                <el-slider style="margin:0 8px; display:block;" [(model)]="editor.value" [min]="editor.min" [max]="editor.max"></el-slider>
+              </ng-container>
+              <!-- textarea -->
+              <ng-container *ngSwitchCase="'textarea'">
+                <el-input type="textarea" [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''"></el-input>
+              </ng-container>
+              <!-- 无法识别的情况下，显示普通的输入框 -->
+              <ng-container *ngSwitchDefault>
+                <el-input [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''"></el-input>
+              </ng-container>
+              <!--  -->
+            </ng-container>
+          </el-form-item>
+        </ng-container>
+        <el-form-item class="layout-attrib-form-btns">
+          <el-button [size]="editorService.ATTRIB_FORM_SIZE" type="primary" (click)="save()">确定</el-button>
+          <el-button [size]="editorService.ATTRIB_FORM_SIZE" (click)="reset()">重置</el-button>
+        </el-form-item>
+
+        <!-- <el-form-item label="午餐">
+          <el-input></el-input>
+        </el-form-item>
+      
+        <el-form-item>
+          <el-button type="primary">提交</el-button>
+        </el-form-item> -->
+
+      </el-form>
     </div>
   </div>
 </div>

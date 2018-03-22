@@ -1,8 +1,28 @@
-<div class="row" [style]="editorService.getEditorValueBy(model,'style') | safe:'style'">
+<!-- <div class="row" [style]="editorService.getEditorValueBy(model,'style') | safe:'style'">
   <div [class]="editorService.getEditorValueBy(model,'columnClass')" *ngFor="let content of model.contents">
     <app-container [removeOnSpill]="true" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit"
       [dropZone]="dropZone" [model]="content" [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)"
       (over)="editorService.log($event)" (out)="editorService.log($event)" (remove)="editorService.log($event)">
+    </app-container>
+  </div>
+</div> -->
+<!-- {{editorService.getEditorValueBy(model,'row_gutter')}} -->
+<!-- <div [style]="editorService.getEditorValueBy(model,'style') | safe:'style'">
+  <div el-row gutter="20" [type]="editorService.getEditorValueBy(model,'row_type')"
+    [justify]="editorService.getEditorValueBy(model,'row_justify')" [align]="editorService.getEditorValueBy(model,'row_align')">
+    <div el-col [span]="editorService.getEditorValueBy(model,'col_span')" *ngFor="let content of model.contents">
+      <app-container [removeOnSpill]="true" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content"
+        [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)" (over)="editorService.log($event)"
+        (out)="editorService.log($event)" (remove)="editorService.log($event)">
+      </app-container>
+    </div>
+  </div>
+</div> -->
+<div class="el-row" [style]="rowStyles | safe:'style'">
+  <div class="el-col el-col-{{editorService.getEditorValueBy(model,'col_space')}}" [style]="colStyles | safe:'style'" *ngFor="let content of model.contents">
+    <app-container [removeOnSpill]="true" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content"
+      [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)" (over)="editorService.log($event)"
+      (out)="editorService.log($event)" (remove)="editorService.log($event)">
     </app-container>
   </div>
 </div>

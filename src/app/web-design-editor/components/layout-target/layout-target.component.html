@@ -6,7 +6,7 @@
     <ng-container [ngSwitch]="model.code">
       <!-- card: container-column -->
       <ng-container *ngSwitchCase="'container-columns'">
-        <app-container-columns [model]="model" [isEdit]="isEdit" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
+        <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
       </ng-container>
       <!-- card: container-panel -->
       <ng-container *ngSwitchCase="'container-panel'">

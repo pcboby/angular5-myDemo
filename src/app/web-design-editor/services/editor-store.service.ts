@@ -21,12 +21,17 @@ export class EditorStoreService {
   // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
 
+  /**
+   *
+   */
+  public ATTRIB_FORM_SIZE = 'mini';
+
   getEditorValueBy(item: any, str: string) {
     if (item.options && item.editors) {
       for (let i = 0; i < item.editors.length; i++) {
         const e = item.editors[i];
         if (e.key === str) {
-          if (e.value) {
+          if (e !== undefined) {
             return e.value;
           }
           continue;
@@ -34,6 +39,43 @@ export class EditorStoreService {
       }
     }
     return item.options[str] || '';
+  }
+  clone(obj: any): any {
+    let copy;
+
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || 'object' !== typeof obj) {
+      return obj;
+    }
+
+    // Handle Date
+    if (obj instanceof Date) {
+      copy = new Date();
+      copy.setTime(obj.getTime());
+      return copy;
+    }
+
+    // Handle Array
+    if (obj instanceof Array) {
+      copy = [];
+      for (let i = 0, len = obj.length; i < len; i++) {
+        copy[i] = this.clone(obj[i]);
+      }
+      return copy;
+    }
+
+    // Handle Object
+    if (obj instanceof Object) {
+      copy = {};
+      for (const attr in obj) {
+        if (obj.hasOwnProperty(attr)) {
+          copy[attr] = this.clone(obj[attr]);
+        }
+      }
+      return copy;
+    }
+
+    throw new Error('Unable to copy obj! Its type isn\'t supported.');
   }
   log(e: any) {
     console.log(e.type, e);

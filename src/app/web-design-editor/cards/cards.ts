@@ -5,38 +5,59 @@ export const containerColumns = {
   icon: 'fa fa-columns',
   class: 'wide',
   options: {
-    style: 'padding: 1.5em;',
-    columns: 2,
-    columnClass: 'col-6'
+    row_style: 'padding: 1.5em;',
+    col_number: 2,
+    col_space: 12,
+    row_gutter: 20
   },
   editors: [{
-    key: 'columns',
-    type: 'number',
-    value: '',
+    key: 'col_number',
+    label: '分栏个数',
+    type: 'numberPicker',
+    value: 2,
     max: 12,
-    min: 2
+    min: 1
   }, {
-    key: 'columnClass',
+    key: 'col_space',
+    label: '单行栏数',
     type: 'select',
-    value: 'col-6',
+    value: 12,
     options: [{
       label: '每行一栏',
-      value: 'col-12'
+      value: 24
     }, {
       label: '每行二栏',
-      value: 'col-6'
+      value: 12
     }, {
       label: '每行三栏',
-      value: 'col-4'
+      value: 8
     }, {
       label: '每行四栏',
-      value: 'col-3'
+      value: 6
     }, {
       label: '每行六栏',
-      value: 'col-2'
+      value: 4
+    }, {
+      label: '每行八栏',
+      value: 3
+    }, {
+      label: '每行十二栏',
+      value: 2
+    }, {
+      label: '每行二十四栏',
+      value: 1
     }]
   }, {
-    key: 'style',
+    key: 'row_gutter',
+    label: '栏间距',
+    type: 'slider',
+    unit: 'px',
+    min: 0,
+    max: 40,
+    value: 20
+  }, {
+    key: 'row_style',
+    label: '分栏样式',
     type: 'textarea',
     value: 'padding:1.5em;'
   }],
