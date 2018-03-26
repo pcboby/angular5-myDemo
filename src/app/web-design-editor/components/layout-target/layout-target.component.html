@@ -4,9 +4,15 @@
 
   <ng-template let-model="model" let-template="template">
     <ng-container [ngSwitch]="model.code">
-      <!-- card: container-column -->
+      <!-- card: container-columns -->
       <ng-container *ngSwitchCase="'container-columns'">
-        <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
+        <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')"
+          [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
+      </ng-container>
+      <!-- card: container-columns2 -->
+      <ng-container *ngSwitchCase="'container-columns2'">
+        <app-container-columns2 [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_spaces').length"
+          [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns2>
       </ng-container>
       <!-- card: container-panel -->
       <ng-container *ngSwitchCase="'container-panel'">

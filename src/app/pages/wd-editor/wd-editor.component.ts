@@ -12,6 +12,249 @@ export class WdEditorComponent implements OnInit {
   // targetData: any[] = [];
   targetData: any[] = [
     {
+      'name': 'container-columns2',
+      'code': 'container-columns2',
+      'icon': 'fa fa-columns',
+      'class': 'wide',
+      'options': {
+        'row_style': 'padding: 1.5em;',
+        'row_gutter': 20,
+        'col_number': 2,
+        'col_spaces': [
+          12,
+          12
+        ]
+      },
+      'editors': [
+        {
+          'key': 'col_spaces',
+          'label': '分栏',
+          'type': 'columnPicker',
+          'value': [
+            12,
+            12
+          ],
+          'options': {
+            'data': [
+              {
+                'label': '24/24',
+                'value': 24
+              },
+              {
+                'label': '16/24',
+                'value': 16
+              },
+              {
+                'label': '14/24',
+                'value': 14
+              },
+              {
+                'label': '12/24',
+                'value': 12
+              },
+              {
+                'label': '10/24',
+                'value': 10
+              },
+              {
+                'label': '8/24',
+                'value': 8
+              },
+              {
+                'label': '6/24',
+                'value': 6
+              },
+              {
+                'label': '4/24',
+                'value': 4
+              },
+              {
+                'label': '3/24',
+                'value': 3
+              },
+              {
+                'label': '2/24',
+                'value': 2
+              },
+              {
+                'label': '1/24',
+                'value': 1
+              }
+            ]
+          }
+        },
+        {
+          'key': 'row_gutter',
+          'label': '栏间距',
+          'type': 'slider',
+          'unit': 'px',
+          'min': 0,
+          'max': 40,
+          'value': 20
+        },
+        {
+          'key': 'row_style',
+          'label': '分栏样式',
+          'type': 'textarea',
+          'value': 'padding-bottom:20px;'
+        }
+      ],
+      'contents': [
+        [
+          {
+            'name': 'container-panel',
+            'code': 'container-panel',
+            'icon': 'fa fa-list-alt',
+            'class': 'wide',
+            'options': {
+              'head_open': true,
+              'head_title': '',
+              'body_style': ''
+            },
+            'editors': [
+              {
+                'key': 'head_open',
+                'type': 'switch',
+                'value': true
+              },
+              {
+                'key': 'head_title',
+                'type': 'text',
+                'value': ''
+              },
+              {
+                'key': 'body_style',
+                'type': 'textarea',
+                'value': ''
+              }
+            ],
+            'contents': [
+              {
+                'name': 'card-input-group',
+                'code': 'card-input-group',
+                'class': 'half',
+                'icon': 'fa fa-font',
+                'options': {
+                  'type': 'text',
+                  'label': '',
+                  'placeholder': ''
+                },
+                'editors': [
+                  {
+                    'key': 'label',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'placeholder',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'type',
+                    'type': 'select',
+                    'options': {
+                      'data': [
+                        {
+                          'label': '文本',
+                          'value': 'text'
+                        },
+                        {
+                          'label': '密码',
+                          'value': 'password'
+                        },
+                        {
+                          'label': '数字',
+                          'value': 'number'
+                        }
+                      ]
+                    },
+                    'value': 'text'
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            'name': 'container-panel',
+            'code': 'container-panel',
+            'icon': 'fa fa-list-alt',
+            'class': 'wide',
+            'options': {
+              'head_open': true,
+              'head_title': '',
+              'body_style': ''
+            },
+            'editors': [
+              {
+                'key': 'head_open',
+                'type': 'switch',
+                'value': true
+              },
+              {
+                'key': 'head_title',
+                'type': 'text',
+                'value': ''
+              },
+              {
+                'key': 'body_style',
+                'type': 'textarea',
+                'value': ''
+              }
+            ],
+            'contents': [
+              {
+                'name': 'card-input-group',
+                'code': 'card-input-group',
+                'class': 'half',
+                'icon': 'fa fa-font',
+                'options': {
+                  'type': 'text',
+                  'label': '',
+                  'placeholder': ''
+                },
+                'editors': [
+                  {
+                    'key': 'label',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'placeholder',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'type',
+                    'type': 'select',
+                    'options': {
+                      'data': [
+                        {
+                          'label': '文本',
+                          'value': 'text'
+                        },
+                        {
+                          'label': '密码',
+                          'value': 'password'
+                        },
+                        {
+                          'label': '数字',
+                          'value': 'number'
+                        }
+                      ]
+                    },
+                    'value': 'text'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
       'name': 'container-columns',
       'code': 'container-columns',
       'icon': 'fa fa-columns',
@@ -86,148 +329,285 @@ export class WdEditorComponent implements OnInit {
           'key': 'row_style',
           'label': '分栏样式',
           'type': 'textarea',
-          'value': 'padding:0;'
+          'value': 'padding-bottom:20px;'
         }
       ],
       'contents': [
         [
           {
-            'name': 'card-input-group',
-            'code': 'card-input-group',
-            'class': 'half',
-            'icon': 'fa fa-font',
+            'name': 'container-panel',
+            'code': 'container-panel',
+            'icon': 'fa fa-list-alt',
+            'class': 'wide',
             'options': {
-              'type': 'text',
-              'label': '',
-              'placeholder': ''
+              'head_open': true,
+              'head_title': '',
+              'body_style': ''
             },
             'editors': [
               {
-                'key': 'label',
-                'type': 'text',
-                'value': 'text'
+                'key': 'head_open',
+                'type': 'switch',
+                'value': true
               },
               {
-                'key': 'placeholder',
+                'key': 'head_title',
                 'type': 'text',
-                'value': 'text'
+                'value': ''
               },
               {
-                'key': 'type',
-                'type': 'select',
+                'key': 'body_style',
+                'type': 'textarea',
+                'value': ''
+              }
+            ],
+            'contents': [
+              {
+                'name': 'card-input-group',
+                'code': 'card-input-group',
+                'class': 'half',
+                'icon': 'fa fa-font',
                 'options': {
-                  'data': [
-                    {
-                      'label': '文本',
-                      'value': 'text'
-                    },
-                    {
-                      'label': '密码',
-                      'value': 'password'
-                    },
-                    {
-                      'label': '数字',
-                      'value': 'number'
-                    }
-                  ]
+                  'type': 'text',
+                  'label': '',
+                  'placeholder': ''
                 },
-                'value': 'text'
+                'editors': [
+                  {
+                    'key': 'label',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'placeholder',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'type',
+                    'type': 'select',
+                    'options': {
+                      'data': [
+                        {
+                          'label': '文本',
+                          'value': 'text'
+                        },
+                        {
+                          'label': '密码',
+                          'value': 'password'
+                        },
+                        {
+                          'label': '数字',
+                          'value': 'number'
+                        }
+                      ]
+                    },
+                    'value': 'text'
+                  }
+                ]
               }
             ]
           }
         ],
         [
           {
-            'name': 'card-input-group',
-            'code': 'card-input-group',
-            'class': 'half',
-            'icon': 'fa fa-font',
+            'name': 'container-panel',
+            'code': 'container-panel',
+            'icon': 'fa fa-list-alt',
+            'class': 'wide',
             'options': {
-              'type': 'text',
-              'label': '',
-              'placeholder': ''
+              'head_open': true,
+              'head_title': '',
+              'body_style': ''
             },
             'editors': [
               {
-                'key': 'label',
-                'type': 'text',
-                'value': 'pwd'
+                'key': 'head_open',
+                'type': 'switch',
+                'value': true
               },
               {
-                'key': 'placeholder',
+                'key': 'head_title',
                 'type': 'text',
-                'value': 'password'
+                'value': ''
               },
               {
-                'key': 'type',
-                'type': 'select',
+                'key': 'body_style',
+                'type': 'textarea',
+                'value': ''
+              }
+            ],
+            'contents': [
+              {
+                'name': 'card-input-group',
+                'code': 'card-input-group',
+                'class': 'half',
+                'icon': 'fa fa-font',
                 'options': {
-                  'data': [
-                    {
-                      'label': '文本',
-                      'value': 'text'
-                    },
-                    {
-                      'label': '密码',
-                      'value': 'password'
-                    },
-                    {
-                      'label': '数字',
-                      'value': 'number'
-                    }
-                  ]
+                  'type': 'text',
+                  'label': '',
+                  'placeholder': ''
                 },
-                'value': 'password'
+                'editors': [
+                  {
+                    'key': 'label',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'placeholder',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'type',
+                    'type': 'select',
+                    'options': {
+                      'data': [
+                        {
+                          'label': '文本',
+                          'value': 'text'
+                        },
+                        {
+                          'label': '密码',
+                          'value': 'password'
+                        },
+                        {
+                          'label': '数字',
+                          'value': 'number'
+                        }
+                      ]
+                    },
+                    'value': 'text'
+                  }
+                ]
               }
             ]
           }
         ],
         [
           {
-            'name': 'card-input-group',
-            'code': 'card-input-group',
-            'class': 'half',
-            'icon': 'fa fa-font',
+            'name': 'container-panel',
+            'code': 'container-panel',
+            'icon': 'fa fa-list-alt',
+            'class': 'wide',
             'options': {
-              'type': 'text',
-              'label': '',
-              'placeholder': ''
+              'head_open': true,
+              'head_title': '',
+              'body_style': ''
             },
             'editors': [
               {
-                'key': 'label',
-                'type': 'text',
-                'value': 'number'
+                'key': 'head_open',
+                'type': 'switch',
+                'value': true
               },
               {
-                'key': 'placeholder',
+                'key': 'head_title',
                 'type': 'text',
-                'value': 'number'
+                'value': ''
               },
               {
-                'key': 'type',
-                'type': 'select',
+                'key': 'body_style',
+                'type': 'textarea',
+                'value': ''
+              }
+            ],
+            'contents': [
+              {
+                'name': 'card-input-group',
+                'code': 'card-input-group',
+                'class': 'half',
+                'icon': 'fa fa-font',
                 'options': {
-                  'data': [
-                    {
-                      'label': '文本',
-                      'value': 'text'
-                    },
-                    {
-                      'label': '密码',
-                      'value': 'password'
-                    },
-                    {
-                      'label': '数字',
-                      'value': 'number'
-                    }
-                  ]
+                  'type': 'text',
+                  'label': '',
+                  'placeholder': ''
                 },
-                'value': 'number'
+                'editors': [
+                  {
+                    'key': 'label',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'placeholder',
+                    'type': 'text',
+                    'value': ''
+                  },
+                  {
+                    'key': 'type',
+                    'type': 'select',
+                    'options': {
+                      'data': [
+                        {
+                          'label': '文本',
+                          'value': 'text'
+                        },
+                        {
+                          'label': '密码',
+                          'value': 'password'
+                        },
+                        {
+                          'label': '数字',
+                          'value': 'number'
+                        }
+                      ]
+                    },
+                    'value': 'text'
+                  }
+                ]
               }
             ]
           }
         ]
+      ]
+    },
+    {
+      'name': 'container-panel',
+      'code': 'container-panel',
+      'icon': 'fa fa-list-alt',
+      'class': 'wide',
+      'options': {
+        'head_open': true,
+        'head_title': '',
+        'body_style': ''
+      },
+      'editors': [
+        {
+          'key': 'head_open',
+          'type': 'switch',
+          'value': true
+        },
+        {
+          'key': 'head_title',
+          'type': 'text',
+          'value': ''
+        },
+        {
+          'key': 'body_style',
+          'type': 'textarea',
+          'value': 'padding:0;'
+        }
+      ],
+      'contents': [
+        {
+          'name': 'card-iframe',
+          'code': 'card-iframe',
+          'class': 'ifrmae',
+          'icon': 'fa fa-globe',
+          'options': {
+            'src': 'about:blank'
+          },
+          'editors': [
+            {
+              'key': 'src',
+              'type': 'text',
+              'value': 'http://localhost:8080/assets/cards/eui-tmp/index.html',
+              'placeholder': 'http://'
+            }
+          ]
+        }
       ]
     },
     {

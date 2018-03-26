@@ -10,11 +10,11 @@ import {
 } from '../../services/editor-store.service';
 
 @Component({
-  selector: 'app-container-columns',
-  templateUrl: './container-columns.component.html',
-  styleUrls: ['./container-columns.component.scss']
+  selector: 'app-container-columns2',
+  templateUrl: './container-columns2.component.html',
+  styleUrls: ['./container-columns2.component.scss']
 })
-export class ContainerColumnsComponent implements OnInit {
+export class ContainerColumns2Component implements OnInit {
 
   /**
    * 卡片参数
@@ -24,9 +24,6 @@ export class ContainerColumnsComponent implements OnInit {
   @Input() isEdit = true;
   @Input() showLabel = true;
   @Input()
-  get colNumber(): number {
-    return this.model.editors.col_number;
-  }
   set colNumber(val: number) {
     this.setRows(val);
     // this.model.editors.col_number = val;
@@ -37,7 +34,7 @@ export class ContainerColumnsComponent implements OnInit {
    */
 
   @Input() dropZone; // 容器名称
-  @Input() template: TemplateRef < any > ; // 模板引入
+  @Input() template: TemplateRef<any>; // 模板引入
 
 
 
@@ -52,11 +49,10 @@ export class ContainerColumnsComponent implements OnInit {
   get colStyles(): string {
     const gutter = this.editorService.getEditorValueBy(this.model, 'row_gutter') / 2;
     return 'padding-left:' + gutter + 'px; padding-right: ' + gutter + 'px;';
-    // return 'padding:' + gutter + 'px;';
   }
-  constructor(public editorService: EditorStoreService) {}
+  constructor(public editorService: EditorStoreService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setRows(v: number) {
     const n = this.model.contents.length;
@@ -71,5 +67,4 @@ export class ContainerColumnsComponent implements OnInit {
     }
 
   }
-
 }

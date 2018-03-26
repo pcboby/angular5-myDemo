@@ -6,7 +6,9 @@ import {
   SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
-import { EditorStoreService } from '../../services/editor-store.service';
+import {
+  EditorStoreService
+} from '../../services/editor-store.service';
 
 @Component({
   selector: 'app-layout-attrib',
@@ -18,16 +20,23 @@ export class LayoutAttribComponent implements OnInit, OnChanges {
   _editors = [];
   editors = [];
 
+  toggle2 = false;
+
   @Input() model: any = {};
 
   constructor(public editorService: EditorStoreService) {}
 
   save(): void {
+    console.log(this.editors);
     this.model.editors = this.editorService.clone(this.editors);
   }
   reset(): void {
     this.editors = this.editorService.clone(this._editors);
     this.model.editors = this.editorService.clone(this._editors);
+  }
+
+  getValue(item: any): any {
+    return item.value;
   }
 
   ngOnInit() {}
@@ -39,5 +48,3 @@ export class LayoutAttribComponent implements OnInit, OnChanges {
 
 
 }
-
-

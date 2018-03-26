@@ -68,6 +68,77 @@ export const containerColumns = {
     []
   ]
 };
+export const containerColumns2 = {
+  name: 'container-columns2',
+  code: 'container-columns2',
+  icon: 'fa fa-columns',
+  class: 'wide',
+  options: {
+    row_style: 'padding: 1.5em;',
+    row_gutter: 20,
+    col_number: 2,
+    col_spaces: [12, 12]
+  },
+  editors: [{
+    key: 'col_spaces',
+    label: '分栏',
+    type: 'columnPicker',
+    value: [12, 12],
+    options: {
+      data: [{
+        label: '24/24',
+        value: 24
+      }, {
+        label: '16/24',
+        value: 16
+      }, {
+        label: '14/24',
+        value: 14
+      }, {
+        label: '12/24',
+        value: 12
+      }, {
+        label: '10/24',
+        value: 10
+      }, {
+        label: '8/24',
+        value: 8
+      }, {
+        label: '6/24',
+        value: 6
+      }, {
+        label: '4/24',
+        value: 4
+      }, {
+        label: '3/24',
+        value: 3
+      }, {
+        label: '2/24',
+        value: 2
+      }, {
+        label: '1/24',
+        value: 1
+      }]
+    }
+  }, {
+    key: 'row_gutter',
+    label: '栏间距',
+    type: 'slider',
+    unit: 'px',
+    min: 0,
+    max: 40,
+    value: 20
+  }, {
+    key: 'row_style',
+    label: '分栏样式',
+    type: 'textarea',
+    value: 'padding:1.5em;'
+  }],
+  contents: [
+    [],
+    []
+  ]
+};
 // container-panel
 export const containerPanel = {
   name: 'container-panel',
@@ -148,7 +219,7 @@ export const cardIframe = {
   }]
 };
 // all containers
-export const containers: Array < any > = [containerColumns, containerPanel];
+export const containers: Array < any > = [containerColumns, containerColumns2, containerPanel];
 // all system cards
 export const cards: Array < any > = [cardIframe, cardInputGroup];
 // all cards

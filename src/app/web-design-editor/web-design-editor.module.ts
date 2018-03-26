@@ -20,7 +20,8 @@ import {
   LayoutToolbarComponent,
   LayoutAttribComponent,
   LayoutCascadeComponent,
-  ItemMaskComponent
+  ItemMaskComponent,
+  ColumnPickerComponent
 } from './components';
 import {
   DrakeStoreService
@@ -41,6 +42,7 @@ import {
 } from 'ngx-bootstrap';
 import {
   ContainerColumnsComponent,
+  ContainerColumns2Component,
   CardErrorComponent,
   CardIframeComponent,
   CardInputGroupComponent,
@@ -67,6 +69,7 @@ const systemCards = [
   CardIframeComponent,
   CardInputGroupComponent,
   ContainerColumnsComponent,
+  ContainerColumns2Component,
   ContainerPanelComponent
 ];
 const components = [
@@ -79,7 +82,8 @@ const components = [
   LayoutAttribComponent,
   LayoutTargetComponent,
   LayoutCodeComponent,
-  LayoutCascadeComponent
+  LayoutCascadeComponent,
+  ColumnPickerComponent
 ];
 const directives = [
   DraggableDirective,
@@ -92,7 +96,7 @@ const services = [
 
 @NgModule({
   imports: [
-    ...modules
+  ...modules
   ],
   declarations: [
     ...pipes,
