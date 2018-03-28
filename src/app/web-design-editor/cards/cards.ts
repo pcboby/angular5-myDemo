@@ -1,7 +1,12 @@
-// container-columns
+// 均分分栏容器：container-columns
 export const containerColumns = {
   name: 'container-columns',
   code: 'container-columns',
+  type: 'system',
+  contents: [
+    [],
+    []
+  ],
   icon: 'fa fa-columns',
   class: 'wide',
   options: {
@@ -62,15 +67,17 @@ export const containerColumns = {
     label: '分栏样式',
     type: 'textarea',
     value: 'padding:1.5em;'
-  }],
-  contents: [
-    [],
-    []
-  ]
+  }]
 };
+// 自定义分栏容器：container-columns2
 export const containerColumns2 = {
   name: 'container-columns2',
   code: 'container-columns2',
+  type: 'system',
+  contents: [
+    [],
+    []
+  ],
   icon: 'fa fa-columns',
   class: 'wide',
   options: {
@@ -133,16 +140,14 @@ export const containerColumns2 = {
     label: '分栏样式',
     type: 'textarea',
     value: 'padding:1.5em;'
-  }],
-  contents: [
-    [],
-    []
-  ]
+  }]
 };
-// container-panel
+// 单块布局容器：container-panel
 export const containerPanel = {
   name: 'container-panel',
   code: 'container-panel',
+  type: 'system',
+  contents: [],
   icon: 'fa fa-list-alt',
   class: 'wide',
   options: {
@@ -162,13 +167,13 @@ export const containerPanel = {
     key: 'body_style',
     type: 'textarea',
     value: ''
-  }],
-  contents: []
+  }]
 };
-// card-input-group
+// 标准输入卡：card-input-group
 export const cardInputGroup = {
   name: 'card-input-group',
   code: 'card-input-group',
+  type: 'system',
   class: 'half',
   icon: 'fa fa-font',
   options: {
@@ -202,10 +207,11 @@ export const cardInputGroup = {
     value: 'text'
   }]
 };
-// card-iframe
+// 标准页面卡：card-iframe
 export const cardIframe = {
   name: 'card-iframe',
   code: 'card-iframe',
+  type: 'system',
   class: 'ifrmae',
   icon: 'fa fa-globe',
   options: {
@@ -218,9 +224,9 @@ export const cardIframe = {
     placeholder: 'http://'
   }]
 };
-// all containers
+// 系统容器卡片：all containers
 export const containers: Array < any > = [containerColumns, containerColumns2, containerPanel];
-// all system cards
+// 系统普通卡片：all system cards
 export const cards: Array < any > = [cardIframe, cardInputGroup];
-// all cards
+// 所有卡片：all cards：
 export const AllSystemCards: Array < any > = [...containers, ...cards];

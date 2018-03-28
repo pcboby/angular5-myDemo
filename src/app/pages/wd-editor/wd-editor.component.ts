@@ -14,6 +14,7 @@ export class WdEditorComponent implements OnInit {
     {
       'name': 'container-columns2',
       'code': 'container-columns2',
+      'type': 'system',
       'icon': 'fa fa-columns',
       'class': 'wide',
       'options': {
@@ -104,6 +105,7 @@ export class WdEditorComponent implements OnInit {
           {
             'name': 'container-panel',
             'code': 'container-panel',
+            'type': 'system',
             'icon': 'fa fa-list-alt',
             'class': 'wide',
             'options': {
@@ -132,6 +134,7 @@ export class WdEditorComponent implements OnInit {
               {
                 'name': 'card-input-group',
                 'code': 'card-input-group',
+                'type': 'system',
                 'class': 'half',
                 'icon': 'fa fa-font',
                 'options': {
@@ -180,6 +183,7 @@ export class WdEditorComponent implements OnInit {
           {
             'name': 'container-panel',
             'code': 'container-panel',
+            'type': 'system',
             'icon': 'fa fa-list-alt',
             'class': 'wide',
             'options': {
@@ -208,6 +212,7 @@ export class WdEditorComponent implements OnInit {
               {
                 'name': 'card-input-group',
                 'code': 'card-input-group',
+                'type': 'system',
                 'class': 'half',
                 'icon': 'fa fa-font',
                 'options': {
@@ -257,6 +262,7 @@ export class WdEditorComponent implements OnInit {
     {
       'name': 'container-columns',
       'code': 'container-columns',
+      'type': 'system',
       'icon': 'fa fa-columns',
       'class': 'wide',
       'options': {
@@ -337,6 +343,7 @@ export class WdEditorComponent implements OnInit {
           {
             'name': 'container-panel',
             'code': 'container-panel',
+            'type': 'system',
             'icon': 'fa fa-list-alt',
             'class': 'wide',
             'options': {
@@ -365,6 +372,7 @@ export class WdEditorComponent implements OnInit {
               {
                 'name': 'card-input-group',
                 'code': 'card-input-group',
+                'type': 'system',
                 'class': 'half',
                 'icon': 'fa fa-font',
                 'options': {
@@ -413,6 +421,7 @@ export class WdEditorComponent implements OnInit {
           {
             'name': 'container-panel',
             'code': 'container-panel',
+            'type': 'system',
             'icon': 'fa fa-list-alt',
             'class': 'wide',
             'options': {
@@ -441,6 +450,7 @@ export class WdEditorComponent implements OnInit {
               {
                 'name': 'card-input-group',
                 'code': 'card-input-group',
+                'type': 'system',
                 'class': 'half',
                 'icon': 'fa fa-font',
                 'options': {
@@ -489,6 +499,7 @@ export class WdEditorComponent implements OnInit {
           {
             'name': 'container-panel',
             'code': 'container-panel',
+            'type': 'system',
             'icon': 'fa fa-list-alt',
             'class': 'wide',
             'options': {
@@ -517,6 +528,7 @@ export class WdEditorComponent implements OnInit {
               {
                 'name': 'card-input-group',
                 'code': 'card-input-group',
+                'type': 'system',
                 'class': 'half',
                 'icon': 'fa fa-font',
                 'options': {
@@ -566,6 +578,7 @@ export class WdEditorComponent implements OnInit {
     {
       'name': 'container-panel',
       'code': 'container-panel',
+      'type': 'system',
       'icon': 'fa fa-list-alt',
       'class': 'wide',
       'options': {
@@ -594,6 +607,7 @@ export class WdEditorComponent implements OnInit {
         {
           'name': 'card-iframe',
           'code': 'card-iframe',
+          'type': 'system',
           'class': 'ifrmae',
           'icon': 'fa fa-globe',
           'options': {
@@ -613,6 +627,7 @@ export class WdEditorComponent implements OnInit {
     {
       'name': 'container-panel',
       'code': 'container-panel',
+      'type': 'system',
       'icon': 'fa fa-list-alt',
       'class': 'wide',
       'options': {
@@ -641,6 +656,7 @@ export class WdEditorComponent implements OnInit {
         {
           'name': 'card-input-group',
           'code': 'card-input-group',
+          'type': 'system',
           'class': 'half',
           'icon': 'fa fa-font',
           'options': {
@@ -685,6 +701,7 @@ export class WdEditorComponent implements OnInit {
         {
           'name': 'card-input-group',
           'code': 'card-input-group',
+          'type': 'system',
           'class': 'half',
           'icon': 'fa fa-font',
           'options': {
@@ -733,7 +750,24 @@ export class WdEditorComponent implements OnInit {
       'code': 'XXX-card'
     }
   ];
-  sourceData: any[] = [];
+  sourceData: any[] = [{
+    'name': 'my-card-example',
+    'code': 'my-card-example',
+    'type': 'offline',
+    'urls': '/assets/cards/card-html/index.html',
+    'class': 'half',
+    'icon': 'fa fa-delicious',
+    'options': {
+      'label': ''
+    },
+    'editors': [
+      {
+        'key': 'label',
+        'type': 'text',
+        'value': 'myCard'
+      }
+    ]
+  }];
 
   // log(e: any) {
   //   console.log(e.type, e);

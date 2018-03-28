@@ -47,7 +47,8 @@ import {
   CardIframeComponent,
   CardInputGroupComponent,
   ContainerPanelComponent,
-  CardItemComponent
+  CardItemComponent,
+  CardOfflineComponent
 } from './cards';
 import { ElModule } from 'element-angular';
 import {
@@ -63,14 +64,15 @@ const modules = [
   // TabsModule.forRoot(),
   ElModule.forRoot()
 ];
-const systemCards = [
+const cardComponents = [
   CardErrorComponent,
   CardItemComponent,
   CardIframeComponent,
   CardInputGroupComponent,
   ContainerColumnsComponent,
   ContainerColumns2Component,
-  ContainerPanelComponent
+  ContainerPanelComponent,
+  CardOfflineComponent
 ];
 const components = [
   WebDesignEditorComponent,
@@ -96,12 +98,12 @@ const services = [
 
 @NgModule({
   imports: [
-  ...modules
+...modules
   ],
   declarations: [
     ...pipes,
     ...components,
-    ...systemCards,
+    ...cardComponents,
     ...directives
   ],
   exports: [

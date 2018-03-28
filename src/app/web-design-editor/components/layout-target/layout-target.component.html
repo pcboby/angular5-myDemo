@@ -3,35 +3,61 @@
   (out)="editorService.log($event)" (remove)="editorService.log($event)">
 
   <ng-template let-model="model" let-template="template">
-    <ng-container [ngSwitch]="model.code">
-      <!-- card: container-columns -->
-      <ng-container *ngSwitchCase="'container-columns'">
-        <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')"
-          [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
+
+    <ng-container [ngSwitch]="model.type">
+      <!-- 系统卡片 -->
+      <ng-container *ngSwitchCase="'system'">
+        <ng-container [ngSwitch]="model.code">
+          <!-- card: container-columns -->
+          <ng-container *ngSwitchCase="'container-columns'">
+            <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')"
+              [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
+          </ng-container>
+          <!-- card: container-columns2 -->
+          <ng-container *ngSwitchCase="'container-columns2'">
+            <app-container-columns2 [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_spaces').length"
+              [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns2>
+          </ng-container>
+          <!-- card: container-panel -->
+          <ng-container *ngSwitchCase="'container-panel'">
+            <app-container-panel [model]="model" [isEdit]="isEdit" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-panel>
+          </ng-container>
+          <!-- card: form-input-group -->
+          <ng-container *ngSwitchCase="'card-input-group'">
+            <app-card-input-group [model]="model"></app-card-input-group>
+          </ng-container>
+          <!-- card: control-iframe -->
+          <ng-container *ngSwitchCase="'card-iframe'">
+            <app-card-iframe [model]="model"></app-card-iframe>
+          </ng-container>
+          <!-- 未知系统卡片 -->
+          <ng-container *ngSwitchDefault>
+            <ng-container *ngIf="isEdit">
+              <app-card-error [model]="model"></app-card-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
       </ng-container>
-      <!-- card: container-columns2 -->
-      <ng-container *ngSwitchCase="'container-columns2'">
-        <app-container-columns2 [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_spaces').length"
-          [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns2>
+      <!-- 离线卡片 -->
+      <ng-container *ngSwitchCase="'offline'">
+        <ng-container *ngIf="model.urls">
+          <app-card-offline [model]="model"></app-card-offline>
+        </ng-container>
+          <!-- 无效离线卡片 -->
+          <ng-container *ngIf="!model.urls">
+            <ng-container *ngIf="isEdit">
+              <app-card-error [model]="model"></app-card-error>
+            </ng-container>
+          </ng-container>
       </ng-container>
-      <!-- card: container-panel -->
-      <ng-container *ngSwitchCase="'container-panel'">
-        <app-container-panel [model]="model" [isEdit]="isEdit" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-panel>
-      </ng-container>
-      <!-- card: form-input-group -->
-      <ng-container *ngSwitchCase="'card-input-group'">
-        <app-card-input-group [model]="model"></app-card-input-group>
-      </ng-container>
-      <!-- card: control-iframe -->
-      <ng-container *ngSwitchCase="'card-iframe'">
-        <app-card-iframe [model]="model"></app-card-iframe>
-      </ng-container>
-      <!-- nofound -->
+      <!-- 未知卡片类型 -->
       <ng-container *ngSwitchDefault>
         <ng-container *ngIf="isEdit">
           <app-card-error [model]="model"></app-card-error>
         </ng-container>
       </ng-container>
     </ng-container>
+
+
   </ng-template>
 </app-container>
