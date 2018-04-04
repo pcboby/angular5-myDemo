@@ -20,6 +20,13 @@ import {
 import {
   map
 } from 'rxjs/operators';
+import {
+  System
+} from 'es-module-loader/core/loader-polyfill.js';
+import {
+  toArray
+} from 'rxjs/operator/toArray';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -27,10 +34,9 @@ import {
   templateUrl: './card-offline.component.html',
   styleUrls: ['./card-offline.component.css']
 })
-export class CardOfflineComponent implements OnInit, AfterContentInit {
-
+export class CardOfflineComponent implements OnInit {
   contents: any = '';
-  cardid = this.editorService.randomString(8).toLocaleLowerCase();
+  // cardid = this.editorService.randomString(8).toLocaleLowerCase();
 
   @Input() model: any;
   @Input() cardZone = this.editorService.randomString(8);
@@ -39,44 +45,40 @@ export class CardOfflineComponent implements OnInit, AfterContentInit {
   //   return this.el.nativeElement;
   // }
 
-  createComponent() {
+  createComponent(cardZone) {
     const url = this.model.base + this.model.main;
     this.http.get(url, {
       responseType: 'text'
     }).subscribe((data) => {
       this.contents = data
-        .replace(/app-root/g, 'card-root-' + this.cardZone)
+        .replace(/app-root/g, 'card-root-' + cardZone)
         .replace(/src=\"/g, 'src=\"' + this.model.base)
         .replace(/link href=\"/g, 'link href=\"' + this.model.base);
 
-      console.log('@@@2', this.cardZone, this.contents);
+      console.log('@@@1', cardZone, this.contents);
       this.zone.runOutsideAngular(() => {
-        this.loadScripts();
+        this.loadScripts(cardZone);
       });
     });
 
   }
 
-  loadScripts() {
+  loadScripts(cardZone) {
+
+    console.log('@@@2', cardZone);
     const scripts = this.model.scripts.filter(url => !/polyfills\.\w+\.bundle.js$/.test(url))
       .map(url => this.http.get(this.model.base + url, {
         responseType: 'text'
       }));
     concat(...scripts)
       // .pipe(
-      //   // map(c => (this.model.scripts).concat(c).join('\n\n/*******************/\n\n'))
+      //   map(c => this.model.scripts.concat(c).join('\n\n////////////\n\n'))
       // )
       .subscribe(res => {
-
-        console.log('@@@2', this.cardZone);
-        // tslint:disable-next-line:no-eval
-        // debugger;
-        eval(String(res).replace(/app-root/g, 'card-root-' + this.cardZone));
-        // const n = SystemJS.normalizedUrl(`card-complate-${this.cardZone}.js`);
-        // SystemJS.define(n, res);
-        // SystemJS.import(n).then(m => {
-        //   console.log(m);
-        // });
+        const s = String(res).replace(/app-root/g, 'card-root-' + cardZone);
+        setTimeout(() => {
+          eval(s);
+        }, 100);
       });
     console.log('@@createScripts');
   }
@@ -85,9 +87,8 @@ export class CardOfflineComponent implements OnInit, AfterContentInit {
 
   // tslint:disable-next-line:max-line-length
   constructor(private editorService: EditorStoreService, private zone: NgZone, private http: HttpClient) {}
-  ngOnInit() {}
-  ngAfterContentInit() {
-    this.createComponent();
+  ngOnInit() {
+    this.createComponent(this.cardZone);
 
   }
 
