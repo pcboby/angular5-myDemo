@@ -21,7 +21,7 @@ export class LayoutTargetComponent implements OnInit {
    * @memberof LayoutTargetComponent
    */
   @Input()
-  isEdit = true;
+  isEdit = false;
   @Input()
   showLabel = true;
   @Input()

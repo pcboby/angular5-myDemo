@@ -21,9 +21,19 @@ export class EditorStoreService {
   // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
 
+  private scriptMap = new WeakMap<any, string>();
+
+  registerScript(urls: any , scripts: string) {
+    this.scriptMap.set(urls, scripts);
+  }
+  removeScript(urls: any) {
+    this.scriptMap.delete(urls);
+  }
+
   /**
    *
    */
+  // tslint:disable-next-line:member-ordering
   public ATTRIB_FORM_SIZE = 'mini';
 
   getEditorValueBy(item: any, str: string) {
@@ -79,6 +89,17 @@ export class EditorStoreService {
   }
   log(e: any) {
     console.log(e.type, e);
+  }
+
+  randomString(len) {
+    len = len || 32;
+    const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+    const maxPos = $chars.length;
+    let cod = '';
+    for (let i = 0; i < len; i++) {
+      cod += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return cod;
   }
 
   constructor() {}

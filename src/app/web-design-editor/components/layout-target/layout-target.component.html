@@ -40,15 +40,16 @@
       </ng-container>
       <!-- 离线卡片 -->
       <ng-container *ngSwitchCase="'offline'">
-        <ng-container *ngIf="model.urls">
+        <!-- 有效离线卡片 -->
+        <ng-container *ngIf="model.main">
           <app-card-offline [model]="model"></app-card-offline>
         </ng-container>
-          <!-- 无效离线卡片 -->
-          <ng-container *ngIf="!model.urls">
-            <ng-container *ngIf="isEdit">
-              <app-card-error [model]="model"></app-card-error>
-            </ng-container>
+        <!-- 无效离线卡片 -->
+        <ng-container *ngIf="!model.main">
+          <ng-container *ngIf="isEdit">
+            <app-card-error [model]="model"></app-card-error>
           </ng-container>
+        </ng-container>
       </ng-container>
       <!-- 未知卡片类型 -->
       <ng-container *ngSwitchDefault>
