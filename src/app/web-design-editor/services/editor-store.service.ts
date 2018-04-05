@@ -21,13 +21,19 @@ export class EditorStoreService {
   // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
 
-  private scriptMap = new WeakMap<any, string>();
+  private scriptsMap = new WeakMap<any, string>();
 
-  registerScript(urls: any , scripts: string) {
-    this.scriptMap.set(urls, scripts);
+  registerScripts(o: any , s: string) {
+    this.scriptsMap.set(o, s);
   }
-  removeScript(urls: any) {
-    this.scriptMap.delete(urls);
+  removeScripts(o: any) {
+    this.scriptsMap.delete(o);
+  }
+  hasScripts(o: any): boolean {
+    return this.scriptsMap.has(o);
+  }
+  getScripts(o: any): string {
+    return this.scriptsMap.get(o);
   }
 
   /**

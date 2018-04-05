@@ -701,8 +701,8 @@ export class WdEditorComponent implements OnInit {
     }
   ];
   sourceData: any[] = [{
-    'name': 'my-card-example',
-    'code': 'my-card-example',
+    'name': 'angular-card-example1',
+    'code': 'angular-card-example1',
     'type': 'offline',
     'base': '/assets/cards/card-a1/',
     'main': 'index.html',

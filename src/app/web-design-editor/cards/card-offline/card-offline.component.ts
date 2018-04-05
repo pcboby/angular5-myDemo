@@ -6,7 +6,8 @@ import {
   ElementRef,
   NgZone,
   AfterViewInit,
-  AfterContentInit
+  AfterContentInit,
+  OnDestroy
 } from '@angular/core';
 import {
   HttpClient
@@ -15,18 +16,9 @@ import {
   EditorStoreService
 } from '../../services/editor-store.service';
 import {
-  concat
-} from 'rxjs/observable/concat';
-import {
-  map
-} from 'rxjs/operators';
-import {
-  System
-} from 'es-module-loader/core/loader-polyfill.js';
-import {
-  toArray
-} from 'rxjs/operator/toArray';
-import { Observable } from 'rxjs/Observable';
+  Observable
+  // tslint:disable-next-line:import-blacklist
+} from 'rxjs/Rx';
 
 
 @Component({
@@ -34,62 +26,66 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './card-offline.component.html',
   styleUrls: ['./card-offline.component.css']
 })
-export class CardOfflineComponent implements OnInit {
+export class CardOfflineComponent implements OnInit, OnDestroy {
   contents: any = '';
+  _cardZone = '';
   // cardid = this.editorService.randomString(8).toLocaleLowerCase();
 
   @Input() model: any;
-  @Input() cardZone = this.editorService.randomString(8);
+  @Input() cardZone = 'card-zone-root-' + this.editorService.randomString(16);
 
-  // get element(): HTMLElement {
-  //   return this.el.nativeElement;
-  // }
+  get element(): HTMLElement {
+    return this.el.nativeElement;
+  }
 
-  createComponent(cardZone) {
+  createComponent() {
     const url = this.model.base + this.model.main;
     this.http.get(url, {
       responseType: 'text'
     }).subscribe((data) => {
       this.contents = data
-        .replace(/app-root/g, 'card-root-' + cardZone)
+        .replace(/app-root/g, this.cardZone)
         .replace(/src=\"/g, 'src=\"' + this.model.base)
         .replace(/link href=\"/g, 'link href=\"' + this.model.base);
 
-      console.log('@@@1', cardZone, this.contents);
-      this.zone.runOutsideAngular(() => {
-        this.loadScripts(cardZone);
-      });
+      // console.log('@@@1', cardZone, this.contents);
+      this.loadScripts();
     });
 
   }
 
-  loadScripts(cardZone) {
-
-    console.log('@@@2', cardZone);
-    const scripts = this.model.scripts.filter(url => !/polyfills\.\w+\.bundle.js$/.test(url))
+  loadScripts() {
+    const scripts = this.model.scripts
+      .filter(url => !/polyfills\.\w+\.bundle.js$/.test(url))
       .map(url => this.http.get(this.model.base + url, {
         responseType: 'text'
       }));
-    concat(...scripts)
-      // .pipe(
-      //   map(c => this.model.scripts.concat(c).join('\n\n////////////\n\n'))
-      // )
+    Observable.forkJoin(...scripts)
       .subscribe(res => {
-        const s = String(res).replace(/app-root/g, 'card-root-' + cardZone);
-        setTimeout(() => {
-          eval(s);
-        }, 100);
+        let s = '';
+        for (let i = 0; i < res.length; i++) {
+          s += `\n/*${this.model.scripts[i]}*/\n` + res[i];
+        }
+        this.runScripts(s);
       });
-    console.log('@@createScripts');
+  }
+  runScripts(s: string) {
+    this.zone.runOutsideAngular(() => {
+      // tslint:disable-next-line:no-eval
+      eval(`(function(_){_['${this.cardZone}']=function(){${s.replace(/app-root/g, this.cardZone)}};})(window)`);
+      window[this.cardZone]();
+    });
   }
 
 
 
   // tslint:disable-next-line:max-line-length
-  constructor(private editorService: EditorStoreService, private zone: NgZone, private http: HttpClient) {}
+  constructor(private el: ElementRef, private editorService: EditorStoreService, private zone: NgZone, private http: HttpClient) {}
   ngOnInit() {
-    this.createComponent(this.cardZone);
-
+    this.createComponent();
+  }
+  ngOnDestroy() {
+    window[this.cardZone] = null;
   }
 
 }
