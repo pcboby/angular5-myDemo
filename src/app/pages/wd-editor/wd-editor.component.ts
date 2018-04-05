@@ -704,6 +704,7 @@ export class WdEditorComponent implements OnInit {
     'name': 'angular-card-example1',
     'code': 'angular-card-example1',
     'type': 'offline',
+    'cli': 'angular',
     'base': '/assets/cards/card-a1/',
     'main': 'index.html',
     'scripts': [
@@ -721,7 +722,49 @@ export class WdEditorComponent implements OnInit {
       'type': 'text',
       'value': 'myCard'
     }]
-  }];
+  }, {
+      'name': 'vue-card-example1',
+      'code': 'vue-card-example1',
+      'type': 'offline',
+      'cli': 'vue',
+      'base': '/assets/cards/card-v1/',
+      'main': 'index.html',
+      'scripts': [
+        './static/js/manifest.2ae2e69a05c33dfc65f8.js',
+        './static/js/vendor.690af568dc446079a841.js',
+        './static/js/app.2f2e5edd9af2c59aa514.js'
+      ],
+      'class': 'half',
+      'icon': 'fa fa-delicious',
+      'options': {
+        'label': ''
+      },
+      'editors': [{
+        'key': 'label',
+        'type': 'text',
+        'value': 'myCard'
+      }]
+    }, {
+      'name': 'react-card-example1',
+      'code': 'react-card-example1',
+      'type': 'offline',
+      'cli': 'react',
+      'base': '/assets/cards/card-r1/',
+      'main': 'index.html',
+      'scripts': [
+        './static/js/main.200a7f8d.js'
+      ],
+      'class': 'half',
+      'icon': 'fa fa-delicious',
+      'options': {
+        'label': ''
+      },
+      'editors': [{
+        'key': 'label',
+        'type': 'text',
+        'value': 'myCard'
+      }]
+    }];
 
   // log(e: any) {
   //   console.log(e.type, e);

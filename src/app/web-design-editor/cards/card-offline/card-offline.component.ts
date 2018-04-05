@@ -43,15 +43,30 @@ export class CardOfflineComponent implements OnInit, OnDestroy {
     this.http.get(url, {
       responseType: 'text'
     }).subscribe((data) => {
-      this.contents = data
-        .replace(/app-root/g, this.cardZone)
-        .replace(/src=\"/g, 'src=\"' + this.model.base)
-        .replace(/link href=\"/g, 'link href=\"' + this.model.base);
-
-      // console.log('@@@1', cardZone, this.contents);
+      this.contents = this.restDom(data);
       this.loadScripts();
     });
 
+  }
+
+  restDom(str: string): string {
+    switch (this.model.cli) {
+      case 'angular':
+        return str.replace(/app-root/g, this.cardZone)
+          .replace(/body/g, 'div')
+          .replace(/src=\"/g, 'src=\"' + this.model.base)
+          .replace(/link href=\"/g, 'link href=\"' + this.model.base);
+      case 'vue':
+        return str.replace(/id=app/g, 'id=' + this.cardZone)
+          .replace(/body/g, 'div')
+          .replace(/src=/g, 'src=' + this.model.base)
+          .replace(/link href=/g, 'link href=' + this.model.base);
+      case 'react':
+        return str.replace(/id="root/g, 'id="' + this.cardZone)
+          .replace(/body/g, 'div')
+          .replace(/src=/g, 'src=' + this.model.base)
+          .replace(/link href=\"/g, 'link href=\"' + this.model.base);
+    }
   }
 
   loadScripts() {
@@ -64,21 +79,31 @@ export class CardOfflineComponent implements OnInit, OnDestroy {
       .subscribe(res => {
         let s = '';
         for (let i = 0; i < res.length; i++) {
-          s += `\n/*${this.model.scripts[i]}*/\n` + res[i];
+          s += `\n\n\/*${this.model.scripts[i]}*\/\n${res[i]}\n`;
         }
         this.runScripts(s);
       });
   }
   runScripts(s: string) {
+    const ss = this.restScript(s);
     this.zone.runOutsideAngular(() => {
       // tslint:disable-next-line:no-eval
-      eval(`(function(_){_['${this.cardZone}']=function(){${s.replace(/app-root/g, this.cardZone)}};})(window)`);
+      eval(`(function (___) { ___['${this.cardZone}'] = function () { ${ss} }; })(window)`);
       window[this.cardZone]();
     });
   }
-
-
-
+  restScript(str: string): string {
+    switch (this.model.cli) {
+      case 'angular':
+        return str.replace(/app-root/g, this.cardZone);
+      case 'vue':
+        return str.replace(/\#app/g, '#' + this.cardZone)
+          .replace(/attrs:{id:"app/g, 'attrs:{id:"' + this.cardZone);
+      case 'react':
+        return str.replace(/("root")/g, `("${this.cardZone}")`)
+          .replace(/\".\/\"/g, `\"${this.model.base}\"`);
+    }
+  }
   // tslint:disable-next-line:max-line-length
   constructor(private el: ElementRef, private editorService: EditorStoreService, private zone: NgZone, private http: HttpClient) {}
   ngOnInit() {
