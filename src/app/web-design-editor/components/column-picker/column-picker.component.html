@@ -2,7 +2,7 @@
   <el-input-number [size]="size" [(model)]="lens" [step]="step" [max]="max" [min]="min"></el-input-number>
 </div>
 <div *ngFor="let m of model; index as i;">
-  <el-select [(model)]="model[i]" [size]="size">
+  <el-select [(model)]="m.value" [size]="size">
     <el-option *ngFor="let item of options.data" [label]="item.label" [value]="item.value">
     </el-option>
   </el-select>

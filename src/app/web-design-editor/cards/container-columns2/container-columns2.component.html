@@ -1,5 +1,5 @@
 <div class="el-row" [style]="rowStyles | safe:'style'">
-  <div *ngFor="let content of model.contents; index as i;" class="el-col el-col-{{editorService.getEditorValueBy(model,'col_spaces')[i]}}" [style]="colStyles | safe:'style'">
+  <div *ngFor="let content of model.contents; index as i;" class="el-col el-col-{{editorService.getEditorValueBy(model,'col_spaces')[i]['value']}}" [style]="colStyles | safe:'style'">
     <app-container [removeOnSpill]="true" [isEdit]="isEdit" [showLabel]="showLabel" [moves]="isEdit" [dropZone]="dropZone" [model]="content"
       [template]="template" (drag)="editorService.log($event)" (drop)="editorService.log($event)" (over)="editorService.log($event)"
       (out)="editorService.log($event)" (remove)="editorService.log($event)">

@@ -29,28 +29,28 @@ export const containerColumns = {
     value: 12,
     options: {
       data: [{
-        label: '每行一栏',
+        label: '每行1栏 (24/24)',
         value: 24
       }, {
-        label: '每行二栏',
+          label: '每行2栏 (12/24)',
         value: 12
       }, {
-        label: '每行三栏',
+          label: '每行3栏 (8/24)',
         value: 8
       }, {
-        label: '每行四栏',
+          label: '每行4栏 (6/24)',
         value: 6
       }, {
-        label: '每行六栏',
+          label: '每行6栏 (4/24)',
         value: 4
       }, {
-        label: '每行八栏',
+          label: '每行8栏 (3/24)',
         value: 3
       }, {
-        label: '每行十二栏',
+          label: '每行12栏 (2/24)',
         value: 2
       }, {
-        label: '每行二十四栏',
+          label: '每行24栏 (1/24)',
         value: 1
       }]
     }
@@ -84,13 +84,21 @@ export const containerColumns2 = {
     row_style: 'padding: 1.5em;',
     row_gutter: 20,
     col_number: 2,
-    col_spaces: [12, 12]
+    col_spaces: [{
+      value: 12
+    }, {
+      value: 12
+    }]
   },
   editors: [{
     key: 'col_spaces',
     label: '分栏',
     type: 'columnPicker',
-    value: [12, 12],
+    value: [{
+      value: 12
+    }, {
+      value: 12
+    }],
     options: {
       data: [{
         label: '24/24',
