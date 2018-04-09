@@ -1,8 +1,9 @@
+<!-- start -->
 <app-container class="source-container" [isEdit]="false" [moves]="isEdit" [model]="model" [dropZones]="dropZones" [copy]="true"
   [droppableItemClass]="droppableItemClass">
-  <!-- (drag)="builderDrag($event)" -->
-  <!-- 显示模板 -->
   <ng-template let-item="model">
+    <!-- 显示模板 -->
     <app-card-item [model]="item"></app-card-item>
   </ng-template>
 </app-container>
+<!-- end -->

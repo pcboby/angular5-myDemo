@@ -13,9 +13,14 @@
         </li>
       </ul>
     </div>
-    <div class="silder-wraper">
-      <app-layout-source *ngIf="editorService.optionMode=='SOURCE'" [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
-      <app-layout-attrib *ngIf="editorService.optionMode=='ATTRIB'" [model]="selectModel"></app-layout-attrib>
+    <div class="silder-wraper" *ngIf="editorService.optionMode=='SOURCE'">
+      <div class="silder-wraper-searchbar">
+        <el-input [size]="editorService.ATTRIB_FORM_SIZE" placeholder="关键字" icon="search" [model]="editorService.searchKey"></el-input>
+      </div>
+      <app-layout-source [model]="sourceModel" [dropZones]="dropZones" [isEdit]="editorService.isEdit"></app-layout-source>
+    </div>
+    <div class="silder-wraper" *ngIf="editorService.optionMode=='ATTRIB'">
+      <app-layout-attrib [model]="selectModel"></app-layout-attrib>
     </div>
   </div>
   <div class="wraper">

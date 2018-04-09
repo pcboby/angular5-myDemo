@@ -20,6 +20,8 @@ export class EditorStoreService {
   public isEdit = true;
   // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
+  // 查询字段
+  public searchKey = '';
 
   private scriptsMap = new WeakMap<any, string>();
 
