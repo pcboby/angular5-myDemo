@@ -42,6 +42,14 @@ export class WebDesignEditorComponent implements OnInit {
   @Input()
   targetModel: any = [];
 
+  @Input()
+  set serviceApi(val){
+    this.editorService.serviceApi = val;
+  }
+  get serviceApi() {
+    return this.editorService.serviceApi;
+  }
+
   // 集合：目标容器
   @Input()
   dropZones = ['web-design-target'];

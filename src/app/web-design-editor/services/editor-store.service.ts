@@ -1,4 +1,7 @@
 import {
+  HttpClient
+} from '@angular/common/http';
+import {
   Injectable
 } from '@angular/core';
 
@@ -20,12 +23,15 @@ export class EditorStoreService {
   public isEdit = true;
   // 编辑器显示状态：true全屏，false原大小
   public isFullscreen = false;
+  // 系统提供的api服务
+  public serviceApi = [];
   // 查询字段
   public searchKey = '';
+  public ATTRIB_FORM_SIZE = 'mini';
 
-  private scriptsMap = new WeakMap<any, string>();
+  private scriptsMap = new WeakMap < any, string > ();
 
-  registerScripts(o: any , s: string) {
+  registerScripts(o: any, s: string) {
     this.scriptsMap.set(o, s);
   }
   removeScripts(o: any) {
@@ -41,9 +47,7 @@ export class EditorStoreService {
   /**
    *
    */
-  // tslint:disable-next-line:member-ordering
-  public ATTRIB_FORM_SIZE = 'mini';
-
+  // 获取属性参数
   getEditorValueBy(item: any, str: string) {
     if (item.options && item.editors) {
       for (let i = 0; i < item.editors.length; i++) {
@@ -58,6 +62,7 @@ export class EditorStoreService {
     }
     return item.options[str] || '';
   }
+  // 深度复制
   clone(obj: any): any {
     let copy;
 
@@ -95,10 +100,11 @@ export class EditorStoreService {
 
     throw new Error('Unable to copy obj! Its type isn\'t supported.');
   }
+  // msg
   log(e: any) {
     console.log(e.type, e);
   }
-
+  // 随机字符串
   randomString(len) {
     len = len || 32;
     const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
@@ -110,6 +116,11 @@ export class EditorStoreService {
     return cod;
   }
 
-  constructor() {}
+  constructor(public http: HttpClient) {}
+
+  // 获取系统api列表
+  resource(url, params?, opts?) {
+    return this.http[opts.method || 'get'](url, params);
+  }
 
 }

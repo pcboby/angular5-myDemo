@@ -767,6 +767,11 @@ export class WdEditorComponent implements OnInit {
     }]
   }];
 
+  apiList = [{
+    'name': 'system:request api list',
+    'url': '../api/data/api_list.json'
+  }];
+
   // log(e: any) {
   //   console.log(e.type, e);
   // }

@@ -1,0 +1,7 @@
+{
+    "total":1,
+    "data":[{
+        "name": "system: example navmenu api",
+        "url": "../api/data/example_navmenu.json"
+    }]
+}

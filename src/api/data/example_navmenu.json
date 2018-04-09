@@ -1,0 +1,35 @@
+{
+  "total": 3,
+  "data": [{
+    "name": "首页",
+    "href": "#"
+  }, {
+    "name": "menu1",
+    "href": "#",
+    "data": [{
+      "name": "sub1-1",
+      "href": "#"
+    }, {
+      "name": "sub1-2",
+      "href": "#"
+    }, {
+      "name": "sub1-3",
+      "href": "#"
+    }]
+  }, {
+    "name": "menu2",
+    "href": "#",
+    "data": [{
+        "name": "sub2-1",
+        "href": "#"
+      },
+      {
+        "name": "sub2-2",
+        "href": "#"
+      }
+    ]
+  }, {
+    "name": "menu3",
+    "href": "#"
+  }]
+}
