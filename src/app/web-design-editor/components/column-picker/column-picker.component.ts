@@ -15,12 +15,12 @@ import {
 export class ColumnPickerComponent implements OnInit {
 
   @Input() model = [];
+  @Input() options: any;
 
   @Input() max = 24;
   @Input() min = 1;
   @Input() step = 1;
   @Input() size = 'mini';
-  @Input() options: any;
 
   get lens(): number {
     return this.model.length;

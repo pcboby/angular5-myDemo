@@ -1,3 +1,76 @@
+// 系统导航菜单
+export const cardNavmenu = {
+  name: 'card-navmenu',
+  code: 'card-navmenu',
+  type: 'system',
+  icon: 'fa fa-th-list',
+  options: {
+    mode: 'horizontal', // 模式	string	horizontal / vertical	vertical
+    backgroundColor: '#ffffff', // 背景颜色(仅支持 hex 格式)	string	—	#ffffff
+    textColor: '#303133', // 文字颜色(仅支持 hex 格式)	string	—	#303133
+    activeTextColor: '#409eff', // 当前激活的文字颜色(仅支持 hex 格式)	string	—
+    selectIdx: 0, // 当前激活菜单的 index，双向绑定值	string | number	—	-
+    menuTrigger: 'hover', // 子菜单打开的触发方式(只在 mode 为 horizontal 时有效)	string	hover / click	hover
+    api: ''
+  },
+  editors: [{
+    key: 'api',
+    label: '数据服务',
+    type: 'apiPicker',
+    value: ''
+  }, {
+    key: 'mode',
+    label: '模式',
+    type: 'select',
+    value: 'horizontal',
+    options: {
+      data: [{
+        label: 'horizontal',
+        value: 'horizontal'
+      }, {
+        label: 'vertical',
+        value: 'vertical'
+      }]
+    }
+  }, {
+    key: 'menuTrigger',
+    label: '子菜单打开的触发方式',
+    type: 'select',
+    value: 'hover',
+    options: {
+      data: [{
+        label: 'click',
+        value: 'click'
+      }, {
+        label: 'hover',
+        value: 'hover'
+      }]
+    }
+  }, {
+    key: 'backgroundColor',
+    label: '背景颜色',
+    type: 'text',
+    value: '#ffffff'
+  }, {
+    key: 'textColor',
+    label: '文字颜色',
+    type: 'text',
+    value: '#303133'
+  }, {
+    key: 'activeTextColor',
+    label: '当前激活的文字颜色',
+    type: 'text',
+    value: '#409eff'
+  }]
+};
+// 默认平台页面布局容器卡片
+export const containerLayout = {
+  name: 'container-layout',
+  code: 'container-layout',
+  type: 'system',
+  contents: [],
+  icon: 'fa fa-window-restore'
+};
 // 均分分栏容器：container-columns
 export const containerColumns = {
   name: 'container-columns',
@@ -32,25 +105,25 @@ export const containerColumns = {
         label: '每行1栏 (24/24)',
         value: 24
       }, {
-          label: '每行2栏 (12/24)',
+        label: '每行2栏 (12/24)',
         value: 12
       }, {
-          label: '每行3栏 (8/24)',
+        label: '每行3栏 (8/24)',
         value: 8
       }, {
-          label: '每行4栏 (6/24)',
+        label: '每行4栏 (6/24)',
         value: 6
       }, {
-          label: '每行6栏 (4/24)',
+        label: '每行6栏 (4/24)',
         value: 4
       }, {
-          label: '每行8栏 (3/24)',
+        label: '每行8栏 (3/24)',
         value: 3
       }, {
-          label: '每行12栏 (2/24)',
+        label: '每行12栏 (2/24)',
         value: 2
       }, {
-          label: '每行24栏 (1/24)',
+        label: '每行24栏 (1/24)',
         value: 1
       }]
     }
@@ -233,8 +306,8 @@ export const cardIframe = {
   }]
 };
 // 系统容器卡片：all containers
-export const containers: Array < any > = [containerColumns, containerColumns2, containerPanel];
+export const containers: Array < any > = [containerLayout, containerColumns, containerColumns2, containerPanel];
 // 系统普通卡片：all system cards
-export const cards: Array < any > = [cardIframe, cardInputGroup];
+export const cards: Array < any > = [cardIframe, cardInputGroup, cardNavmenu];
 // 所有卡片：all cards：
 export const AllSystemCards: Array < any > = [...containers, ...cards];

@@ -21,7 +21,8 @@ import {
   LayoutAttribComponent,
   LayoutCascadeComponent,
   ItemMaskComponent,
-  ColumnPickerComponent
+  ColumnPickerComponent,
+  ApiPickerComponent
 } from './components';
 import {
   DrakeStoreService
@@ -41,6 +42,7 @@ import {
   TabsModule
 } from 'ngx-bootstrap';
 import {
+  ContainerLayoutComponent,
   ContainerColumnsComponent,
   ContainerColumns2Component,
   CardErrorComponent,
@@ -48,9 +50,12 @@ import {
   CardInputGroupComponent,
   ContainerPanelComponent,
   CardItemComponent,
-  CardOfflineComponent
+  CardOfflineComponent,
+  CardNavmenuComponent
 } from './cards';
-import { ElModule } from 'element-angular';
+import {
+  ElModule
+} from 'element-angular';
 import {
   SafePipe,
   TransNullPipe
@@ -65,14 +70,18 @@ const modules = [
   ElModule.forRoot()
 ];
 const cardComponents = [
+  // default cards
   CardErrorComponent,
   CardItemComponent,
   CardIframeComponent,
   CardInputGroupComponent,
+  // default container
+  ContainerLayoutComponent,
   ContainerColumnsComponent,
   ContainerColumns2Component,
   ContainerPanelComponent,
-  CardOfflineComponent
+  CardOfflineComponent,
+  CardNavmenuComponent
 ];
 const components = [
   WebDesignEditorComponent,
@@ -85,7 +94,8 @@ const components = [
   LayoutTargetComponent,
   LayoutCodeComponent,
   LayoutCascadeComponent,
-  ColumnPickerComponent
+  ColumnPickerComponent,
+  ApiPickerComponent
 ];
 const directives = [
   DraggableDirective,
@@ -98,7 +108,7 @@ const services = [
 
 @NgModule({
   imports: [
-...modules
+  ...modules
   ],
   declarations: [
     ...pipes,

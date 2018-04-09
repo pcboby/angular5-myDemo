@@ -48,6 +48,17 @@
                 </div>
               </div>
             </ng-container>
+            <!-- apiPicker -->
+            <ng-container *ngSwitchCase="'apiPicker'">
+              <div class="el-form-item el-form-item--{{editorService.ATTRIB_FORM_SIZE}}">
+                <label class="el-form-item__label ng-star-inserted">
+                  {{(editor.label || editor.key)}}
+                </label>
+                <div class="el-form-item__content">
+                  <app-api-picker [(model)]="editor.value"></app-api-picker>
+                </div>
+              </div>
+            </ng-container>
             <!-- numberPicker -->
             <ng-container *ngSwitchCase="'numberPicker'">
               <el-form-item [label]="(editor.label || editor.key) + (editor.unit?' ('+editor.value+editor.unit+')':'')">

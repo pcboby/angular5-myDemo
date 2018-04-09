@@ -8,17 +8,21 @@
       <!-- 系统卡片 -->
       <ng-container *ngSwitchCase="'system'">
         <ng-container [ngSwitch]="model.code">
-          <!-- card: container-columns -->
+          <!-- container: layout -->
+          <ng-container *ngSwitchCase="'container-layout'">
+            <app-container-layout></app-container-layout>
+          </ng-container>
+          <!-- container: columns -->
           <ng-container *ngSwitchCase="'container-columns'">
             <app-container-columns [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_number')"
               [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns>
           </ng-container>
-          <!-- card: container-columns2 -->
+          <!-- container: columns2 -->
           <ng-container *ngSwitchCase="'container-columns2'">
             <app-container-columns2 [model]="model" [isEdit]="isEdit" [colNumber]="editorService.getEditorValueBy(model,'col_spaces').length"
               [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-columns2>
           </ng-container>
-          <!-- card: container-panel -->
+          <!-- container: panel -->
           <ng-container *ngSwitchCase="'container-panel'">
             <app-container-panel [model]="model" [isEdit]="isEdit" [showLabel]="showLabel" [dropZone]="dropZone" [template]="template"></app-container-panel>
           </ng-container>
@@ -29,6 +33,10 @@
           <!-- card: control-iframe -->
           <ng-container *ngSwitchCase="'card-iframe'">
             <app-card-iframe [model]="model"></app-card-iframe>
+          </ng-container>
+          <!-- card: navmenu -->
+          <ng-container *ngSwitchCase="'card-navmenu'">
+            <app-card-navmenu [model]="model"></app-card-navmenu>
           </ng-container>
           <!-- 未知系统卡片 -->
           <ng-container *ngSwitchDefault>

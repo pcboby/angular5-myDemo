@@ -5,7 +5,9 @@ export * from './card-item/card-item.component';
 // 系统标准卡片
 export * from './card-iframe/card-iframe.component';
 export * from './card-input-group/card-input-group.component';
+export * from './card-navmenu/card-navmenu.component';
 // 系统容器卡片
+export * from './container-layout/container-layout.component';
 export * from './container-columns/container-columns.component';
 export * from './container-columns2/container-columns2.component';
 export * from './container-panel/container-panel.component';

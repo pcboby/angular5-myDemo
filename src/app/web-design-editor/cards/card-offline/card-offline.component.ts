@@ -24,7 +24,7 @@ import {
 @Component({
   selector: 'app-card-offline',
   templateUrl: './card-offline.component.html',
-  styleUrls: ['./card-offline.component.css']
+  styleUrls: ['./card-offline.component.scss']
 })
 export class CardOfflineComponent implements OnInit, OnDestroy {
   contents: any = '';
