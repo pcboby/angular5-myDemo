@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ApiPickerComponent } from './api-picker.component';
+import { SelectApiPickerComponent } from './select-api-picker.component';
 
-describe('ApiPickerComponent', () => {
-  let component: ApiPickerComponent;
-  let fixture: ComponentFixture<ApiPickerComponent>;
+describe('SelectApiPickerComponent', () => {
+  let component: SelectApiPickerComponent;
+  let fixture: ComponentFixture<SelectApiPickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ApiPickerComponent ]
+      declarations: [ SelectApiPickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApiPickerComponent);
+    fixture = TestBed.createComponent(SelectApiPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,6 +37,14 @@
                 </el-select>
               </el-form-item>
             </ng-container>
+            <!-- selectApiPicker -->
+            <ng-container *ngSwitchCase="'selectApiPicker'">
+              <el-form-item [label]="(editor.label || editor.key)">
+                <el-select [size]="editorService.ATTRIB_FORM_SIZE" [(model)]="editor.value" [placeholder]="editor.placeholder || ''" style="float: right;">
+                  <el-option *ngFor="let d of serviceApi" [label]="d.label" [value]="d.value"></el-option>
+                </el-select>
+              </el-form-item>
+            </ng-container>
             <!-- columnPicker -->
             <ng-container *ngSwitchCase="'columnPicker'">
               <div class="el-form-item el-form-item--{{editorService.ATTRIB_FORM_SIZE}}">
@@ -45,17 +53,6 @@
                 </label>
                 <div class="el-form-item__content">
                   <app-column-picker [(model)]="editor.value" [options]="editor.options"></app-column-picker>
-                </div>
-              </div>
-            </ng-container>
-            <!-- apiPicker -->
-            <ng-container *ngSwitchCase="'apiPicker'">
-              <div class="el-form-item el-form-item--{{editorService.ATTRIB_FORM_SIZE}}">
-                <label class="el-form-item__label ng-star-inserted">
-                  {{(editor.label || editor.key)}}
-                </label>
-                <div class="el-form-item__content">
-                  <app-api-picker [(model)]="editor.value"></app-api-picker>
                 </div>
               </div>
             </ng-container>

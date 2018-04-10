@@ -24,6 +24,10 @@ export class LayoutAttribComponent implements OnInit, OnChanges {
 
   @Input() model: any = {};
 
+  get serviceApi() {
+    return this.editorService.serviceApi;
+  }
+
   constructor(public editorService: EditorStoreService) {}
 
   save(): void {

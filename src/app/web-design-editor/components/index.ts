@@ -19,4 +19,4 @@ export * from './layout-cascade/layout-cascade.component';
 // 区域：选中后，卡所在结构
 export * from './column-picker/column-picker.component';
 // 数据：属性栏api梆定
-export * from './api-picker/api-picker.component';
+export * from './select-api-picker/select-api-picker.component';

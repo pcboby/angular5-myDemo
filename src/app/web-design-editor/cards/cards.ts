@@ -5,18 +5,18 @@ export const cardNavmenu = {
   type: 'system',
   icon: 'fa fa-th-list',
   options: {
-    mode: 'horizontal', // 模式	string	horizontal / vertical	vertical
-    backgroundColor: '#ffffff', // 背景颜色(仅支持 hex 格式)	string	—	#ffffff
-    textColor: '#303133', // 文字颜色(仅支持 hex 格式)	string	—	#303133
-    activeTextColor: '#409eff', // 当前激活的文字颜色(仅支持 hex 格式)	string	—
-    selectIdx: 0, // 当前激活菜单的 index，双向绑定值	string | number	—	-
-    menuTrigger: 'hover', // 子菜单打开的触发方式(只在 mode 为 horizontal 时有效)	string	hover / click	hover
-    api: ''
+    mode: 'horizontal',
+    backgroundColor: '#ffffff',
+    textColor: '#303133',
+    activeTextColor: '#409eff',
+    selectIdx: 0,
+    menuTrigger: 'hover',
+    dataApi: ''
   },
   editors: [{
-    key: 'api',
+    key: 'dataApi',
     label: '数据服务',
-    type: 'apiPicker',
+    type: 'selectApiPicker',
     value: ''
   }, {
     key: 'mode',

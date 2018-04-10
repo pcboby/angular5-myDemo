@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   OnInit
@@ -767,16 +768,17 @@ export class WdEditorComponent implements OnInit {
     }]
   }];
 
-  apiList = [{
-    'name': 'system:request api list',
-    'url': '../api/data/api_list.json'
-  }];
+  dataApiList = [];
 
   // log(e: any) {
   //   console.log(e.type, e);
   // }
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.get('assets/api/api.json').subscribe(res => {
+      this.dataApiList = res['data'];
+    });
+  }
 
 }

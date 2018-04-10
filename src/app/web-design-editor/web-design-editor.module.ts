@@ -22,7 +22,7 @@ import {
   LayoutCascadeComponent,
   ItemMaskComponent,
   ColumnPickerComponent,
-  ApiPickerComponent
+  SelectApiPickerComponent
 } from './components';
 import {
   DrakeStoreService
@@ -95,7 +95,7 @@ const components = [
   LayoutCodeComponent,
   LayoutCascadeComponent,
   ColumnPickerComponent,
-  ApiPickerComponent
+  SelectApiPickerComponent
 ];
 const directives = [
   DraggableDirective,
@@ -108,7 +108,7 @@ const services = [
 
 @NgModule({
   imports: [
-  ...modules
+    ...modules
   ],
   declarations: [
     ...pipes,
