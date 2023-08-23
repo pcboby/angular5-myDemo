@@ -3,12 +3,12 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "ng": "ng",
-        "start": "ng serve --port 8080",
-        "build": "ng build",
-        "test": "ng test",
-        "lint": "ng lint",
-        "e2e": "ng e2e"
+        "ng": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng",
+        "start": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng serve --port 8080 --open",
+        "build": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng build",
+        "test": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng test",
+        "lint": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng lint",
+        "e2e": "node --max_old_space_size=10240 ./node_modules/@angular/cli/bin/ng e2e"
     },
     "private": true,
     "dependencies": {
